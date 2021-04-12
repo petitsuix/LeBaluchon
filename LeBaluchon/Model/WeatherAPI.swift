@@ -45,21 +45,16 @@ class APIMeteo {
             completion?(nil, error?.localizedDescription)
             return
         }
-        
-        print("\(data)")
-        do {
-            let decodedData = try JSONDecoder().decode(MainWeatherInfo.self, from: data)
-            completion?(decodedData, nil)
-            print("Température à \(decodedData.name) : \(decodedData.main.temp)°C")
-            print("Température ressentie : \(decodedData.main.feels_like)°C")
-            print("Température minumum : \(decodedData.main.temp_min)°C")
-            print("Température maximum : \(decodedData.main.temp_max)°C")
-            print("Infos supplémentaires : \(decodedData.weather[0].description)")
-            // completionHandler
-        } catch let error {
-            completion?(nil, error.localizedDescription)
-            print("decoding error: \(error.localizedDescription)")
-            print("\(error)")
+        DispatchQueue.main.async {
+            do {
+                let decodedData = try JSONDecoder().decode(MainWeatherInfo.self, from: data)
+                self.completion?(decodedData, nil)
+                // completionHandler
+            } catch let error {
+                self.completion?(nil, error.localizedDescription)
+                print("decoding error: \(error.localizedDescription)")
+                print("\(error)")
+            }
         }
     }
 }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		97065FF82624677F005EFCD8 /* ExtensionUIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97065FF72624677F005EFCD8 /* ExtensionUIImageView.swift */; };
+		97065FFD2624879D005EFCD8 /* newyork.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 97065FFC2624879C005EFCD8 /* newyork.jpeg */; };
 		972CBD03262098A5001A04BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972CBD02262098A5001A04BF /* AppDelegate.swift */; };
 		972CBD05262098A5001A04BF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972CBD04262098A5001A04BF /* SceneDelegate.swift */; };
 		972CBD07262098A5001A04BF /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972CBD06262098A5001A04BF /* WeatherViewController.swift */; };
@@ -37,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		97065FF72624677F005EFCD8 /* ExtensionUIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIImageView.swift; sourceTree = "<group>"; };
+		97065FFC2624879C005EFCD8 /* newyork.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = newyork.jpeg; sourceTree = "<group>"; };
 		972CBCFF262098A5001A04BF /* LeBaluchon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeBaluchon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		972CBD02262098A5001A04BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		972CBD04262098A5001A04BF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -143,6 +147,7 @@
 			children = (
 				972CBD4F2620A183001A04BF /* WeatherAPI.swift */,
 				972CBD472620A142001A04BF /* MainWeatherInfo.swift */,
+				97065FF72624677F005EFCD8 /* ExtensionUIImageView.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -159,6 +164,7 @@
 		972CBD3B262099A1001A04BF /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				97065FFC2624879C005EFCD8 /* newyork.jpeg */,
 				972CBD02262098A5001A04BF /* AppDelegate.swift */,
 				972CBD04262098A5001A04BF /* SceneDelegate.swift */,
 				972CBD0B262098AD001A04BF /* Assets.xcassets */,
@@ -272,6 +278,7 @@
 				972CBD0F262098AD001A04BF /* LaunchScreen.storyboard in Resources */,
 				972CBD0C262098AD001A04BF /* Assets.xcassets in Resources */,
 				972CBD0A262098A5001A04BF /* Main.storyboard in Resources */,
+				97065FFD2624879D005EFCD8 /* newyork.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,6 +307,7 @@
 				972CBD03262098A5001A04BF /* AppDelegate.swift in Sources */,
 				972CBD502620A183001A04BF /* WeatherAPI.swift in Sources */,
 				972CBD05262098A5001A04BF /* SceneDelegate.swift in Sources */,
+				97065FF82624677F005EFCD8 /* ExtensionUIImageView.swift in Sources */,
 				972CBD482620A142001A04BF /* MainWeatherInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
