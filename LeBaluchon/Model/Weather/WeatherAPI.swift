@@ -11,13 +11,17 @@ class APIMeteo {
     
     var completion: ((_ result: MainWeatherInfo?, _ error: String?) -> Void)?
     
-    let stringUrl = "https://api.openweathermap.org/data/2.5/weather?id=5128581&appid=2f4240e158347092c4e7a70e148d6ed8&units=metric&lang=fr"
+    let newyorkId = "5128581"
+    let lyonId = "2996944"
     
+    func getCityId(_ cityId: String) -> String {
+    let stringUrl = "https://api.openweathermap.org/data/2.5/weather?id=\(cityId)&appid=2f4240e158347092c4e7a70e148d6ed8&units=metric&lang=fr"
+        return stringUrl
+    }
     
-    
-    func start(completion: ((_ result: MainWeatherInfo?, _ error: String?) -> Void)?) {
+    func start(cityId: String, completion: ((_ result: MainWeatherInfo?, _ error: String?) -> Void)?) {
         self.completion = completion
-        guard let openWeatherUrl = URL(string: stringUrl) else { completion?(nil, "Mauvaise URL"); return }
+        guard let openWeatherUrl = URL(string: getCityId(cityId)) else { completion?(nil, "Mauvaise URL"); return }
         URLSession.shared.dataTask(with: openWeatherUrl, completionHandler: response).resume()
         print("\(openWeatherUrl)")
     }

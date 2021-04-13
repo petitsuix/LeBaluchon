@@ -17,86 +17,126 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New-York" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pwg-Qo-f52" userLabel="City Name">
-                                <rect key="frame" x="8" y="60" width="398" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0JW-P0-CzU" userLabel="Temperature">
-                                <rect key="frame" x="16" y="456.5" width="382" height="29"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UWI-PR-AOP" userLabel="Minimum temp">
-                                <rect key="frame" x="16" y="546.5" width="382" height="29"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zx3-H3-9u9" userLabel="Max temp">
-                                <rect key="frame" x="16" y="591.5" width="382" height="29"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cS7-rx-xjl" userLabel="Feels like temperature">
-                                <rect key="frame" x="16" y="501.5" width="382" height="29"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newyork.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="KFT-XH-tFS" userLabel="City Image">
-                                <rect key="frame" x="0.0" y="96.5" width="414" height="200"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="zRD-Dd-NGJ"/>
-                                </constraints>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xQ5-DY-sXF" userLabel="Weather icon">
-                                <rect key="frame" x="143" y="312.5" width="128" height="128"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="ENx-kV-RYy"/>
-                                    <constraint firstAttribute="width" constant="128" id="k81-rB-JaN"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sfy-pN-lPe" userLabel="Sky description">
-                                <rect key="frame" x="16" y="636.5" width="382" height="29"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="45" translatesAutoresizingMaskIntoConstraints="NO" id="Mzk-UE-8vm" userLabel="NewyorkLyon StackView">
+                                <rect key="frame" x="20" y="64" width="374" height="778"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="52" translatesAutoresizingMaskIntoConstraints="NO" id="R2n-8o-y8z" userLabel="NY Stack View">
+                                        <rect key="frame" x="0.0" y="86.5" width="159" height="605.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New-York" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pwg-Qo-f52" userLabel="City Name">
+                                                <rect key="frame" x="42.5" y="0.0" width="74.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xQ5-DY-sXF" userLabel="Weather icon">
+                                                <rect key="frame" x="15.5" y="72.5" width="128" height="128"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="128" id="ENx-kV-RYy"/>
+                                                    <constraint firstAttribute="width" constant="128" id="k81-rB-JaN"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0JW-P0-CzU" userLabel="Temperature">
+                                                <rect key="frame" x="51" y="252.5" width="57" height="29"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cS7-rx-xjl" userLabel="Feels like temperature">
+                                                <rect key="frame" x="51" y="333.5" width="57" height="29"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UWI-PR-AOP" userLabel="Minimum temp">
+                                                <rect key="frame" x="51" y="414.5" width="57" height="29"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zx3-H3-9u9" userLabel="Max temp">
+                                                <rect key="frame" x="51" y="495.5" width="57" height="29"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sfy-pN-lPe" userLabel="Sky description">
+                                                <rect key="frame" x="51" y="576.5" width="57" height="29"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="52" translatesAutoresizingMaskIntoConstraints="NO" id="E3f-rE-b7W" userLabel="Lyon Stack View">
+                                        <rect key="frame" x="204" y="86.5" width="170" height="605.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lyon" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VKD-NE-9fe" userLabel="City Name">
+                                                <rect key="frame" x="67" y="0.0" width="36" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jY8-4h-ysr" userLabel="Weather icon">
+                                                <rect key="frame" x="21" y="72.5" width="128" height="128"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="128" id="0Ss-At-y7J"/>
+                                                    <constraint firstAttribute="height" constant="128" id="2cA-Sf-can"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DRe-hR-Urw" userLabel="Temperature">
+                                                <rect key="frame" x="56.5" y="252.5" width="57" height="29"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5fu-vK-r9H" userLabel="Feels like temperature">
+                                                <rect key="frame" x="56.5" y="333.5" width="57" height="29"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VFq-YA-Pgc" userLabel="Minimum temp">
+                                                <rect key="frame" x="56.5" y="414.5" width="57" height="29"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HH9-WA-pxf" userLabel="Max temp">
+                                                <rect key="frame" x="56.5" y="495.5" width="57" height="29"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CbX-sE-cZU" userLabel="Sky description">
+                                                <rect key="frame" x="56.5" y="576.5" width="57" height="29"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="KFT-XH-tFS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="19y-Ys-Bbb"/>
-                            <constraint firstItem="Sfy-pN-lPe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="2wv-A5-tGo"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zx3-H3-9u9" secondAttribute="trailing" constant="16" id="6i8-hw-y3h"/>
-                            <constraint firstItem="cS7-rx-xjl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="7dx-ha-uVL"/>
-                            <constraint firstItem="Pwg-Qo-f52" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="AUy-CT-M7Q"/>
-                            <constraint firstItem="xQ5-DY-sXF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="EiL-hH-FgC"/>
-                            <constraint firstItem="0JW-P0-CzU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Irw-xI-xg3"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cS7-rx-xjl" secondAttribute="trailing" constant="16" id="Law-ow-LlH"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Pwg-Qo-f52" secondAttribute="trailing" constant="8" id="M8I-Fb-iut"/>
-                            <constraint firstItem="UWI-PR-AOP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Pgu-EN-hDT"/>
-                            <constraint firstItem="Sfy-pN-lPe" firstAttribute="top" secondItem="zx3-H3-9u9" secondAttribute="bottom" constant="16" id="Rs4-Kd-ub1"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="0JW-P0-CzU" secondAttribute="trailing" constant="16" id="T3t-ar-tde"/>
-                            <constraint firstItem="KFT-XH-tFS" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="V3A-A0-UNf"/>
-                            <constraint firstItem="zx3-H3-9u9" firstAttribute="top" secondItem="UWI-PR-AOP" secondAttribute="bottom" constant="16" id="WbM-sU-07D"/>
-                            <constraint firstItem="0JW-P0-CzU" firstAttribute="top" secondItem="xQ5-DY-sXF" secondAttribute="bottom" constant="16" id="b6r-lQ-ZLe"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="UWI-PR-AOP" secondAttribute="trailing" constant="16" id="gmZ-Ef-Jqa"/>
-                            <constraint firstItem="cS7-rx-xjl" firstAttribute="top" secondItem="0JW-P0-CzU" secondAttribute="bottom" constant="16" id="lAX-RW-e4F"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Sfy-pN-lPe" secondAttribute="trailing" constant="16" id="mvr-NB-lw2"/>
-                            <constraint firstItem="zx3-H3-9u9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="r0Z-Ns-mLR"/>
-                            <constraint firstItem="UWI-PR-AOP" firstAttribute="top" secondItem="cS7-rx-xjl" secondAttribute="bottom" constant="16" id="s7k-Xv-9Pr"/>
-                            <constraint firstItem="KFT-XH-tFS" firstAttribute="top" secondItem="Pwg-Qo-f52" secondAttribute="bottom" constant="16" id="shR-Xn-xTg"/>
-                            <constraint firstItem="xQ5-DY-sXF" firstAttribute="top" secondItem="KFT-XH-tFS" secondAttribute="bottom" constant="16" id="ssa-t6-8JD"/>
-                            <constraint firstItem="Pwg-Qo-f52" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="urV-ZP-0zd"/>
+                            <constraint firstItem="Mzk-UE-8vm" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="5T9-EJ-2xZ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Mzk-UE-8vm" secondAttribute="bottom" constant="20" id="NMg-H1-PXp"/>
+                            <constraint firstItem="Mzk-UE-8vm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="XuR-jg-Bcp"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Mzk-UE-8vm" secondAttribute="trailing" constant="20" id="bI7-a4-3nv"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="cityName" destination="Pwg-Qo-f52" id="dJP-ox-lG8"/>
+                        <outlet property="localCityName" destination="VKD-NE-9fe" id="ujq-vU-GOb"/>
+                        <outlet property="localMaximumTemp" destination="CbX-sE-cZU" id="gEa-Ie-Fsm"/>
+                        <outlet property="localMinimumTemp" destination="HH9-WA-pxf" id="8an-mp-7BR"/>
+                        <outlet property="localSkyDescription" destination="DRe-hR-Urw" id="a6h-cQ-byA"/>
+                        <outlet property="localTempFeelsLike" destination="VFq-YA-Pgc" id="3cW-co-33J"/>
+                        <outlet property="localTemperature" destination="5fu-vK-r9H" id="Tbb-Bz-qJO"/>
+                        <outlet property="localWeatherIcon" destination="jY8-4h-ysr" id="PrB-8q-fuM"/>
                         <outlet property="maximumTemp" destination="zx3-H3-9u9" id="DML-EX-Zyj"/>
                         <outlet property="minimumTemp" destination="UWI-PR-AOP" id="HU1-Ci-gl7"/>
                         <outlet property="skyDescription" destination="Sfy-pN-lPe" id="E5R-NV-qWt"/>
@@ -111,7 +151,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="newyork.jpeg" width="1461" height="822"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
