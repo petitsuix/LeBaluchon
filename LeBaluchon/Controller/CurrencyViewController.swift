@@ -9,7 +9,9 @@ import UIKit
 
 class CurrencyViewController: UIViewController {
 
-    
+    @IBOutlet weak var euroTextView: UITextView!
+    @IBOutlet weak var dollarsTextView: UITextView!
+    @IBOutlet weak var eurToDollarsRate: UILabel!
     
     var fixerApi = APICurrency()
     var resultCurrency: MainCurrencyInfo?
@@ -25,9 +27,9 @@ class CurrencyViewController: UIViewController {
     }
     func updateUI() {
         guard let currency = resultCurrency else { return }
+        guard let usdRate = currency.rates.USD else { return }
         DispatchQueue.main.async { [self] in
-            
+            self.eurToDollarsRate.text = "Rate € → $ : \n \(usdRate)"
         }
     }
-    
 }

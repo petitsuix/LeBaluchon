@@ -8,7 +8,11 @@
 import Foundation
 
 struct MainCurrencyInfo: Decodable {
-    let rates: [String: Float]
+    let rates: Rate
     let base: String
     let success: Bool
+}
+
+struct Rate: Decodable {
+    let USD: Float?
 }
