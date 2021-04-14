@@ -15,7 +15,7 @@ class APIMeteo {
     let lyonId = "2996944"
     
     func getCityId(_ cityId: String) -> String {
-    let stringUrl = "https://api.openweathermap.org/data/2.5/weather?id=\(cityId)&appid=2f4240e158347092c4e7a70e148d6ed8&units=metric&lang=fr"
+        let stringUrl = "https://api.openweathermap.org/data/2.5/weather?id=\(cityId)&appid=2f4240e158347092c4e7a70e148d6ed8&units=metric&lang=fr"
         return stringUrl
     }
     

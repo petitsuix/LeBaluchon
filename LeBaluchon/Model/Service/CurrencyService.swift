@@ -9,6 +9,12 @@ import UIKit
 
 class APICurrency {
     
+    // renommer correctement les fichiers (et classes)
+    // développer logique de currency
+    // Affiner le weatherviewcontroller (par une utilisation d'une table view entre autres)
+    // utilisation des callbacks
+    
+    
     var completion: ((_ result: MainCurrencyInfo?, _ error: String?) -> Void)?
     
     let stringUrl = "http://data.fixer.io/api/latest?access_key=4a32bab105ec1a61470fdaabc3fc7ab0&base=EUR&symbols=USD"
@@ -45,15 +51,15 @@ class APICurrency {
         }
         print("\(data)")
         DispatchQueue.main.async {
-        do {
-            let decodedData = try JSONDecoder().decode(MainCurrencyInfo.self, from: data)
-            self.completion?(decodedData, nil)
-            // completionHandler
-        } catch let error {
-            self.completion?(nil, error.localizedDescription)
-            print("decoding error: \(error.localizedDescription)")
-            print("\(error)")
+            do {
+                let decodedData = try JSONDecoder().decode(MainCurrencyInfo.self, from: data)
+                self.completion?(decodedData, nil)
+                // completionHandler
+            } catch let error {
+                self.completion?(nil, error.localizedDescription)
+                print("decoding error: \(error.localizedDescription)")
+                print("\(error)")
+            }
         }
-    }
     }
 }

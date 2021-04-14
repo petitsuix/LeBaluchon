@@ -8,7 +8,7 @@
 import UIKit
 
 class CurrencyViewController: UIViewController {
-
+    
     @IBOutlet weak var euroTextView: UITextView!
     @IBOutlet weak var dollarsTextView: UITextView!
     @IBOutlet weak var eurToDollarsRate: UILabel!
@@ -22,14 +22,15 @@ class CurrencyViewController: UIViewController {
         fixerApi.start() { (decodedData, error) in
             print(error ?? "")
             self.resultCurrency = decodedData
-            self.updateUI()
+            DispatchQueue.main.async { [self] in
+                self.updateUI()
+            }
+            
         }
     }
     func updateUI() {
         guard let currency = resultCurrency else { return }
         guard let usdRate = currency.rates.USD else { return }
-        DispatchQueue.main.async { [self] in
-            self.eurToDollarsRate.text = "Rate € → $ : \n \(usdRate)"
-        }
+        self.eurToDollarsRate.text = "1€ = \(usdRate.shortDigitsIn(3))$"
     }
 }
