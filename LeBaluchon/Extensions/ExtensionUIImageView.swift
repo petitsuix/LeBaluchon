@@ -19,4 +19,17 @@ extension UIImageView {
             }
         }.resume()
     }
+    
+    func loadCityPhoto(_ url: String) {
+        let urlString = url
+        print("\(urlString)")
+        guard let url = URL(string: urlString) else { return }
+        URLSession.shared.dataTask(with: url) { (d, _, _) in
+            DispatchQueue.main.async {
+                guard d != nil else { return }
+                let image = UIImage(data: d!)
+                self.image = image
+            }
+        }.resume()
+    }
 }

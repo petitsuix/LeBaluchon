@@ -22,6 +22,9 @@
 		9748C8B92625AEBA00EB9AD8 /* CurrencyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9748C8B82625AEBA00EB9AD8 /* CurrencyService.swift */; };
 		9748C8C12625B1C300EB9AD8 /* MainCurrencyInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9748C8C02625B1C300EB9AD8 /* MainCurrencyInfo.swift */; };
 		9748C8C62625C06500EB9AD8 /* CurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9748C8C52625C06500EB9AD8 /* CurrencyViewController.swift */; };
+		976DB8B4262845BE004B662A /* ExtensionUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976DB8B3262845BE004B662A /* ExtensionUITextField.swift */; };
+		976DB8BC26288BE1004B662A /* WeatherPhotographyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976DB8BB26288BE1004B662A /* WeatherPhotographyService.swift */; };
+		976DB8C126288CD7004B662A /* MainWeatherPhotographyInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976DB8C026288CD6004B662A /* MainWeatherPhotographyInfo.swift */; };
 		97D4D5D426273D320058681C /* ExtensionTruncateDecimals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D4D5D326273D320058681C /* ExtensionTruncateDecimals.swift */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +67,9 @@
 		9748C8B82625AEBA00EB9AD8 /* CurrencyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyService.swift; sourceTree = "<group>"; };
 		9748C8C02625B1C300EB9AD8 /* MainCurrencyInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCurrencyInfo.swift; sourceTree = "<group>"; };
 		9748C8C52625C06500EB9AD8 /* CurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewController.swift; sourceTree = "<group>"; };
+		976DB8B3262845BE004B662A /* ExtensionUITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUITextField.swift; sourceTree = "<group>"; };
+		976DB8BB26288BE1004B662A /* WeatherPhotographyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherPhotographyService.swift; sourceTree = "<group>"; };
+		976DB8C026288CD6004B662A /* MainWeatherPhotographyInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWeatherPhotographyInfo.swift; sourceTree = "<group>"; };
 		97D4D5D326273D320058681C /* ExtensionTruncateDecimals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionTruncateDecimals.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -158,6 +164,7 @@
 				97418DF826270BDF00E7A88F /* Service */,
 				9748C8C02625B1C300EB9AD8 /* MainCurrencyInfo.swift */,
 				972CBD472620A142001A04BF /* MainWeatherInfo.swift */,
+				976DB8C026288CD6004B662A /* MainWeatherPhotographyInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -187,6 +194,7 @@
 			children = (
 				9748C8B82625AEBA00EB9AD8 /* CurrencyService.swift */,
 				972CBD4F2620A183001A04BF /* WeatherService.swift */,
+				976DB8BB26288BE1004B662A /* WeatherPhotographyService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -196,6 +204,7 @@
 			children = (
 				97065FF72624677F005EFCD8 /* ExtensionUIImageView.swift */,
 				97D4D5D326273D320058681C /* ExtensionTruncateDecimals.swift */,
+				976DB8B3262845BE004B662A /* ExtensionUITextField.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -337,7 +346,10 @@
 				972CBD05262098A5001A04BF /* SceneDelegate.swift in Sources */,
 				9748C8C62625C06500EB9AD8 /* CurrencyViewController.swift in Sources */,
 				97065FF82624677F005EFCD8 /* ExtensionUIImageView.swift in Sources */,
+				976DB8C126288CD7004B662A /* MainWeatherPhotographyInfo.swift in Sources */,
 				9748C8C12625B1C300EB9AD8 /* MainCurrencyInfo.swift in Sources */,
+				976DB8B4262845BE004B662A /* ExtensionUITextField.swift in Sources */,
+				976DB8BC26288BE1004B662A /* WeatherPhotographyService.swift in Sources */,
 				97D4D5D426273D320058681C /* ExtensionTruncateDecimals.swift in Sources */,
 				972CBD482620A142001A04BF /* MainWeatherInfo.swift in Sources */,
 				9748C8B92625AEBA00EB9AD8 /* CurrencyService.swift in Sources */,
