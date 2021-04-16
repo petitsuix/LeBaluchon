@@ -43,8 +43,7 @@ class WeatherViewController: UIViewController {
             print(error ?? "")
             self?.resultNewyorkWeather = decodedData
             DispatchQueue.main.async {
-//                self?.updateUINewyork()
-                self?.fetchNewyorkPhoto()
+                self?.fetchPhoto("3541178", self?.resultNewyorkWeather) // fetchPhoto (in collection) "3541178", 2nd parameter is used to update UI from the right json results, depending on the city
             }
         }
     }
@@ -54,54 +53,31 @@ class WeatherViewController: UIViewController {
             print(error ?? "")
             self?.resultLyonWeather = decodedData
             DispatchQueue.main.async {
-//                self?.updateUILyon()
-                self?.fetchLyonPhoto()
+                self?.fetchPhoto("426804", self?.resultLyonWeather)
             }
         }
     }
     
-    func fetchNewyorkPhoto() {
-        unsplashCityPhotoApi.start(collectionId: "3541178") { [weak self] (decodedData, error) in
+    func fetchPhoto(_ collectionId: String, _ cityResults: MainWeatherInfo?) {
+        unsplashCityPhotoApi.start(collectionId: collectionId) { [weak self] (decodedData, error) in
             print(error ?? "")
             self?.resultCityPhoto = decodedData
-                self?.updateUINewyork()
+            self?.updateUI(cityResults: cityResults)
         }
     }
-    
-    func fetchLyonPhoto() {
-        unsplashCityPhotoApi.start(collectionId: "426804") { [weak self] (decodedData, error) in
-            print(error ?? "")
-            self?.resultCityPhoto = decodedData
-                self?.updateUILyon()
-        }
-    }
-    
-    func updateUILyon() {
-        guard let lyon = resultLyonWeather else { return }
-        guard let lyonFirst = lyon.weather.first else { return }
-        guard let lyonPhoto = resultCityPhoto else { return }
 
-        self.cityName.text = lyon.name
-        self.temperature.text = "\(String(lyon.main.temp.shortDigitsIn(1)))°C"
-        self.tempFeelsLike.text = "\(String(lyon.main.feels_like.shortDigitsIn(1)))°C ressentis"
-        self.minimumTemp.text = "temp. mini : \(String(lyon.main.temp_min.shortDigitsIn(1)))°C"
-        self.maximumTemp.text = "temp. maxi : \(String(lyon.main.temp_max.shortDigitsIn(1)))°C"
-        self.skyDescription.text = lyon.weather[0].description
-        self.weatherIcon.loadIcon(lyonFirst.icon)
-        self.cityPhoto.loadCityPhoto(lyonPhoto.urls.raw)    }
-    
-    func updateUINewyork() {
-        guard let ny = resultNewyorkWeather else { return }
-        guard let nyFirst = ny.weather.first else { return }
-        guard let nyPhoto = resultCityPhoto else { return }
-        self.cityName.text = ny.name
-        self.temperature.text = "\(String(ny.main.temp.shortDigitsIn(1)))°C"
-        self.tempFeelsLike.text = "\(String(ny.main.feels_like.shortDigitsIn(1)))°C ressentis"
-        self.minimumTemp.text = "temp. mini : \(String(ny.main.temp_min.shortDigitsIn(1)))°C"
-        self.maximumTemp.text = "temp. maxi : \(String(ny.main.temp_max.shortDigitsIn(1)))°C"
-        self.skyDescription.text = ny.weather[0].description
-        self.weatherIcon.loadIcon(nyFirst.icon)
-        self.cityPhoto.loadCityPhoto(nyPhoto.urls.raw)
+    func updateUI(cityResults: MainWeatherInfo?) {
+        guard let results = cityResults else { return }
+        guard let resultsFirst = results.weather.first else { return }
+        guard let photo = resultCityPhoto else { return }
+        self.cityName.text = results.name
+        self.temperature.text = "\(String(results.main.temp.shortDigitsIn(1)))°C"
+        self.tempFeelsLike.text = "\(String(results.main.feels_like.shortDigitsIn(1)))°C ressentis"
+        self.minimumTemp.text = "temp. mini : \(String(results.main.temp_min.shortDigitsIn(1)))°C"
+        self.maximumTemp.text = "temp. maxi : \(String(results.main.temp_max.shortDigitsIn(1)))°C"
+        self.skyDescription.text = results.weather[0].description
+        self.weatherIcon.loadIcon(resultsFirst.icon)
+        self.cityPhoto.loadCityPhoto(photo.urls.raw)
     }
 }
 

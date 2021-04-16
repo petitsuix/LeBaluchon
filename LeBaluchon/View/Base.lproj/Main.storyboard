@@ -57,7 +57,7 @@
                                     </imageView>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L3u-0i-oVV">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L3u-0i-oVV">
                                 <rect key="frame" x="20" y="503" width="374" height="70"/>
                                 <color key="backgroundColor" systemColor="systemGray4Color"/>
                                 <constraints>
@@ -84,7 +84,6 @@
                             <constraint firstItem="L3u-0i-oVV" firstAttribute="leading" secondItem="0Bu-dY-JSf" secondAttribute="leading" constant="20" id="Ceo-AB-xki"/>
                             <constraint firstItem="L3u-0i-oVV" firstAttribute="top" secondItem="nYL-kT-nCz" secondAttribute="bottom" constant="30" id="EdG-tn-yI0"/>
                             <constraint firstItem="nYL-kT-nCz" firstAttribute="top" secondItem="fko-7i-Iht" secondAttribute="bottom" constant="30" id="JKI-4u-Vld"/>
-                            <constraint firstItem="0Bu-dY-JSf" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="A9W-FZ-djf" secondAttribute="bottom" constant="20" id="PPW-a6-uhl"/>
                             <constraint firstItem="A9W-FZ-djf" firstAttribute="leading" secondItem="0Bu-dY-JSf" secondAttribute="leading" constant="20" id="Xtg-Iz-YUQ"/>
                             <constraint firstItem="0Bu-dY-JSf" firstAttribute="trailing" secondItem="A9W-FZ-djf" secondAttribute="trailing" constant="20" id="agD-c8-b7g"/>
                             <constraint firstItem="0Bu-dY-JSf" firstAttribute="trailing" secondItem="L3u-0i-oVV" secondAttribute="trailing" constant="20" id="ylx-hg-CMn"/>
@@ -102,6 +101,84 @@
             </objects>
             <point key="canvasLocation" x="-882.60869565217399" y="287.94642857142856"/>
         </scene>
+        <!--Traduction-->
+        <scene sceneID="JbH-91-8CE">
+            <objects>
+                <viewController id="FKO-jy-bYB" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lT9-ar-Hif">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Entrez un texte à traduire" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="P2f-Pz-IOq">
+                                <rect key="frame" x="87" y="137" width="240" height="118"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="PWo-WN-PTc">
+                                <rect key="frame" x="87" y="641" width="240" height="118"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="0SA-Jz-53R">
+                                <rect key="frame" x="149.5" y="283.5" width="115" height="329"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="logo-fr.png" translatesAutoresizingMaskIntoConstraints="NO" id="LqA-uP-G5C">
+                                        <rect key="frame" x="0.0" y="0.0" width="115" height="80"/>
+                                        <color key="tintColor" systemColor="systemOrangeColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="JFc-kw-Bs2"/>
+                                        </constraints>
+                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font">
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        </preferredSymbolConfiguration>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qus-Q7-opp">
+                                        <rect key="frame" x="0.0" y="113" width="115" height="102.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="105" id="GK0-fz-Rvx"/>
+                                            <constraint firstAttribute="width" constant="115" id="qAj-ul-sqR"/>
+                                        </constraints>
+                                        <color key="tintColor" systemColor="systemYellowColor"/>
+                                        <state key="normal" backgroundImage="arrow.down.app.fill" catalog="system"/>
+                                        <connections>
+                                            <action selector="convertButton:" destination="8ca-Xa-8OD" eventType="touchUpInside" id="Nkn-rW-Xc6"/>
+                                        </connections>
+                                    </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="logo-en.png" translatesAutoresizingMaskIntoConstraints="NO" id="I0u-CV-bzS">
+                                        <rect key="frame" x="0.0" y="249" width="115" height="80"/>
+                                        <color key="tintColor" systemColor="systemOrangeColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="RNB-wk-SMA"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="P0c-Fg-jau"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="PWo-WN-PTc" firstAttribute="top" secondItem="0SA-Jz-53R" secondAttribute="bottom" constant="28.5" id="6o4-YD-b0O"/>
+                            <constraint firstItem="0SA-Jz-53R" firstAttribute="centerY" secondItem="lT9-ar-Hif" secondAttribute="centerY" id="9kM-Md-q1R"/>
+                            <constraint firstItem="PWo-WN-PTc" firstAttribute="leading" secondItem="P0c-Fg-jau" secondAttribute="leading" constant="87" id="Cdc-AA-73d"/>
+                            <constraint firstItem="P0c-Fg-jau" firstAttribute="bottom" secondItem="PWo-WN-PTc" secondAttribute="bottom" constant="54" id="MMz-g6-MxK"/>
+                            <constraint firstItem="PWo-WN-PTc" firstAttribute="centerX" secondItem="P2f-Pz-IOq" secondAttribute="centerX" id="OgT-JG-DOD"/>
+                            <constraint firstItem="P2f-Pz-IOq" firstAttribute="top" secondItem="P0c-Fg-jau" secondAttribute="top" constant="93" id="T5o-P8-xVw"/>
+                            <constraint firstItem="PWo-WN-PTc" firstAttribute="leading" secondItem="P2f-Pz-IOq" secondAttribute="leading" id="ZM4-vc-Vba"/>
+                            <constraint firstItem="0SA-Jz-53R" firstAttribute="centerX" secondItem="P2f-Pz-IOq" secondAttribute="centerX" id="dfG-XX-bte"/>
+                            <constraint firstItem="0SA-Jz-53R" firstAttribute="centerX" secondItem="lT9-ar-Hif" secondAttribute="centerX" id="iXZ-Wx-5oC"/>
+                            <constraint firstItem="0SA-Jz-53R" firstAttribute="top" secondItem="P2f-Pz-IOq" secondAttribute="bottom" constant="28.5" id="uR9-YE-XOP"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Traduction" image="book" catalog="system" id="xNQ-Kf-5A1"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hPV-uJ-HdF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-235" y="-16"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="GUB-s6-cKY">
             <objects>
@@ -114,6 +191,7 @@
                     <connections>
                         <segue destination="8ca-Xa-8OD" kind="relationship" relationship="viewControllers" id="pIU-Jg-TPg"/>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="n0y-1B-Ayc"/>
+                        <segue destination="FKO-jy-bYB" kind="relationship" relationship="viewControllers" id="b5t-xP-h3t"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ocQ-Ax-vr6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -192,7 +270,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newyork.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="ECg-Ag-qHN">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ECg-Ag-qHN">
                                 <rect key="frame" x="0.0" y="87" width="414" height="210"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="210" id="7hb-b6-3Hh"/>
@@ -238,11 +316,16 @@
     </scenes>
     <resources>
         <image name="arrow.down.app.fill" catalog="system" width="128" height="114"/>
+        <image name="book" catalog="system" width="128" height="102"/>
         <image name="cloud.sun" catalog="system" width="128" height="93"/>
         <image name="cylinder.split.1x2" catalog="system" width="121" height="128"/>
         <image name="dollarsign.circle" catalog="system" width="128" height="121"/>
         <image name="eurosign.circle" catalog="system" width="128" height="121"/>
-        <image name="newyork.jpeg" width="1461" height="822"/>
+        <image name="logo-en.png" width="48" height="48"/>
+        <image name="logo-fr.png" width="48" height="48"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
@@ -251,6 +334,9 @@
         </systemColor>
         <systemColor name="systemGray5Color">
             <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -29,24 +29,25 @@ class APICurrency {
     func response(_ data: Data?, _ response: URLResponse?, _ error: Error?) {
         
         if let error = error {
+            completion?(nil, "error fetching data")
             // completionHandler
             print("error fetching data: \(error.localizedDescription)")
             return
         }
         
         guard let response = response as? HTTPURLResponse else {
-            print("error invalid response")
+            completion?(nil, ServiceError.invalidResponse.localizedDescription)
             return
         }
         
         guard response.statusCode == 200 else { // ça peut être d'autre status code valides (d'autres codes)
-            print("Invalid status code")
+            completion?(nil, ServiceError.invalidStatusCode.localizedDescription)
             return
         }
         
         guard let data = data else {
             print("empty data")
-            completion?(nil, error?.localizedDescription)
+            completion?(nil, ServiceError.emptyData.localizedDescription)
             return
         }
         print("\(data)")

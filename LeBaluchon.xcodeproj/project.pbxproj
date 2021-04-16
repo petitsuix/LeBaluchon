@@ -25,6 +25,9 @@
 		976DB8B4262845BE004B662A /* ExtensionUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976DB8B3262845BE004B662A /* ExtensionUITextField.swift */; };
 		976DB8BC26288BE1004B662A /* WeatherPhotographyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976DB8BB26288BE1004B662A /* WeatherPhotographyService.swift */; };
 		976DB8C126288CD7004B662A /* MainWeatherPhotographyInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 976DB8C026288CD6004B662A /* MainWeatherPhotographyInfo.swift */; };
+		97A2F45E2629CA5B000E95B1 /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A2F45D2629CA5B000E95B1 /* ServiceError.swift */; };
+		97A2F4632629D99D000E95B1 /* logo-fr.png in Resources */ = {isa = PBXBuildFile; fileRef = 97A2F4622629D99C000E95B1 /* logo-fr.png */; };
+		97A2F4682629D9A4000E95B1 /* logo-en.png in Resources */ = {isa = PBXBuildFile; fileRef = 97A2F4672629D9A4000E95B1 /* logo-en.png */; };
 		97D4D5D426273D320058681C /* ExtensionTruncateDecimals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D4D5D326273D320058681C /* ExtensionTruncateDecimals.swift */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +73,9 @@
 		976DB8B3262845BE004B662A /* ExtensionUITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUITextField.swift; sourceTree = "<group>"; };
 		976DB8BB26288BE1004B662A /* WeatherPhotographyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherPhotographyService.swift; sourceTree = "<group>"; };
 		976DB8C026288CD6004B662A /* MainWeatherPhotographyInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWeatherPhotographyInfo.swift; sourceTree = "<group>"; };
+		97A2F45D2629CA5B000E95B1 /* ServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceError.swift; sourceTree = "<group>"; };
+		97A2F4622629D99C000E95B1 /* logo-fr.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-fr.png"; sourceTree = "<group>"; };
+		97A2F4672629D9A4000E95B1 /* logo-en.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-en.png"; sourceTree = "<group>"; };
 		97D4D5D326273D320058681C /* ExtensionTruncateDecimals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionTruncateDecimals.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -181,6 +187,8 @@
 		972CBD3B262099A1001A04BF /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				97A2F4672629D9A4000E95B1 /* logo-en.png */,
+				97A2F4622629D99C000E95B1 /* logo-fr.png */,
 				97065FFC2624879C005EFCD8 /* newyork.jpeg */,
 				972CBD02262098A5001A04BF /* AppDelegate.swift */,
 				972CBD04262098A5001A04BF /* SceneDelegate.swift */,
@@ -195,6 +203,7 @@
 				9748C8B82625AEBA00EB9AD8 /* CurrencyService.swift */,
 				972CBD4F2620A183001A04BF /* WeatherService.swift */,
 				976DB8BB26288BE1004B662A /* WeatherPhotographyService.swift */,
+				97A2F45D2629CA5B000E95B1 /* ServiceError.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -316,6 +325,8 @@
 				972CBD0C262098AD001A04BF /* Assets.xcassets in Resources */,
 				972CBD0A262098A5001A04BF /* Main.storyboard in Resources */,
 				97065FFD2624879D005EFCD8 /* newyork.jpeg in Resources */,
+				97A2F4632629D99D000E95B1 /* logo-fr.png in Resources */,
+				97A2F4682629D9A4000E95B1 /* logo-en.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,6 +363,7 @@
 				976DB8BC26288BE1004B662A /* WeatherPhotographyService.swift in Sources */,
 				97D4D5D426273D320058681C /* ExtensionTruncateDecimals.swift in Sources */,
 				972CBD482620A142001A04BF /* MainWeatherInfo.swift in Sources */,
+				97A2F45E2629CA5B000E95B1 /* ServiceError.swift in Sources */,
 				9748C8B92625AEBA00EB9AD8 /* CurrencyService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -529,6 +541,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = T4959W6459;
 				INFOPLIST_FILE = LeBaluchon/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -548,6 +561,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = T4959W6459;
 				INFOPLIST_FILE = LeBaluchon/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
