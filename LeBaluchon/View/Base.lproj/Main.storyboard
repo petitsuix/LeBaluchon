@@ -104,27 +104,20 @@
         <!--Traduction-->
         <scene sceneID="JbH-91-8CE">
             <objects>
-                <viewController id="FKO-jy-bYB" sceneMemberID="viewController">
+                <viewController id="FKO-jy-bYB" customClass="TranslationViewController" customModule="LeBaluchon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lT9-ar-Hif">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Entrez un texte à traduire" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="P2f-Pz-IOq">
-                                <rect key="frame" x="87" y="137" width="240" height="118"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Salut les routards !" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="P2f-Pz-IOq">
+                                <rect key="frame" x="30" y="63" width="354" height="172"/>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="PWo-WN-PTc">
-                                <rect key="frame" x="87" y="641" width="240" height="118"/>
-                                <color key="backgroundColor" systemColor="systemGray5Color"/>
-                                <color key="textColor" systemColor="labelColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="0SA-Jz-53R">
-                                <rect key="frame" x="149.5" y="283.5" width="115" height="329"/>
+                                <rect key="frame" x="149.5" y="263.5" width="115" height="329"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="logo-fr.png" translatesAutoresizingMaskIntoConstraints="NO" id="LqA-uP-G5C">
                                         <rect key="frame" x="0.0" y="0.0" width="115" height="80"/>
@@ -146,6 +139,7 @@
                                         <state key="normal" backgroundImage="arrow.down.app.fill" catalog="system"/>
                                         <connections>
                                             <action selector="convertButton:" destination="8ca-Xa-8OD" eventType="touchUpInside" id="Nkn-rW-Xc6"/>
+                                            <action selector="translate:" destination="FKO-jy-bYB" eventType="touchUpInside" id="WUm-tU-Kku"/>
                                         </connections>
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="logo-en.png" translatesAutoresizingMaskIntoConstraints="NO" id="I0u-CV-bzS">
@@ -157,23 +151,35 @@
                                     </imageView>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello backpackers!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KCZ-9Z-tEx">
+                                <rect key="frame" x="30" y="621" width="354" height="172"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                <color key="tintColor" systemColor="systemGray5Color"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="P0c-Fg-jau"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="PWo-WN-PTc" firstAttribute="top" secondItem="0SA-Jz-53R" secondAttribute="bottom" constant="28.5" id="6o4-YD-b0O"/>
-                            <constraint firstItem="0SA-Jz-53R" firstAttribute="centerY" secondItem="lT9-ar-Hif" secondAttribute="centerY" id="9kM-Md-q1R"/>
-                            <constraint firstItem="PWo-WN-PTc" firstAttribute="leading" secondItem="P0c-Fg-jau" secondAttribute="leading" constant="87" id="Cdc-AA-73d"/>
-                            <constraint firstItem="P0c-Fg-jau" firstAttribute="bottom" secondItem="PWo-WN-PTc" secondAttribute="bottom" constant="54" id="MMz-g6-MxK"/>
-                            <constraint firstItem="PWo-WN-PTc" firstAttribute="centerX" secondItem="P2f-Pz-IOq" secondAttribute="centerX" id="OgT-JG-DOD"/>
-                            <constraint firstItem="P2f-Pz-IOq" firstAttribute="top" secondItem="P0c-Fg-jau" secondAttribute="top" constant="93" id="T5o-P8-xVw"/>
-                            <constraint firstItem="PWo-WN-PTc" firstAttribute="leading" secondItem="P2f-Pz-IOq" secondAttribute="leading" id="ZM4-vc-Vba"/>
-                            <constraint firstItem="0SA-Jz-53R" firstAttribute="centerX" secondItem="P2f-Pz-IOq" secondAttribute="centerX" id="dfG-XX-bte"/>
-                            <constraint firstItem="0SA-Jz-53R" firstAttribute="centerX" secondItem="lT9-ar-Hif" secondAttribute="centerX" id="iXZ-Wx-5oC"/>
-                            <constraint firstItem="0SA-Jz-53R" firstAttribute="top" secondItem="P2f-Pz-IOq" secondAttribute="bottom" constant="28.5" id="uR9-YE-XOP"/>
+                            <constraint firstItem="KCZ-9Z-tEx" firstAttribute="height" secondItem="P2f-Pz-IOq" secondAttribute="height" id="44H-EE-Z13"/>
+                            <constraint firstItem="P2f-Pz-IOq" firstAttribute="top" secondItem="P0c-Fg-jau" secondAttribute="top" constant="19" id="C18-Ce-hdL"/>
+                            <constraint firstItem="P2f-Pz-IOq" firstAttribute="leading" secondItem="P0c-Fg-jau" secondAttribute="leading" constant="30" id="Kj3-ZB-pZL"/>
+                            <constraint firstItem="KCZ-9Z-tEx" firstAttribute="leading" secondItem="P0c-Fg-jau" secondAttribute="leading" constant="30" id="PB8-x5-GXH"/>
+                            <constraint firstItem="KCZ-9Z-tEx" firstAttribute="top" secondItem="0SA-Jz-53R" secondAttribute="bottom" constant="28.5" id="RsI-4g-nzk"/>
+                            <constraint firstItem="0SA-Jz-53R" firstAttribute="top" secondItem="P2f-Pz-IOq" secondAttribute="bottom" constant="28.5" id="TZR-Lw-kNB"/>
+                            <constraint firstItem="P0c-Fg-jau" firstAttribute="bottom" secondItem="KCZ-9Z-tEx" secondAttribute="bottom" constant="20" id="q20-f2-RwG"/>
+                            <constraint firstItem="P0c-Fg-jau" firstAttribute="trailing" secondItem="P2f-Pz-IOq" secondAttribute="trailing" constant="30" id="rEO-Jf-UDl"/>
+                            <constraint firstItem="P0c-Fg-jau" firstAttribute="trailing" secondItem="KCZ-9Z-tEx" secondAttribute="trailing" constant="30" id="sdF-iU-jbh"/>
+                            <constraint firstItem="0SA-Jz-53R" firstAttribute="centerX" secondItem="lT9-ar-Hif" secondAttribute="centerX" id="v8d-zv-VNY"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Traduction" image="book" catalog="system" id="xNQ-Kf-5A1"/>
+                    <connections>
+                        <outlet property="resultTranslatedText" destination="KCZ-9Z-tEx" id="XYW-P8-bI3"/>
+                        <outlet property="textToTranslateBubble" destination="P2f-Pz-IOq" id="XHJ-YU-5tW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hPV-uJ-HdF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -243,6 +249,7 @@
                             </stackView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="RMb-HV-vC7">
                                 <rect key="frame" x="20" y="742" width="374" height="41"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="9Zi-t2-LnL"/>
                                 </constraints>
@@ -250,6 +257,7 @@
                                     <segment title="New-York"/>
                                     <segment title="Lyon"/>
                                 </segments>
+                                <color key="selectedSegmentTintColor" red="0.88320940729999997" green="0.63931407955032182" blue="0.00118927934124562" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <action selector="didChangeSegment:" destination="BYZ-38-t0r" eventType="valueChanged" id="F13-E1-wIm"/>
                                 </connections>
