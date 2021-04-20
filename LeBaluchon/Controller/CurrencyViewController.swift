@@ -9,7 +9,6 @@ import UIKit
 
 class CurrencyViewController: UIViewController {
     
-
     @IBOutlet weak var euroTextField: UITextField! {
         didSet { euroTextField?.addDoneCancelToolbar() }
     }

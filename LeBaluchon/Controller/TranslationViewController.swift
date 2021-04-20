@@ -8,15 +8,14 @@
 import UIKit
 
 class TranslationViewController: UIViewController {
-
+    
     @IBOutlet weak var textToTranslateBubble: UITextView! {
         didSet { textToTranslateBubble?.addDoneCancelToolbar() }
     }
-    @IBOutlet weak var resultTranslatedText: UILabel!
+    @IBOutlet weak var resultTranslatedText: UITextView!
     
     var googleApi = APITranslation()
     var resultTranslation: MainTranslationInfo?
-    var translationResult: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,20 +34,18 @@ class TranslationViewController: UIViewController {
     }
     
     func updateUI() {
+        resultTranslatedText.isEditable = false
+        resultTranslatedText.isScrollEnabled = true
         textToTranslateBubble.keyboardType = .default
         textToTranslateBubble.layer.masksToBounds = true
         textToTranslateBubble.layer.cornerRadius = 5
         resultTranslatedText.layer.masksToBounds = true
         resultTranslatedText.layer.cornerRadius = 5
-        guard let translation = resultTranslation?.data.translations.first?.translatedText else { return }
+        guard let translation = resultTranslation?.data.translations.first?.translatedText.replacingOccurrences(of: "&#39;", with: "'") else { return }
         resultTranslatedText.text = "\(translation)"
     }
     
-    
     @IBAction func translate(_ sender: UIButton) {
         fetchTranslation()
- /*       guard let translation = resultTranslation?.data.translations.first?.translatedText else { return }
-        resultTranslatedText.text = "\(translation)"
-    }*/
-}
+    }
 }

@@ -109,7 +109,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Salut les routards !" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="P2f-Pz-IOq">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Ça ira cet été" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="P2f-Pz-IOq">
                                 <rect key="frame" x="30" y="63" width="354" height="172"/>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <color key="textColor" systemColor="labelColor"/>
@@ -151,33 +151,32 @@
                                     </imageView>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello backpackers!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KCZ-9Z-tEx">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="lG3-g4-b93">
                                 <rect key="frame" x="30" y="621" width="354" height="172"/>
                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
-                                <color key="tintColor" systemColor="systemGray5Color"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="P0c-Fg-jau"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="KCZ-9Z-tEx" firstAttribute="height" secondItem="P2f-Pz-IOq" secondAttribute="height" id="44H-EE-Z13"/>
+                            <constraint firstItem="lG3-g4-b93" firstAttribute="height" secondItem="P2f-Pz-IOq" secondAttribute="height" id="0c4-JC-yrr"/>
                             <constraint firstItem="P2f-Pz-IOq" firstAttribute="top" secondItem="P0c-Fg-jau" secondAttribute="top" constant="19" id="C18-Ce-hdL"/>
+                            <constraint firstItem="lG3-g4-b93" firstAttribute="top" secondItem="0SA-Jz-53R" secondAttribute="bottom" constant="28.5" id="KGe-fr-Sw4"/>
                             <constraint firstItem="P2f-Pz-IOq" firstAttribute="leading" secondItem="P0c-Fg-jau" secondAttribute="leading" constant="30" id="Kj3-ZB-pZL"/>
-                            <constraint firstItem="KCZ-9Z-tEx" firstAttribute="leading" secondItem="P0c-Fg-jau" secondAttribute="leading" constant="30" id="PB8-x5-GXH"/>
-                            <constraint firstItem="KCZ-9Z-tEx" firstAttribute="top" secondItem="0SA-Jz-53R" secondAttribute="bottom" constant="28.5" id="RsI-4g-nzk"/>
+                            <constraint firstItem="lG3-g4-b93" firstAttribute="leading" secondItem="P0c-Fg-jau" secondAttribute="leading" constant="30" id="S9G-Wo-8oD"/>
                             <constraint firstItem="0SA-Jz-53R" firstAttribute="top" secondItem="P2f-Pz-IOq" secondAttribute="bottom" constant="28.5" id="TZR-Lw-kNB"/>
-                            <constraint firstItem="P0c-Fg-jau" firstAttribute="bottom" secondItem="KCZ-9Z-tEx" secondAttribute="bottom" constant="20" id="q20-f2-RwG"/>
+                            <constraint firstItem="P0c-Fg-jau" firstAttribute="trailing" secondItem="lG3-g4-b93" secondAttribute="trailing" constant="30" id="VOK-TS-9oX"/>
                             <constraint firstItem="P0c-Fg-jau" firstAttribute="trailing" secondItem="P2f-Pz-IOq" secondAttribute="trailing" constant="30" id="rEO-Jf-UDl"/>
-                            <constraint firstItem="P0c-Fg-jau" firstAttribute="trailing" secondItem="KCZ-9Z-tEx" secondAttribute="trailing" constant="30" id="sdF-iU-jbh"/>
+                            <constraint firstItem="P0c-Fg-jau" firstAttribute="bottom" secondItem="lG3-g4-b93" secondAttribute="bottom" constant="20" id="rnJ-cZ-FlA"/>
                             <constraint firstItem="0SA-Jz-53R" firstAttribute="centerX" secondItem="lT9-ar-Hif" secondAttribute="centerX" id="v8d-zv-VNY"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Traduction" image="book" catalog="system" id="xNQ-Kf-5A1"/>
                     <connections>
-                        <outlet property="resultTranslatedText" destination="KCZ-9Z-tEx" id="XYW-P8-bI3"/>
+                        <outlet property="resultTranslatedText" destination="lG3-g4-b93" id="BRn-fR-nC4"/>
                         <outlet property="textToTranslateBubble" destination="P2f-Pz-IOq" id="XHJ-YU-5tW"/>
                     </connections>
                 </viewController>
@@ -193,6 +192,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" red="0.95823627710000003" green="0.62122279410000003" blue="0.20419225099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="8ca-Xa-8OD" kind="relationship" relationship="viewControllers" id="pIU-Jg-TPg"/>
@@ -249,7 +249,7 @@
                             </stackView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="RMb-HV-vC7">
                                 <rect key="frame" x="20" y="742" width="374" height="41"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" systemColor="labelColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="9Zi-t2-LnL"/>
                                 </constraints>

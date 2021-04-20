@@ -19,6 +19,7 @@
 		972CBD25262098AE001A04BF /* LeBaluchonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972CBD24262098AE001A04BF /* LeBaluchonUITests.swift */; };
 		972CBD482620A142001A04BF /* MainWeatherInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972CBD472620A142001A04BF /* MainWeatherInfo.swift */; };
 		972CBD502620A183001A04BF /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972CBD4F2620A183001A04BF /* WeatherService.swift */; };
+		9730B8AB262ED41900C6EDC6 /* ExtensionStringForDecimalPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9730B8AA262ED41900C6EDC6 /* ExtensionStringForDecimalPad.swift */; };
 		9748C8B92625AEBA00EB9AD8 /* CurrencyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9748C8B82625AEBA00EB9AD8 /* CurrencyService.swift */; };
 		9748C8C12625B1C300EB9AD8 /* MainCurrencyInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9748C8C02625B1C300EB9AD8 /* MainCurrencyInfo.swift */; };
 		9748C8C62625C06500EB9AD8 /* CurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9748C8C52625C06500EB9AD8 /* CurrencyViewController.swift */; };
@@ -70,6 +71,7 @@
 		972CBD26262098AE001A04BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		972CBD472620A142001A04BF /* MainWeatherInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWeatherInfo.swift; sourceTree = "<group>"; };
 		972CBD4F2620A183001A04BF /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
+		9730B8AA262ED41900C6EDC6 /* ExtensionStringForDecimalPad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionStringForDecimalPad.swift; sourceTree = "<group>"; };
 		9748C8B82625AEBA00EB9AD8 /* CurrencyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyService.swift; sourceTree = "<group>"; };
 		9748C8C02625B1C300EB9AD8 /* MainCurrencyInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCurrencyInfo.swift; sourceTree = "<group>"; };
 		9748C8C52625C06500EB9AD8 /* CurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewController.swift; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 				97065FF72624677F005EFCD8 /* ExtensionUIImageView.swift */,
 				97D4D5D326273D320058681C /* ExtensionTruncateDecimals.swift */,
 				976DB8B3262845BE004B662A /* ExtensionUITextField.swift */,
+				9730B8AA262ED41900C6EDC6 /* ExtensionStringForDecimalPad.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -370,6 +373,7 @@
 				976DB8C126288CD7004B662A /* MainWeatherPhotographyInfo.swift in Sources */,
 				9748C8C12625B1C300EB9AD8 /* MainCurrencyInfo.swift in Sources */,
 				97E5F8C3262DC0240018DB65 /* TranslationViewController.swift in Sources */,
+				9730B8AB262ED41900C6EDC6 /* ExtensionStringForDecimalPad.swift in Sources */,
 				976DB8B4262845BE004B662A /* ExtensionUITextField.swift in Sources */,
 				976DB8BC26288BE1004B662A /* WeatherPhotographyService.swift in Sources */,
 				97D4D5D426273D320058681C /* ExtensionTruncateDecimals.swift in Sources */,
@@ -593,6 +597,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = T4959W6459;
 				INFOPLIST_FILE = LeBaluchonTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -614,6 +619,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = T4959W6459;
 				INFOPLIST_FILE = LeBaluchonTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -634,6 +640,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = T4959W6459;
 				INFOPLIST_FILE = LeBaluchonUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -653,6 +660,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = T4959W6459;
 				INFOPLIST_FILE = LeBaluchonUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
