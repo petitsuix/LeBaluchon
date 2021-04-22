@@ -15,7 +15,7 @@ extension UIImageView {
             DispatchQueue.main.async {
                 guard d != nil else { return }
                 let image = UIImage(data: d!)
-                self.image = image
+                self.image = image // Image views that call this extension method will get their ".image" property filled with the image retrieved from the given data
             }
         }.resume()
     }
@@ -28,7 +28,7 @@ extension UIImageView {
             DispatchQueue.main.async {
                 guard d != nil else { return }
                 let image = UIImage(data: d!)
-                self.image = image
+                self.image = image // Image views that call this extension method will get their ".image" property filled with the image retrieved from the given data
             }
         }.resume()
     }

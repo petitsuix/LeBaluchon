@@ -7,56 +7,20 @@
 
 import UIKit
 
-class APIWeatherPhoto {
-    
-    var completion: ((_ result: MainWeatherPhotoInfo?, _ error: String?) -> Void)?
-    
-    
+class APIWeatherPhoto: HandleResponseDelegate {
     
     func getUrl(from collectionId: String) -> String {
         let stringUrl = "https://api.unsplash.com/collections/\(collectionId)/photos/?client_id=nLJumqeaMtCuWU558JLsNHtBzT5V1qhlQIgOiq-ysok"
         return stringUrl
     }
     
-    func start(collectionId: String, completion: ((_ result: MainWeatherPhotoInfo?, _ error: String?) -> Void)?) {
-        self.completion = completion
-        guard let unsplashPhotoUrl = URL(string: getUrl(from: collectionId)) else { completion?(nil, "Mauvaise URL"); return }
-        URLSession.shared.dataTask(with: unsplashPhotoUrl, completionHandler: response).resume()
-        print("\(unsplashPhotoUrl)")
-    }
-    
-    func response(_ data: Data?, _ response: URLResponse?, _ error: Error?) {
-        if let error = error {
-            // completion handler
-            print("error fetching data: \(error.localizedDescription)")
-            return
+    func fetchWeatherPhotoData(collectionId: String, completion: @escaping(Result<[MainWeatherPhotoInfo], ServiceError>) -> Void) {
+        guard let unsplashPhotoUrl = URL(string: getUrl(from: collectionId)) else {
+            return completion(.failure(.invalidUrl))
         }
-        
-        guard let response = response as? HTTPURLResponse else {
-            print ("error invalid response")
-            return
-        }
-        
-        guard response.statusCode == 200 else {
-            print("Invalid status code")
-            return
-        }
-        
-        guard let data = data else {
-            print("empty data")
-            completion?(nil, error?.localizedDescription)
-            return
-        }
-        DispatchQueue.main.async {
-            do {
-                let decodedData = try JSONDecoder().decode([MainWeatherPhotoInfo].self, from: data)
-                self.completion?(decodedData.randomElement(), nil)
-                // completionHandler
-            } catch let error {
-                self.completion?(nil, error.localizedDescription)
-                print("decoding error: \(error.localizedDescription)")
-                print("\(error)")
-            }
-        }
+        URLSession.shared.dataTask(with: unsplashPhotoUrl, completionHandler: { (data, response, error) in
+            let result = self.handleResponse(dataType: [MainWeatherPhotoInfo].self, data, response, error)
+            completion(result)
+        }).resume()
     }
 }

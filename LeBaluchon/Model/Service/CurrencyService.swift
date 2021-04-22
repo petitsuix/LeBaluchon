@@ -7,60 +7,18 @@
 
 import UIKit
 
-class APICurrency {
+class APICurrency: HandleResponseDelegate {
     
-    // renommer correctement les fichiers (et classes)
-    // développer logique de currency
-    // Affiner le weatherviewcontroller (par une utilisation d'une table view entre autres)
-    // utilisation des callbacks
+    private let stringUrl = "http://data.fixer.io/api/latest?access_key=4a32bab105ec1a61470fdaabc3fc7ab0&base=EUR&symbols=USD"
     
-    
-    var completion: ((_ result: MainCurrencyInfo?, _ error: String?) -> Void)?
-    
-    let stringUrl = "http://data.fixer.io/api/latest?access_key=4a32bab105ec1a61470fdaabc3fc7ab0&base=EUR&symbols=USD"
-    
-    func start(completion: ((_ result: MainCurrencyInfo?, _ error: String?) -> Void)?) {
-        self.completion = completion
-        guard let fixerUrl = URL(string: stringUrl) else { completion?(nil, "Mauvaise URL"); return }
-        URLSession.shared.dataTask(with: fixerUrl, completionHandler: response).resume()
-        print("\(fixerUrl)")
-    }
-    
-    func response(_ data: Data?, _ response: URLResponse?, _ error: Error?) {
-        
-        if let error = error {
-            completion?(nil, "error fetching data")
-            // completionHandler
-            print("error fetching data: \(error.localizedDescription)")
-            return
+    func fetchCurrencyData(completion: @escaping(Result<MainCurrencyInfo, ServiceError>) -> Void) {
+        guard let fixerUrl = URL(string: stringUrl) else {
+            return completion(.failure(.invalidUrl))
         }
-        
-        guard let response = response as? HTTPURLResponse else {
-            completion?(nil, ServiceError.invalidResponse.localizedDescription)
-            return
-        }
-        
-        guard response.statusCode == 200 else { // ça peut être d'autre status code valides (d'autres codes)
-            completion?(nil, ServiceError.invalidStatusCode.localizedDescription)
-            return
-        }
-        
-        guard let data = data else {
-            print("empty data")
-            completion?(nil, ServiceError.emptyData.localizedDescription)
-            return
-        }
-        print("\(data)")
-        DispatchQueue.main.async {
-            do {
-                let decodedData = try JSONDecoder().decode(MainCurrencyInfo.self, from: data)
-                self.completion?(decodedData, nil)
-                // completionHandler
-            } catch let error {
-                self.completion?(nil, error.localizedDescription)
-                print("decoding error: \(error.localizedDescription)")
-                print("\(error)")
-            }
-        }
+        URLSession.shared.dataTask(with: fixerUrl, completionHandler: { (data, response, error) in
+            let result = self.handleResponse(dataType: MainCurrencyInfo.self, data, response, error)
+            completion(result)
+        }).resume()
     }
 }
+

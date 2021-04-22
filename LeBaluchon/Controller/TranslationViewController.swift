@@ -24,14 +24,28 @@ class TranslationViewController: UIViewController {
     }
     
     func fetchTranslation() {
-        googleApi.start(textToTranslateBubble.text) { (decodedData, error) in
-            print(error ?? "")
-            self.resultTranslation = decodedData
-            DispatchQueue.main.async {
-                self.updateUI()
+        googleApi.fetchTranslationData(textToTranslateBubble.text) { [weak self] (result) in
+            switch result {
+            case .success(let translationInfo):
+                self?.resultTranslation = translationInfo
+                DispatchQueue.main.async { [weak self] in
+                self?.updateUI()
+                }
+            case .failure(let error):
+                print("error: \(error.errorDescription) for weather photo")
             }
         }
     }
+    
+//    func fetchTranslation() {
+//        googleApi.fetchTranslationData(textToTranslateBubble.text) { (decodedData, error) in
+//            print(error ?? "")
+//            self.resultTranslation = decodedData
+//            DispatchQueue.main.async {
+//                self.updateUI()
+//            }
+//        }
+//    }
     
     func updateUI() {
         resultTranslatedText.isEditable = false
@@ -41,7 +55,7 @@ class TranslationViewController: UIViewController {
         textToTranslateBubble.layer.cornerRadius = 5
         resultTranslatedText.layer.masksToBounds = true
         resultTranslatedText.layer.cornerRadius = 5
-        guard let translation = resultTranslation?.data.translations.first?.translatedText.replacingOccurrences(of: "&#39;", with: "'") else { return }
+        guard let translation = resultTranslation?.data.translations.first?.translatedText.replacingOccurrences(of: "&#39;", with: "'").capitalizingFirstLetter() else { return }
         resultTranslatedText.text = "\(translation)"
     }
     

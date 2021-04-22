@@ -39,33 +39,57 @@ class WeatherViewController: UIViewController {
     }
     
     func fetchNewyorkWeather() {
-        openWeatherApi.start(cityId: openWeatherApi.newyorkId) { [weak self] (decodedData, error) in
-            print(error ?? "")
-            self?.resultNewyorkWeather = decodedData
-            DispatchQueue.main.async {
-                self?.fetchPhoto("3541178", self?.resultNewyorkWeather) // fetchPhoto (in collection) "3541178", 2nd parameter is used to update UI from the right json results, depending on the city
+        openWeatherApi.fetchWeatherData(cityId: openWeatherApi.newyorkId) { [weak self] (result) in
+            switch result {
+            case .success(let weatherInfo):
+                self?.resultNewyorkWeather = weatherInfo
+                DispatchQueue.main.async { [weak self] in
+                    self?.fetchPhoto("3541178", self?.resultNewyorkWeather)
+                    // fetchPhoto (in collection) "3541178", 2nd parameter is used to update UI from the right json results, depending on the city
+                }
+            case .failure(let error):
+                print("error: \(error.errorDescription) for NY weather")
             }
         }
     }
     
     func fetchLyonWeather() {
-        openWeatherApi.start(cityId: self.openWeatherApi.lyonId) { [weak self] (decodedData, error) in
-            print(error ?? "")
-            self?.resultLyonWeather = decodedData
-            DispatchQueue.main.async {
-                self?.fetchPhoto("426804", self?.resultLyonWeather)
+        openWeatherApi.fetchWeatherData(cityId: openWeatherApi.lyonId) { [weak self] (result) in
+            switch result {
+            case .success(let weatherInfo):
+                self?.resultLyonWeather = weatherInfo
+                DispatchQueue.main.async { [weak self] in
+                    self?.fetchPhoto("426804", self?.resultLyonWeather)
+                    // fetchPhoto (in collection) "3541178", 2nd parameter is used to update UI from the right json results, depending on the city
+                }
+            case .failure(let error):
+                print("error: \(error.errorDescription) for Lyon weather")
             }
         }
     }
     
     func fetchPhoto(_ collectionId: String, _ cityResults: MainWeatherInfo?) {
-        unsplashCityPhotoApi.start(collectionId: collectionId) { [weak self] (decodedData, error) in
-            print(error ?? "")
-            self?.resultCityPhoto = decodedData
-            self?.updateUI(cityResults: cityResults)
+        unsplashCityPhotoApi.fetchWeatherPhotoData(collectionId: collectionId) { [weak self] (result) in
+            switch result {
+            case .success(let weatherPhotoInfo):
+                self?.resultCityPhoto = weatherPhotoInfo.randomElement()
+                DispatchQueue.main.async { [weak self] in
+                self?.updateUI(cityResults: cityResults)
+                }
+            case .failure(let error):
+                print("error: \(error.errorDescription) for weather photo")
+            }
         }
     }
-
+    //
+    //    func fetchPhoto(_ collectionId: String, _ cityResults: MainWeatherInfo?) {
+    //        unsplashCityPhotoApi.fetchWeatherPhotoData(collectionId: collectionId) { [weak self] (decodedData, error) in
+    //            print(error ?? "")
+    //            self?.resultCityPhoto = decodedData
+    //            self?.updateUI(cityResults: cityResults)
+    //        }
+    //    }
+    
     func updateUI(cityResults: MainWeatherInfo?) {
         guard let results = cityResults else { return }
         guard let resultsFirst = results.weather.first else { return }
@@ -75,7 +99,7 @@ class WeatherViewController: UIViewController {
         self.tempFeelsLike.text = "\(String(results.main.feels_like.shortDigitsIn(1)))°C ressentis"
         self.minimumTemp.text = "temp. mini : \(String(results.main.temp_min.shortDigitsIn(1)))°C"
         self.maximumTemp.text = "temp. maxi : \(String(results.main.temp_max.shortDigitsIn(1)))°C"
-        self.skyDescription.text = results.weather[0].description
+        self.skyDescription.text = results.weather[0].description.capitalizingFirstLetter()
         self.weatherIcon.loadIcon(resultsFirst.icon)
         self.cityPhoto.loadCityPhoto(photo.urls.raw)
     }

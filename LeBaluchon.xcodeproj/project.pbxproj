@@ -33,6 +33,7 @@
 		97E5F8AB262DBB7D0018DB65 /* TranslationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E5F8AA262DBB7C0018DB65 /* TranslationService.swift */; };
 		97E5F8B0262DBD190018DB65 /* MainTranslationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E5F8AF262DBD190018DB65 /* MainTranslationInfo.swift */; };
 		97E5F8C3262DC0240018DB65 /* TranslationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E5F8C2262DC0240018DB65 /* TranslationViewController.swift */; };
+		97F1D31026307AA500D6F6CB /* HandleResponseDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F1D30F26307AA500D6F6CB /* HandleResponseDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,7 @@
 		97E5F8AA262DBB7C0018DB65 /* TranslationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationService.swift; sourceTree = "<group>"; };
 		97E5F8AF262DBD190018DB65 /* MainTranslationInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTranslationInfo.swift; sourceTree = "<group>"; };
 		97E5F8C2262DC0240018DB65 /* TranslationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationViewController.swift; sourceTree = "<group>"; };
+		97F1D30F26307AA500D6F6CB /* HandleResponseDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandleResponseDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,8 +168,8 @@
 		972CBD3826209921001A04BF /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				972CBD06262098A5001A04BF /* WeatherViewController.swift */,
 				9748C8C52625C06500EB9AD8 /* CurrencyViewController.swift */,
+				972CBD06262098A5001A04BF /* WeatherViewController.swift */,
 				97E5F8C2262DC0240018DB65 /* TranslationViewController.swift */,
 			);
 			path = Controller;
@@ -176,11 +178,11 @@
 		972CBD3926209934001A04BF /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				97418DF826270BDF00E7A88F /* Service */,
 				9748C8C02625B1C300EB9AD8 /* MainCurrencyInfo.swift */,
 				972CBD472620A142001A04BF /* MainWeatherInfo.swift */,
 				976DB8C026288CD6004B662A /* MainWeatherPhotographyInfo.swift */,
 				97E5F8AF262DBD190018DB65 /* MainTranslationInfo.swift */,
+				97418DF826270BDF00E7A88F /* Service */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -215,6 +217,7 @@
 				976DB8BB26288BE1004B662A /* WeatherPhotographyService.swift */,
 				97E5F8AA262DBB7C0018DB65 /* TranslationService.swift */,
 				97A2F45D2629CA5B000E95B1 /* ServiceError.swift */,
+				97F1D30F26307AA500D6F6CB /* HandleResponseDelegate.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -379,6 +382,7 @@
 				97D4D5D426273D320058681C /* ExtensionTruncateDecimals.swift in Sources */,
 				97E5F8AB262DBB7D0018DB65 /* TranslationService.swift in Sources */,
 				972CBD482620A142001A04BF /* MainWeatherInfo.swift in Sources */,
+				97F1D31026307AA500D6F6CB /* HandleResponseDelegate.swift in Sources */,
 				97A2F45E2629CA5B000E95B1 /* ServiceError.swift in Sources */,
 				9748C8B92625AEBA00EB9AD8 /* CurrencyService.swift in Sources */,
 			);
