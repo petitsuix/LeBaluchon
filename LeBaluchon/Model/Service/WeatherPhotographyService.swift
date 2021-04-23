@@ -7,7 +7,14 @@
 
 import UIKit
 
-class APIWeatherPhoto: HandleResponseDelegate {
+class UnsplashApi: HandleResponseDelegate {
+    
+    private var task: URLSessionDataTask?
+    private var urlSession: URLSession
+
+    init(urlSession: URLSession = URLSession(configuration: .default)) {
+        self.urlSession = urlSession
+    }
     
     func getUrl(from collectionId: String) -> String {
         let stringUrl = "https://api.unsplash.com/collections/\(collectionId)/photos/?client_id=nLJumqeaMtCuWU558JLsNHtBzT5V1qhlQIgOiq-ysok"
@@ -18,9 +25,11 @@ class APIWeatherPhoto: HandleResponseDelegate {
         guard let unsplashPhotoUrl = URL(string: getUrl(from: collectionId)) else {
             return completion(.failure(.invalidUrl))
         }
-        URLSession.shared.dataTask(with: unsplashPhotoUrl, completionHandler: { (data, response, error) in
+        task?.cancel()
+        task = urlSession.dataTask(with: unsplashPhotoUrl, completionHandler: { (data, response, error) in
             let result = self.handleResponse(dataType: [MainWeatherPhotoInfo].self, data, response, error)
             completion(result)
-        }).resume()
+        })
+        task?.resume()
     }
 }

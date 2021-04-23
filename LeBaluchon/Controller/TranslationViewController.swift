@@ -14,7 +14,7 @@ class TranslationViewController: UIViewController {
     }
     @IBOutlet weak var resultTranslatedText: UITextView!
     
-    var googleApi = APITranslation()
+    var googleApi = GoogleTranslateApi()
     var resultTranslation: MainTranslationInfo?
     
     override func viewDidLoad() {
@@ -36,16 +36,6 @@ class TranslationViewController: UIViewController {
             }
         }
     }
-    
-//    func fetchTranslation() {
-//        googleApi.fetchTranslationData(textToTranslateBubble.text) { (decodedData, error) in
-//            print(error ?? "")
-//            self.resultTranslation = decodedData
-//            DispatchQueue.main.async {
-//                self.updateUI()
-//            }
-//        }
-//    }
     
     func updateUI() {
         resultTranslatedText.isEditable = false

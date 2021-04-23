@@ -7,7 +7,14 @@
 
 import UIKit
 
-class APIMeteo: HandleResponseDelegate {
+class OpenWeatherApi: HandleResponseDelegate {
+    
+    private var task: URLSessionDataTask?
+    private var urlSession: URLSession
+
+    init(urlSession: URLSession = URLSession(configuration: .default)) {
+        self.urlSession = urlSession
+    }
     
     let newyorkId = "5128581"
     let lyonId = "2996944"
@@ -21,10 +28,12 @@ class APIMeteo: HandleResponseDelegate {
         guard let openWeatherUrl = URL(string: getCityId(cityId)) else {
             return completion(.failure(.invalidUrl))
         }
-        URLSession.shared.dataTask(with: openWeatherUrl, completionHandler: { (data, response, error) in
+        task?.cancel()
+        task = urlSession.dataTask(with: openWeatherUrl, completionHandler: { (data, response, error) in
             let result = self.handleResponse(dataType: MainWeatherInfo.self, data, response, error)
             completion(result)
-        }).resume()
+        })
+        task?.resume()
     }
 }
 

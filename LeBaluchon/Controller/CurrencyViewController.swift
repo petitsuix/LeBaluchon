@@ -15,7 +15,7 @@ class CurrencyViewController: UIViewController {
     @IBOutlet weak var resultLabel: UILabel!
     @IBOutlet weak var eurToDollarsRate: UILabel!
     
-    var fixerApi = APICurrency()
+    var fixerApi = FixerApi(urlSession: URLSession.shared)
     var resultCurrency: MainCurrencyInfo?
     var conversionResult: String = "$"
     
@@ -34,16 +34,9 @@ class CurrencyViewController: UIViewController {
                     self?.updateUI()
                 }
             case .failure(let error):
-                print("error: \(error.errorDescription)") // Afficher UI Alert à la place
+                print(error) // Afficher UI Alert à la place
             }
         }
-        //        fixerApi.fetchCurrencyData() { (decodedData, error) in
-        //            print(error ?? "")
-        //            self.resultCurrency = decodedData
-        //            DispatchQueue.main.async { [weak self] in
-        //                self?.updateUI()
-        //            }
-        //        }
     }
     
     func updateUI() {

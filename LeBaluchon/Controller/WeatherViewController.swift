@@ -18,8 +18,8 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var weatherIcon: UIImageView!
     @IBOutlet weak var cityPhoto: UIImageView!
     
-    var unsplashCityPhotoApi = APIWeatherPhoto()
-    var openWeatherApi = APIMeteo()
+    var unsplashCityPhotoApi = UnsplashApi()
+    var openWeatherApi = OpenWeatherApi()
     var resultNewyorkWeather: MainWeatherInfo?
     var resultLyonWeather: MainWeatherInfo?
     var resultCityPhoto: MainWeatherPhotoInfo?
@@ -48,7 +48,7 @@ class WeatherViewController: UIViewController {
                     // fetchPhoto (in collection) "3541178", 2nd parameter is used to update UI from the right json results, depending on the city
                 }
             case .failure(let error):
-                print("error: \(error.errorDescription) for NY weather")
+                print(error)
             }
         }
     }
@@ -81,15 +81,7 @@ class WeatherViewController: UIViewController {
             }
         }
     }
-    //
-    //    func fetchPhoto(_ collectionId: String, _ cityResults: MainWeatherInfo?) {
-    //        unsplashCityPhotoApi.fetchWeatherPhotoData(collectionId: collectionId) { [weak self] (decodedData, error) in
-    //            print(error ?? "")
-    //            self?.resultCityPhoto = decodedData
-    //            self?.updateUI(cityResults: cityResults)
-    //        }
-    //    }
-    
+
     func updateUI(cityResults: MainWeatherInfo?) {
         guard let results = cityResults else { return }
         guard let resultsFirst = results.weather.first else { return }

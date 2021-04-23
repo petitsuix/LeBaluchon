@@ -12,14 +12,14 @@ class HandleResponseDelegate {
     func handleResponse<T>(dataType: T.Type,_ data: Data?, _ response: URLResponse?, _ error: Error?) -> Result<T, ServiceError> where T: Decodable {
         
         if let error = error {
-            return .failure(.errorFromApi(error.localizedDescription)) // .APIError
+            return .failure(.errorFromApi(error.localizedDescription))
         }
         
         guard let response = response as? HTTPURLResponse else {
             return .failure(.invalidResponse)
         }
         
-        guard response.statusCode == 200 else { // ça peut être d'autre status code valides (d'autres codes)
+        guard response.statusCode == 200 else {
             return .failure(.invalidStatusCode)
         }
         

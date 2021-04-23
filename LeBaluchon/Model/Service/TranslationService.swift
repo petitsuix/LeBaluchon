@@ -7,7 +7,14 @@
 
 import UIKit
 
-class APITranslation: HandleResponseDelegate {
+class GoogleTranslateApi: HandleResponseDelegate {
+    
+    private var task: URLSessionDataTask?
+    private var urlSession: URLSession
+
+    init(urlSession: URLSession = URLSession(configuration: .default)) {
+        self.urlSession = urlSession
+    }
     
     func getPersonalizedUrl(_ textToTranslate: String) -> String {
     let stringUrl = "https://translation.googleapis.com/language/translate/v2?key=AIzaSyBpDSTXoUFEhOtTpSTyi9syvijoeDsXF7I&target=en&q=\(textToTranslate)&source=fr"
@@ -19,10 +26,12 @@ class APITranslation: HandleResponseDelegate {
         guard let googleUrl = URL(string: getPersonalizedUrl(textToTranslate).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!) else {
             return completion(.failure(.invalidUrl))
         }
-        URLSession.shared.dataTask(with: googleUrl, completionHandler: { (data, response, error) in
+        task?.cancel()
+        task = urlSession.dataTask(with: googleUrl, completionHandler: { (data, response, error) in
             let result = self.handleResponse(dataType: MainTranslationInfo.self, data, response, error)
             completion(result)
-        }).resume()
+        })
+        task?.resume()
     }
 }
 
