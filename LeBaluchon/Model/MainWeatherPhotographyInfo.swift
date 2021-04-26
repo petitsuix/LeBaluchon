@@ -12,5 +12,5 @@ struct MainWeatherPhotoInfo: Decodable {
 }
 
 struct Url: Decodable {
-    var raw: String
+    var regular: String
 }

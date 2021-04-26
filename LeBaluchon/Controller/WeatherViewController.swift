@@ -17,6 +17,7 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var skyDescription: UILabel!
     @IBOutlet weak var weatherIcon: UIImageView!
     @IBOutlet weak var cityPhoto: UIImageView!
+    @IBOutlet weak var weatherInfoWhiteBackground: UIView!
     
     var unsplashCityPhotoApi = UnsplashApi()
     var openWeatherApi = OpenWeatherApi()
@@ -43,7 +44,7 @@ class WeatherViewController: UIViewController {
             switch result {
             case .success(let weatherInfo):
                 self?.resultNewyorkWeather = weatherInfo
-                DispatchQueue.main.async { [weak self] in
+                DispatchQueue.main.async {
                     self?.fetchPhoto("3541178", self?.resultNewyorkWeather)
                     // fetchPhoto (in collection) "3541178", 2nd parameter is used to update UI from the right json results, depending on the city
                 }
@@ -59,7 +60,7 @@ class WeatherViewController: UIViewController {
             switch result {
             case .success(let weatherInfo):
                 self?.resultLyonWeather = weatherInfo
-                DispatchQueue.main.async { [weak self] in
+                DispatchQueue.main.async {
                     self?.fetchPhoto("426804", self?.resultLyonWeather)
                     // fetchPhoto (in collection) "3541178", 2nd parameter is used to update UI from the right json results, depending on the city
                 }
@@ -75,7 +76,7 @@ class WeatherViewController: UIViewController {
             switch result {
             case .success(let weatherPhotoInfo):
                 self?.resultCityPhoto = weatherPhotoInfo.randomElement()
-                DispatchQueue.main.async { [weak self] in
+                DispatchQueue.main.async {
                 self?.updateUI(cityResults: cityResults)
                 }
             case .failure(let error):
@@ -96,7 +97,12 @@ class WeatherViewController: UIViewController {
         self.maximumTemp.text = "temp. maxi : \(String(results.main.temp_max.shortDigitsIn(1)))°C"
         self.skyDescription.text = results.weather[0].description.capitalizingFirstLetter()
         self.weatherIcon.loadIcon(resultsFirst.icon)
-        self.cityPhoto.loadCityPhoto(photo.urls.raw)
+        self.cityPhoto.loadCityPhoto(photo.urls.regular)
+        self.weatherInfoWhiteBackground.layer.masksToBounds = true
+        self.weatherInfoWhiteBackground.layer.cornerRadius = 15
+        self.weatherInfoWhiteBackground.layer.borderWidth = 3
+        self.weatherInfoWhiteBackground.layer.borderColor = UIColor.systemGray5.cgColor
+        self.weatherIcon.addShadow()
     }
 }
 

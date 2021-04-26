@@ -50,7 +50,7 @@ class CurrencyViewController: UIViewController {
         self.eurToDollarsRate.text = "1€ = \(usdRate.shortDigitsIn(4))$"
         resultLabel.layer.masksToBounds = true
         resultLabel.layer.cornerRadius = 5
-        resultLabel.text = "\(floatTextField * usdRate) $"
+        resultLabel.text = "\((floatTextField * usdRate).shortDigitsIn(4)) $"
     }
     @IBAction func convertButton(_ sender: UIButton) {
         fetchCurrency()

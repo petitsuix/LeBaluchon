@@ -83,7 +83,7 @@ class UnsplashApiTestCase: XCTestCase {
                 return
             }
             XCTAssertNotNil(success)
-            XCTAssertEqual(raw, success[0].urls.raw)
+            XCTAssertEqual(raw, success[0].urls.regular)
         }
     }
 }
