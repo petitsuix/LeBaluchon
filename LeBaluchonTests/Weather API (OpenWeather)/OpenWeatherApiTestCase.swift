@@ -25,4 +25,70 @@ class OpenWeatherApiTestCase: XCTestCase {
             XCTAssertNotNil(error)
         }
     }
+    
+    func testGetCurrencyShouldPostFailedCompletionIfNoData() throws {
+        // Given :
+        let weatherService = OpenWeatherApi(
+            urlSession: URLSessionFake(data: nil, response: nil, error: nil)
+        )
+        // When :
+        weatherService.fetchWeatherData(cityId: weatherService.newyorkId) { (result) in
+            // Then :
+            guard case .failure(let error) = result else {
+                return
+            }
+            XCTAssertNotNil(error)
+        }
+    }
+    
+    func testGetCurrencyShouldPostFailedCompletionIfIncorrectResponse() throws {
+        // Given :
+        let weatherService = OpenWeatherApi(
+            urlSession: URLSessionFake(data: FakeResponseData.fixerCorrectData, response: FakeResponseData.responseKO, error: nil)
+        )
+        // When :
+        weatherService.fetchWeatherData(cityId: weatherService.newyorkId) { (result) in
+            // Then :
+            guard case .failure(let error) = result else {
+                return
+            }
+            XCTAssertNotNil(error)
+        }
+    }
+    
+    func testGetCurrencyShouldPostFailedCompletionIfIncorrectData() throws {
+        // Given :
+        let weatherService = OpenWeatherApi(
+            urlSession: URLSessionFake(data: FakeResponseData.incorrectData, response: FakeResponseData.responseOK, error: nil)
+        )
+        // When :
+        weatherService.fetchWeatherData(cityId: weatherService.newyorkId) { (result) in
+            // Then :
+            guard case .failure(let error) = result else {
+                return
+            }
+            XCTAssertNotNil(error)
+        }
+    }
+    
+    func testGetCurrencyShouldPostSuccessCompletionIfNoErrorAndCorrectData() throws {
+        // Given :
+        let weatherService = OpenWeatherApi(
+            urlSession: URLSessionFake(data: FakeResponseData.fixerCorrectData, response: FakeResponseData.responseOK, error: nil)
+        )
+        // When :
+        weatherService.fetchWeatherData(cityId: weatherService.newyorkId) { (result) in
+            let temp = Float(8.02)
+            let description = "ciel dégagé"
+            let icon = "01d"
+            // Then :
+            guard case .success(let success) = result else {
+                return
+            }
+            XCTAssertNotNil(success)
+            XCTAssertEqual(temp, success.main.temp)
+            XCTAssertEqual(description, success.weather[0].description)
+            XCTAssertEqual(icon, success.weather[0].icon)
+        }
+    }
 }

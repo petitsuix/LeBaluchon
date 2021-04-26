@@ -49,6 +49,7 @@ class WeatherViewController: UIViewController {
                 }
             case .failure(let error):
                 print(error)
+                self?.errorFetchingData()
             }
         }
     }
@@ -63,7 +64,8 @@ class WeatherViewController: UIViewController {
                     // fetchPhoto (in collection) "3541178", 2nd parameter is used to update UI from the right json results, depending on the city
                 }
             case .failure(let error):
-                print("error: \(error.errorDescription) for Lyon weather")
+                print("error: \(error) for Lyon weather")
+                self?.errorFetchingData()
             }
         }
     }
@@ -77,7 +79,8 @@ class WeatherViewController: UIViewController {
                 self?.updateUI(cityResults: cityResults)
                 }
             case .failure(let error):
-                print("error: \(error.errorDescription) for weather photo")
+                print("error: \(error) for weather photo")
+                self?.errorFetchingData()
             }
         }
     }

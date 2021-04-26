@@ -34,7 +34,9 @@ class CurrencyViewController: UIViewController {
                     self?.updateUI()
                 }
             case .failure(let error):
-                print(error) // Afficher UI Alert à la place
+                print(error)
+                self?.errorFetchingData()
+            // Afficher UI Alert à la place
             }
         }
     }

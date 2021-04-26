@@ -8,36 +8,36 @@
 import Foundation
 
 class FakeResponseData {
-    let responseOK = HTTPURLResponse(url: URL(string: "https://google.com")!,
+    static let responseOK = HTTPURLResponse(url: URL(string: "https://google.com")!,
                                      statusCode: 200, httpVersion: nil, headerFields: nil)!
-    let responseKO = HTTPURLResponse(url: URL(string: "https://google.com")!,
+    static let responseKO = HTTPURLResponse(url: URL(string: "https://google.com")!,
                                      statusCode: 500, httpVersion: nil, headerFields: nil)!
     
     class FakeError: Error {}
     static let error = FakeError()
     
-    var fixerCorrectData: Data {
+    static var fixerCorrectData: Data {
         let bundle = Bundle(for: FakeResponseData.self)
         let url = bundle.url(forResource: "Fixer", withExtension: "json")
         let data = try! Data(contentsOf: url!)
         return data
     }
     
-    var openWeatherCorrectData: Data {
+    static var openWeatherCorrectData: Data {
         let bundle = Bundle(for: FakeResponseData.self)
         let url = bundle.url(forResource: "OpenWeather", withExtension: "json")
         let data = try! Data(contentsOf: url!)
         return data
     }
     
-    var unsplashCorrectData: Data {
+    static var unsplashCorrectData: Data {
         let bundle = Bundle(for: FakeResponseData.self)
         let url = bundle.url(forResource: "Unsplash", withExtension: "json")
         let data = try! Data(contentsOf: url!)
         return data
     }
     
-    var googleTranslateCorrectData: Data {
+    static var googleTranslateCorrectData: Data {
         let bundle = Bundle(for: FakeResponseData.self)
         let url = bundle.url(forResource: "GoogleTranslate", withExtension: "json")
         let data = try! Data(contentsOf: url!)
@@ -45,7 +45,7 @@ class FakeResponseData {
     }
     
     
-    let incorrectData = "erreur".data(using: .utf8)!
+    static let incorrectData = "erreur".data(using: .utf8)!
     
     
 }

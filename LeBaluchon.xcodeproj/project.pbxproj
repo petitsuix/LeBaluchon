@@ -38,6 +38,7 @@
 		97A2F45E2629CA5B000E95B1 /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A2F45D2629CA5B000E95B1 /* ServiceError.swift */; };
 		97A2F4632629D99D000E95B1 /* logo-fr.png in Resources */ = {isa = PBXBuildFile; fileRef = 97A2F4622629D99C000E95B1 /* logo-fr.png */; };
 		97A2F4682629D9A4000E95B1 /* logo-en.png in Resources */ = {isa = PBXBuildFile; fileRef = 97A2F4672629D9A4000E95B1 /* logo-en.png */; };
+		97A447BD2636E8B20047FF4D /* ExtensionUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A447BC2636E8B20047FF4D /* ExtensionUIViewController.swift */; };
 		97D4D5D426273D320058681C /* ExtensionTruncateDecimals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D4D5D326273D320058681C /* ExtensionTruncateDecimals.swift */; };
 		97E5F8AB262DBB7D0018DB65 /* TranslationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E5F8AA262DBB7C0018DB65 /* TranslationService.swift */; };
 		97E5F8B0262DBD190018DB65 /* MainTranslationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E5F8AF262DBD190018DB65 /* MainTranslationInfo.swift */; };
@@ -100,6 +101,7 @@
 		97A2F45D2629CA5B000E95B1 /* ServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceError.swift; sourceTree = "<group>"; };
 		97A2F4622629D99C000E95B1 /* logo-fr.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-fr.png"; sourceTree = "<group>"; };
 		97A2F4672629D9A4000E95B1 /* logo-en.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-en.png"; sourceTree = "<group>"; };
+		97A447BC2636E8B20047FF4D /* ExtensionUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIViewController.swift; sourceTree = "<group>"; };
 		97D4D5D326273D320058681C /* ExtensionTruncateDecimals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionTruncateDecimals.swift; sourceTree = "<group>"; };
 		97E5F8AA262DBB7C0018DB65 /* TranslationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationService.swift; sourceTree = "<group>"; };
 		97E5F8AF262DBD190018DB65 /* MainTranslationInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTranslationInfo.swift; sourceTree = "<group>"; };
@@ -288,6 +290,7 @@
 				97D4D5D326273D320058681C /* ExtensionTruncateDecimals.swift */,
 				976DB8B3262845BE004B662A /* ExtensionUITextField.swift */,
 				9730B8AA262ED41900C6EDC6 /* ExtensionStringForDecimalPad.swift */,
+				97A447BC2636E8B20047FF4D /* ExtensionUIViewController.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -445,6 +448,7 @@
 				97D4D5D426273D320058681C /* ExtensionTruncateDecimals.swift in Sources */,
 				97E5F8AB262DBB7D0018DB65 /* TranslationService.swift in Sources */,
 				972CBD482620A142001A04BF /* MainWeatherInfo.swift in Sources */,
+				97A447BD2636E8B20047FF4D /* ExtensionUIViewController.swift in Sources */,
 				97F1D31026307AA500D6F6CB /* HandleResponseDelegate.swift in Sources */,
 				97A2F45E2629CA5B000E95B1 /* ServiceError.swift in Sources */,
 				9748C8B92625AEBA00EB9AD8 /* CurrencyService.swift in Sources */,

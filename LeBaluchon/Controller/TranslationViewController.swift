@@ -32,7 +32,8 @@ class TranslationViewController: UIViewController {
                 self?.updateUI()
                 }
             case .failure(let error):
-                print("error: \(error.errorDescription) for weather photo")
+                print("error: \(error) for weather photo")
+                self?.errorFetchingData()
             }
         }
     }
