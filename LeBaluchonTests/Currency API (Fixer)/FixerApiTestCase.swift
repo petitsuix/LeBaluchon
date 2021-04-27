@@ -12,7 +12,7 @@ class FixerApiTestCase: XCTestCase {
 
     func testGetCurrencyShouldPostFailedCompletionIfError() throws {
         // Given :
-        let currencyService = FixerApi(
+        let currencyService = CurrencyServiceFixer(
             urlSession: URLSessionFake(data: nil, response: nil, error: FakeResponseData.error)
         )
         // When :
@@ -27,7 +27,7 @@ class FixerApiTestCase: XCTestCase {
     
     func testGetCurrencyShouldPostFailedCompletionIfNoData() throws {
         // Given :
-        let currencyService = FixerApi(
+        let currencyService = CurrencyServiceFixer(
             urlSession: URLSessionFake(data: nil, response: nil, error: nil)
         )
         // When :
@@ -42,7 +42,7 @@ class FixerApiTestCase: XCTestCase {
     
     func testGetCurrencyShouldPostFailedCompletionIfIncorrectResponse() throws {
         // Given :
-        let currencyService = FixerApi(
+        let currencyService = CurrencyServiceFixer(
             urlSession: URLSessionFake(data: FakeResponseData.fixerCorrectData, response: FakeResponseData.responseKO, error: nil)
         )
         // When :
@@ -57,7 +57,7 @@ class FixerApiTestCase: XCTestCase {
     
     func testGetCurrencyShouldPostFailedCompletionIfIncorrectData() throws {
         // Given :
-        let currencyService = FixerApi(
+        let currencyService = CurrencyServiceFixer(
             urlSession: URLSessionFake(data: FakeResponseData.incorrectData, response: FakeResponseData.responseOK, error: nil)
         )
         // When :
@@ -72,7 +72,7 @@ class FixerApiTestCase: XCTestCase {
     
     func testGetCurrencyShouldPostSuccessCompletionIfNoErrorAndCorrectData() throws {
         // Given :
-        let currencyService = FixerApi(
+        let currencyService = CurrencyServiceFixer(
             urlSession: URLSessionFake(data: FakeResponseData.fixerCorrectData, response: FakeResponseData.responseOK, error: nil)
         )
         // When :

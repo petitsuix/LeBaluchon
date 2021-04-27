@@ -107,7 +107,7 @@
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Salutations, voyageurs !" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="P2f-Pz-IOq">
                                 <rect key="frame" x="30" y="63" width="354" height="172"/>
-                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                <color key="backgroundColor" systemColor="systemGray4Color"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -225,7 +225,7 @@
                             </imageView>
                             <segmentedControl contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="RMb-HV-vC7">
                                 <rect key="frame" x="20" y="742" width="374" height="41"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="9Zi-t2-LnL"/>
                                 </constraints>
@@ -239,7 +239,7 @@
                                     <action selector="didChangeSegment:" destination="BYZ-38-t0r" eventType="valueChanged" id="F13-E1-wIm"/>
                                 </connections>
                             </segmentedControl>
-                            <view alpha="0.84999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aOu-3q-wBC">
+                            <view alpha="0.90000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aOu-3q-wBC">
                                 <rect key="frame" x="114" y="205" width="183" height="427"/>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                             </view>
@@ -249,15 +249,13 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="loading" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sfy-pN-lPe" userLabel="Sky description">
                                         <rect key="frame" x="114" y="0.0" width="58.5" height="59.5"/>
                                         <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="17"/>
-                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="highlightedColor" systemColor="labelColor"/>
                                         <color key="shadowColor" systemColor="systemGray2Color"/>
                                         <size key="shadowOffset" width="1" height="0.0"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- °C" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0JW-P0-CzU" userLabel="Temperature">
-                                        <rect key="frame" x="118.5" y="67.5" width="49" height="59.5"/>
-                                        <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="24"/>
-                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <rect key="frame" x="118.5" y="67.5" width="49.5" height="59.5"/>
+                                        <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="24"/>
                                         <color key="highlightedColor" systemColor="labelColor"/>
                                         <color key="shadowColor" systemColor="systemGray2Color"/>
                                         <size key="shadowOffset" width="1" height="0.0"/>
@@ -265,7 +263,6 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- °C" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cS7-rx-xjl" userLabel="Feels like temperature">
                                         <rect key="frame" x="125.5" y="135" width="35" height="59"/>
                                         <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="17"/>
-                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="highlightedColor" systemColor="labelColor"/>
                                         <color key="shadowColor" systemColor="systemGray2Color"/>
                                         <size key="shadowOffset" width="1" height="0.0"/>
@@ -273,7 +270,6 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- °C" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UWI-PR-AOP" userLabel="Minimum temp">
                                         <rect key="frame" x="125.5" y="202" width="35" height="59.5"/>
                                         <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="17"/>
-                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="highlightedColor" systemColor="labelColor"/>
                                         <color key="shadowColor" systemColor="systemGray2Color"/>
                                         <size key="shadowOffset" width="1" height="0.0"/>
@@ -281,7 +277,6 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- °C" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zx3-H3-9u9" userLabel="Max temp">
                                         <rect key="frame" x="125.5" y="269.5" width="35" height="59.5"/>
                                         <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="17"/>
-                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="highlightedColor" systemColor="labelColor"/>
                                         <color key="shadowColor" systemColor="systemGray2Color"/>
                                         <size key="shadowOffset" width="1" height="0.0"/>
@@ -323,6 +318,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Météo" image="cloud.sun" catalog="system" id="rGZ-jj-Mfq"/>
                     <connections>
+                        <outlet property="cityLocationSegmentedControl" destination="RMb-HV-vC7" id="doK-Jv-aXd"/>
                         <outlet property="cityName" destination="Pwg-Qo-f52" id="dJP-ox-lG8"/>
                         <outlet property="cityPhoto" destination="ECg-Ag-qHN" id="dI6-lJ-WRW"/>
                         <outlet property="maximumTemp" destination="zx3-H3-9u9" id="DML-EX-Zyj"/>

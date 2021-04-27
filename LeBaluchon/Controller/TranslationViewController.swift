@@ -14,7 +14,7 @@ class TranslationViewController: UIViewController {
     }
     @IBOutlet weak var resultTranslatedText: UITextView!
     
-    var googleApi = GoogleTranslateApi()
+    var googleApi = TranslationServiceGoogle()
     var resultTranslation: MainTranslationInfo?
     
     override func viewDidLoad() {

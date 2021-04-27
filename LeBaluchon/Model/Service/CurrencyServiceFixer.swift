@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FixerApi: HandleResponseDelegate {
+class CurrencyServiceFixer: HandleResponseDelegate {
    
     
     private var task: URLSessionDataTask?

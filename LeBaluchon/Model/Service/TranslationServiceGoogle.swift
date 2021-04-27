@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GoogleTranslateApi: HandleResponseDelegate {
+class TranslationServiceGoogle: HandleResponseDelegate {
     
     private var task: URLSessionDataTask?
     private var urlSession: URLSession

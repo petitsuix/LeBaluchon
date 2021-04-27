@@ -18,9 +18,11 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var weatherIcon: UIImageView!
     @IBOutlet weak var cityPhoto: UIImageView!
     @IBOutlet weak var weatherInfoWhiteBackground: UIView!
+    @IBOutlet weak var cityLocationSegmentedControl: UISegmentedControl!
     
-    var unsplashCityPhotoApi = UnsplashApi()
-    var openWeatherApi = OpenWeatherApi()
+    var weatherPhotoService = WeatherPhotoServiceUnsplash()
+    var openWeatherService = OpenWeatherService()
+    
     var resultNewyorkWeather: MainWeatherInfo?
     var resultLyonWeather: MainWeatherInfo?
     var resultCityPhoto: MainWeatherPhotoInfo?
@@ -40,7 +42,7 @@ class WeatherViewController: UIViewController {
     }
     
     func fetchNewyorkWeather() {
-        openWeatherApi.fetchWeatherData(cityId: openWeatherApi.newyorkId) { [weak self] (result) in
+        openWeatherService.fetchWeatherData(cityId: openWeatherService.newyorkId) { [weak self] (result) in
             switch result {
             case .success(let weatherInfo):
                 self?.resultNewyorkWeather = weatherInfo
@@ -56,7 +58,7 @@ class WeatherViewController: UIViewController {
     }
     
     func fetchLyonWeather() {
-        openWeatherApi.fetchWeatherData(cityId: openWeatherApi.lyonId) { [weak self] (result) in
+        openWeatherService.fetchWeatherData(cityId: openWeatherService.lyonId) { [weak self] (result) in
             switch result {
             case .success(let weatherInfo):
                 self?.resultLyonWeather = weatherInfo
@@ -72,7 +74,7 @@ class WeatherViewController: UIViewController {
     }
     
     func fetchPhoto(_ collectionId: String, _ cityResults: MainWeatherInfo?) {
-        unsplashCityPhotoApi.fetchWeatherPhotoData(collectionId: collectionId) { [weak self] (result) in
+        weatherPhotoService.fetchWeatherPhotoData(collectionId: collectionId) { [weak self] (result) in
             switch result {
             case .success(let weatherPhotoInfo):
                 self?.resultCityPhoto = weatherPhotoInfo.randomElement()
@@ -101,8 +103,9 @@ class WeatherViewController: UIViewController {
         self.weatherInfoWhiteBackground.layer.masksToBounds = true
         self.weatherInfoWhiteBackground.layer.cornerRadius = 15
         self.weatherInfoWhiteBackground.layer.borderWidth = 3
-        self.weatherInfoWhiteBackground.layer.borderColor = UIColor.systemGray5.cgColor
+        self.weatherInfoWhiteBackground.layer.borderColor = UIColor.quaternaryLabel.cgColor
         self.weatherIcon.addShadow()
+        self.cityLocationSegmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: UIControl.State.normal)
     }
 }
 

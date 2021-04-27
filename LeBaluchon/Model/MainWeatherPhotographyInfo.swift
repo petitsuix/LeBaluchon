@@ -8,9 +8,9 @@
 import Foundation
 
 struct MainWeatherPhotoInfo: Decodable {
-    var urls: Url
+    let urls: Url
 }
 
 struct Url: Decodable {
-    var regular: String
+    let regular: String
 }

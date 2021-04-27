@@ -7,7 +7,7 @@
 
 import UIKit
 
-class OpenWeatherApi: HandleResponseDelegate {
+class OpenWeatherService: HandleResponseDelegate {
     
     private var task: URLSessionDataTask?
     private var urlSession: URLSession

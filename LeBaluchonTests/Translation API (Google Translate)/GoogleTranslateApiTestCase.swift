@@ -12,7 +12,7 @@ class GoogleTranslateApiTestCase: XCTestCase {
     
     func testGetTranslationShouldPostFailedCompletionIfError() throws {
         // Given :
-        let translationService = GoogleTranslateApi(
+        let translationService = TranslationServiceGoogle(
             urlSession: URLSessionFake(data: nil, response: nil, error: FakeResponseData.error)
         )
         // When :
@@ -27,7 +27,7 @@ class GoogleTranslateApiTestCase: XCTestCase {
     
     func testGetCurrencyShouldPostFailedCompletionIfNoData() throws {
         // Given :
-        let translationService = GoogleTranslateApi(
+        let translationService = TranslationServiceGoogle(
             urlSession: URLSessionFake(data: nil, response: nil, error: nil)
         )
         // When :
@@ -42,7 +42,7 @@ class GoogleTranslateApiTestCase: XCTestCase {
     
     func testGetCurrencyShouldPostFailedCompletionIfIncorrectResponse() throws {
         // Given :
-        let translationService = GoogleTranslateApi(
+        let translationService = TranslationServiceGoogle(
             urlSession: URLSessionFake(data: FakeResponseData.fixerCorrectData, response: FakeResponseData.responseKO, error: nil)
         )
         // When :
@@ -57,7 +57,7 @@ class GoogleTranslateApiTestCase: XCTestCase {
     
     func testGetCurrencyShouldPostFailedCompletionIfIncorrectData() throws {
         // Given :
-        let translationService = GoogleTranslateApi(
+        let translationService = TranslationServiceGoogle(
             urlSession: URLSessionFake(data: FakeResponseData.incorrectData, response: FakeResponseData.responseOK, error: nil)
         )
         // When :
@@ -72,7 +72,7 @@ class GoogleTranslateApiTestCase: XCTestCase {
     
     func testGetCurrencyShouldPostSuccessCompletionIfNoErrorAndCorrectData() throws {
         // Given :
-        let translationService = GoogleTranslateApi(
+        let translationService = TranslationServiceGoogle(
             urlSession: URLSessionFake(data: FakeResponseData.fixerCorrectData, response: FakeResponseData.responseOK, error: nil)
         )
         // When :

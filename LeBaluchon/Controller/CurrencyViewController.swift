@@ -9,15 +9,16 @@ import UIKit
 
 class CurrencyViewController: UIViewController {
     
-    @IBOutlet weak var euroTextField: UITextField! {
-        didSet { euroTextField?.addDoneCancelToolbar() }
-    }
-    @IBOutlet weak var resultLabel: UILabel!
-    @IBOutlet weak var eurToDollarsRate: UILabel!
+    // MARK: - Properties
     
-    var fixerApi = FixerApi(urlSession: URLSession.shared)
+    @IBOutlet weak var euroTextField: UITextField! { didSet { euroTextField?.addDoneCancelToolbar() } } // Contains user's base amount to convert (in €)
+    @IBOutlet weak var eurToDollarsRate: UILabel! // euro to dollar conversion rate
+    @IBOutlet weak var resultLabel: UILabel! // conversion result
+    
+    var currencyService = CurrencyServiceFixer()
     var resultCurrency: MainCurrencyInfo?
-    var conversionResult: String = "$"
+    
+    // MARK: - View life cycle methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,9 +26,15 @@ class CurrencyViewController: UIViewController {
         fetchCurrency()
     }
     
+    // MARK: - Methods
+    
+    @IBAction func convertButton(_ sender: UIButton) {
+        fetchCurrency()
+    }
+    
     func fetchCurrency() {
-        fixerApi.fetchCurrencyData { [weak self] (result) in
-            switch result {
+        currencyService.fetchCurrencyData { [weak self] (result) in
+            switch result { // Switching on result, can be either success or failure
             case .success(let currencyInfo):
                 self?.resultCurrency = currencyInfo
                 DispatchQueue.main.async { [weak self] in
@@ -35,8 +42,7 @@ class CurrencyViewController: UIViewController {
                 }
             case .failure(let error):
                 print(error)
-                self?.errorFetchingData()
-            // Afficher UI Alert à la place
+                self?.errorFetchingData() // Affiche UIAlert
             }
         }
     }
@@ -44,15 +50,11 @@ class CurrencyViewController: UIViewController {
     func updateUI() {
         guard let currency = resultCurrency,
               let euroTextField = euroTextField.text,
-              let finalEuroTextField = euroTextField.floatValue,
-              let floatTextField = Float?(finalEuroTextField),
+              let euroTextFieldFloatValue = euroTextField.floatValue,
               let usdRate = currency.rates.USD else { return }
         self.eurToDollarsRate.text = "1€ = \(usdRate.shortDigitsIn(4))$"
         resultLabel.layer.masksToBounds = true
         resultLabel.layer.cornerRadius = 5
-        resultLabel.text = "\((floatTextField * usdRate).shortDigitsIn(4)) $"
-    }
-    @IBAction func convertButton(_ sender: UIButton) {
-        fetchCurrency()
+        resultLabel.text = "\((euroTextFieldFloatValue * usdRate).shortDigitsIn(4)) $"
     }
 }
