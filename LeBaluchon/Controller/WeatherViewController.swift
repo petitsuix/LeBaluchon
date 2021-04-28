@@ -43,51 +43,51 @@ class WeatherViewController: UIViewController {
     
     func fetchNewyorkWeather() {
         openWeatherService.fetchWeatherData(cityId: openWeatherService.newyorkId) { [weak self] (result) in
-            switch result {
-            case .success(let weatherInfo):
-                self?.resultNewyorkWeather = weatherInfo
-                DispatchQueue.main.async {
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let weatherInfo):
+                    self?.resultNewyorkWeather = weatherInfo
                     self?.fetchPhoto("3541178", self?.resultNewyorkWeather)
-                    // fetchPhoto (in collection) "3541178", 2nd parameter is used to update UI from the right json results, depending on the city
+                // fetchPhoto (in collection) "3541178", 2nd parameter is used to update UI from the right json results, depending on the city
+                case .failure(let error):
+                    print("error: \(error) for New York weather")
+                    self?.errorFetchingData()
                 }
-            case .failure(let error):
-                print(error)
-                self?.errorFetchingData()
             }
         }
     }
     
     func fetchLyonWeather() {
         openWeatherService.fetchWeatherData(cityId: openWeatherService.lyonId) { [weak self] (result) in
-            switch result {
-            case .success(let weatherInfo):
-                self?.resultLyonWeather = weatherInfo
-                DispatchQueue.main.async {
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let weatherInfo):
+                    self?.resultLyonWeather = weatherInfo
                     self?.fetchPhoto("426804", self?.resultLyonWeather)
-                    // fetchPhoto (in collection) "3541178", 2nd parameter is used to update UI from the right json results, depending on the city
+                // fetchPhoto (in collection) "3541178", 2nd parameter is used to update UI from the right json results, depending on the city
+                case .failure(let error):
+                    print("error: \(error) for Lyon weather")
+                    self?.errorFetchingData()
                 }
-            case .failure(let error):
-                print("error: \(error) for Lyon weather")
-                self?.errorFetchingData()
             }
         }
     }
     
     func fetchPhoto(_ collectionId: String, _ cityResults: MainWeatherInfo?) {
         weatherPhotoService.fetchWeatherPhotoData(collectionId: collectionId) { [weak self] (result) in
-            switch result {
-            case .success(let weatherPhotoInfo):
-                self?.resultCityPhoto = weatherPhotoInfo.randomElement()
-                DispatchQueue.main.async {
-                self?.updateUI(cityResults: cityResults)
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let weatherPhotoInfo): // enum with associated value
+                    self?.resultCityPhoto = weatherPhotoInfo.randomElement() // random photo in album
+                    self?.updateUI(cityResults: cityResults)
+                case .failure(let error):
+                    print("error: \(error) for weather photo")
+                    self?.errorFetchingData()
                 }
-            case .failure(let error):
-                print("error: \(error) for weather photo")
-                self?.errorFetchingData()
             }
         }
     }
-
+    
     func updateUI(cityResults: MainWeatherInfo?) {
         guard let results = cityResults else { return }
         guard let resultsFirst = results.weather.first else { return }

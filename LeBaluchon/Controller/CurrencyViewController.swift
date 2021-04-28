@@ -11,7 +11,7 @@ class CurrencyViewController: UIViewController {
     
     // MARK: - Properties
     
-    @IBOutlet weak var euroTextField: UITextField! { didSet { euroTextField?.addDoneCancelToolbar() } } // Contains user's base amount to convert (in €)
+    @IBOutlet weak var euroTextField: UITextField! { didSet { euroTextField?.addDoneToolbar() } } // Contains user's base amount to convert (in €)
     @IBOutlet weak var eurToDollarsRate: UILabel! // euro to dollar conversion rate
     @IBOutlet weak var resultLabel: UILabel! // conversion result
     
@@ -50,11 +50,11 @@ class CurrencyViewController: UIViewController {
     func updateUI() {
         guard let currency = resultCurrency,
               let euroTextField = euroTextField.text,
-              let euroTextFieldFloatValue = euroTextField.floatValue,
+              let euroTextFieldFloat = Float(euroTextField.replacingOccurrences(of: ",", with: ".")),
               let usdRate = currency.rates.USD else { return }
         self.eurToDollarsRate.text = "1€ = \(usdRate.shortDigitsIn(4))$"
         resultLabel.layer.masksToBounds = true
         resultLabel.layer.cornerRadius = 5
-        resultLabel.text = "\((euroTextFieldFloatValue * usdRate).shortDigitsIn(4)) $"
+        resultLabel.text = "\((euroTextFieldFloat * usdRate).shortDigitsIn(4)) $"
     }
 }

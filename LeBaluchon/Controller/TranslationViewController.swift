@@ -10,7 +10,7 @@ import UIKit
 class TranslationViewController: UIViewController {
     
     @IBOutlet weak var textToTranslateBubble: UITextView! {
-        didSet { textToTranslateBubble?.addDoneCancelToolbar() }
+        didSet { textToTranslateBubble?.addDoneToolbar() }
     }
     @IBOutlet weak var resultTranslatedText: UITextView!
     
@@ -25,15 +25,15 @@ class TranslationViewController: UIViewController {
     
     func fetchTranslation() {
         googleApi.fetchTranslationData(textToTranslateBubble.text) { [weak self] (result) in
-            switch result {
-            case .success(let translationInfo):
-                self?.resultTranslation = translationInfo
-                DispatchQueue.main.async { [weak self] in
-                self?.updateUI()
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let translationInfo):
+                    self?.resultTranslation = translationInfo
+                    self?.updateUI()
+                case .failure(let error):
+                    print("error: \(error) for weather photo")
+                    self?.errorFetchingData()
                 }
-            case .failure(let error):
-                print("error: \(error) for weather photo")
-                self?.errorFetchingData()
             }
         }
     }
