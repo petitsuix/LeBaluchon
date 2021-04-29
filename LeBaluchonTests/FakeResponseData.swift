@@ -43,10 +43,6 @@ class FakeResponseData {
         let data = try! Data(contentsOf: url!)
         return data
     }
-    
-    
     static let incorrectData = "erreur".data(using: .utf8)!
-    
-    
 }
 

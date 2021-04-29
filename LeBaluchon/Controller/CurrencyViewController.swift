@@ -52,7 +52,7 @@ class CurrencyViewController: UIViewController {
               let euroTextField = euroTextField.text,
               let euroTextFieldFloat = Float(euroTextField.replacingOccurrences(of: ",", with: ".")),
               let usdRate = currency.rates.USD else { return }
-        self.eurToDollarsRate.text = "1€ = \(usdRate.shortDigitsIn(4))$"
+        eurToDollarsRate.text = "1€ = \(usdRate.shortDigitsIn(4))$"
         resultLabel.layer.masksToBounds = true
         resultLabel.layer.cornerRadius = 5
         resultLabel.text = "\((euroTextFieldFloat * usdRate).shortDigitsIn(4)) $"

@@ -17,7 +17,7 @@ class TranslationServiceGoogle: HandleResponseDelegate {
     }
     
     func getPersonalizedUrl(_ textToTranslate: String) -> String {
-    let stringUrl = "https://translation.googleapis.com/language/translate/v2?key=AIzaSyBpDSTXoUFEhOtTpSTyi9syvijoeDsXF7I&target=en&q=\(textToTranslate)&source=fr"
+        let stringUrl = "https://translation.googleapis.com/language/translate/v2?key=\(APIKeys.googleTranslateKey)&target=en&q=\(textToTranslate)&source=fr"
         return stringUrl
     }
     

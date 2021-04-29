@@ -9,7 +9,7 @@ import Foundation
 
 class HandleResponseDelegate {
     
-    func handleResponse<T>(dataType: T.Type,_ data: Data?, _ response: URLResponse?, _ error: Error?) -> Result<T, ServiceError> where T: Decodable {
+    func handleResponse<T>(dataType: T.Type, _ data: Data?, _ response: URLResponse?, _ error: Error?) -> Result<T, ServiceError> where T: Decodable {
         
         if let error = error {
             return .failure(.errorFromApi(error.localizedDescription))

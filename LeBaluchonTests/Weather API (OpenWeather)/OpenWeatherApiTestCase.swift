@@ -17,7 +17,7 @@ class OpenWeatherApiTestCase: XCTestCase {
             urlSession: URLSessionFake(data: nil, response: nil, error: FakeResponseData.error)
         )
         // When :
-        weatherService.fetchWeatherData(cityId: weatherService.newyorkId) { (result) in
+        weatherService.fetchWeatherData(cityId: WeatherCityID.newyork.cityID) { (result) in
             // Then :
             guard case .failure(let error) = result else {
                 return
@@ -32,7 +32,7 @@ class OpenWeatherApiTestCase: XCTestCase {
             urlSession: URLSessionFake(data: nil, response: nil, error: nil)
         )
         // When :
-        weatherService.fetchWeatherData(cityId: weatherService.newyorkId) { (result) in
+        weatherService.fetchWeatherData(cityId: WeatherCityID.newyork.cityID) { (result) in
             // Then :
             guard case .failure(let error) = result else {
                 return
@@ -47,7 +47,7 @@ class OpenWeatherApiTestCase: XCTestCase {
             urlSession: URLSessionFake(data: FakeResponseData.fixerCorrectData, response: FakeResponseData.responseKO, error: nil)
         )
         // When :
-        weatherService.fetchWeatherData(cityId: weatherService.newyorkId) { (result) in
+        weatherService.fetchWeatherData(cityId: WeatherCityID.newyork.cityID) { (result) in
             // Then :
             guard case .failure(let error) = result else {
                 return
@@ -62,7 +62,7 @@ class OpenWeatherApiTestCase: XCTestCase {
             urlSession: URLSessionFake(data: FakeResponseData.incorrectData, response: FakeResponseData.responseOK, error: nil)
         )
         // When :
-        weatherService.fetchWeatherData(cityId: weatherService.newyorkId) { (result) in
+        weatherService.fetchWeatherData(cityId: WeatherCityID.newyork.cityID) { (result) in
             // Then :
             guard case .failure(let error) = result else {
                 return
@@ -77,7 +77,7 @@ class OpenWeatherApiTestCase: XCTestCase {
             urlSession: URLSessionFake(data: FakeResponseData.fixerCorrectData, response: FakeResponseData.responseOK, error: nil)
         )
         // When :
-        weatherService.fetchWeatherData(cityId: weatherService.newyorkId) { (result) in
+        weatherService.fetchWeatherData(cityId: WeatherCityID.newyork.cityID) { (result) in
             let temp = Float(8.02)
             let description = "ciel dégagé"
             let icon = "01d"

@@ -9,15 +9,14 @@ import UIKit
 
 class CurrencyServiceFixer: HandleResponseDelegate {
    
-    
     private var task: URLSessionDataTask?
     private var urlSession: URLSession
 
     init(urlSession: URLSession = URLSession(configuration: .default)) {
         self.urlSession = urlSession
     }
-    
-    private let stringUrl = "http://data.fixer.io/api/latest?access_key=4a32bab105ec1a61470fdaabc3fc7ab0&base=EUR&symbols=USD"
+
+    private let stringUrl = "http://data.fixer.io/api/latest?access_key=\(APIKeys.fixerKey)&base=EUR&symbols=USD"
     
     func fetchCurrencyData(completion: @escaping(Result<MainCurrencyInfo, ServiceError>) -> Void) {
         guard let fixerUrl = URL(string: stringUrl) else {

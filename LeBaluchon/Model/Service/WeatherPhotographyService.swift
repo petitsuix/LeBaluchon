@@ -17,7 +17,7 @@ class WeatherPhotoServiceUnsplash: HandleResponseDelegate {
     }
     
     func getUrl(from collectionId: String) -> String {
-        let stringUrl = "https://api.unsplash.com/collections/\(collectionId)/photos/?client_id=nLJumqeaMtCuWU558JLsNHtBzT5V1qhlQIgOiq-ysok"
+        let stringUrl = "https://api.unsplash.com/collections/\(collectionId)/photos/?client_id=\(APIKeys.unsplashKey)"
         return stringUrl
     }
     

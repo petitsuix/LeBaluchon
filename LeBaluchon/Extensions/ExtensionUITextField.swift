@@ -41,7 +41,6 @@ extension UITextView {
 
         self.inputAccessoryView = toolbar
     }
-    // Default actions:
     @objc func doneButtonTapped() { self.resignFirstResponder() }
 }
 
