@@ -9,9 +9,12 @@ import UIKit
 
 // TODO:
 // UIUpdate n'est pas appelé au bon endroit
-// 
+// UITextInput
+// Mettre toutes les correctData de FakeResponseData en une seule et même fonction?
 
 class WeatherViewController: UIViewController {
+    
+    // MARK: - Properties
     
     @IBOutlet weak var cityName: UILabel!
     @IBOutlet weak var temperature: UILabel!
@@ -31,11 +34,20 @@ class WeatherViewController: UIViewController {
     var resultLyonWeather: MainWeatherInfo?
     var resultCityPhoto: MainWeatherPhotoInfo?
     
+    // MARK: - View life cycle methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        weatherInfoWhiteBackground.layer.masksToBounds = true
+        weatherInfoWhiteBackground.layer.cornerRadius = 15
+        weatherInfoWhiteBackground.layer.borderWidth = 3
+        weatherInfoWhiteBackground.layer.borderColor = UIColor.quaternaryLabel.cgColor
+        weatherIcon.addShadow()
         fetchNewyorkWeather()
     }
+    
+    // MARK: - Methods
     
     @IBAction func didChangeSegment(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
@@ -70,7 +82,7 @@ class WeatherViewController: UIViewController {
                 case .success(let weatherInfo):
                     self?.resultLyonWeather = weatherInfo
                     self?.fetchPhoto(Album.lyon.albumID, self?.resultLyonWeather)
-                // fetchPhoto (in collection) "3541178", 2nd parameter is used to update UI from the right json results, depending on the city
+                // fetchPhoto in album, 2nd parameter is used to update UI from the right json results, depending on the city
                 case .failure(let error):
                     print("error: \(error) for Lyon weather")
                     self?.errorFetchingData()
@@ -106,11 +118,6 @@ class WeatherViewController: UIViewController {
         skyDescription.text = results.weather[0].description.capitalizingFirstLetter()
         weatherIcon.loadIcon(resultsFirst.icon)
         cityPhoto.loadCityPhoto(photo.urls.regular)
-        weatherInfoWhiteBackground.layer.masksToBounds = true
-        weatherInfoWhiteBackground.layer.cornerRadius = 15
-        weatherInfoWhiteBackground.layer.borderWidth = 3
-        weatherInfoWhiteBackground.layer.borderColor = UIColor.quaternaryLabel.cgColor
-        weatherIcon.addShadow()
         cityLocationSegmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: UIControl.State.normal)
     }
 }

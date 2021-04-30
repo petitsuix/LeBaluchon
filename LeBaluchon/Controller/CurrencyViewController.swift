@@ -23,6 +23,8 @@ class CurrencyViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        resultLabel.layer.masksToBounds = true
+        resultLabel.layer.cornerRadius = 5
         fetchCurrency()
     }
     
@@ -34,15 +36,15 @@ class CurrencyViewController: UIViewController {
     
     func fetchCurrency() {
         currencyService.fetchCurrencyData { [weak self] (result) in
-            switch result { // Switching on result, can be either success or failure
-            case .success(let currencyInfo):
-                self?.resultCurrency = currencyInfo
-                DispatchQueue.main.async { [weak self] in
+            DispatchQueue.main.async {
+                switch result { // Switching on result, can be either success or failure
+                case .success(let currencyInfo):
+                    self?.resultCurrency = currencyInfo
                     self?.updateUI()
+                case .failure(let error):
+                    print(error)
+                    self?.errorFetchingData() // Affiche UIAlert
                 }
-            case .failure(let error):
-                print(error)
-                self?.errorFetchingData() // Affiche UIAlert
             }
         }
     }
@@ -50,11 +52,10 @@ class CurrencyViewController: UIViewController {
     func updateUI() {
         guard let currency = resultCurrency,
               let euroTextField = euroTextField.text,
-              let euroTextFieldFloat = Float(euroTextField.replacingOccurrences(of: ",", with: ".")),
               let usdRate = currency.rates.USD else { return }
         eurToDollarsRate.text = "1€ = \(usdRate.shortDigitsIn(4))$"
-        resultLabel.layer.masksToBounds = true
-        resultLabel.layer.cornerRadius = 5
+        
+        guard let euroTextFieldFloat = Float(euroTextField.replacingOccurrences(of: ",", with: ".")) else { return }
         resultLabel.text = "\((euroTextFieldFloat * usdRate).shortDigitsIn(4)) $"
     }
 }

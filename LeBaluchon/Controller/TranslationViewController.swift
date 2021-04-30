@@ -9,6 +9,8 @@ import UIKit
 
 class TranslationViewController: UIViewController {
     
+    // MARK: - Properties
+    
     @IBOutlet weak var textToTranslateBubble: UITextView! {
         didSet { textToTranslateBubble?.addDoneToolbar() }
     }
@@ -17,9 +19,24 @@ class TranslationViewController: UIViewController {
     var googleApi = TranslationServiceGoogle()
     var resultTranslation: MainTranslationInfo?
     
+    // MARK: - View life cycle methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        resultTranslatedText.isEditable = false
+        resultTranslatedText.isScrollEnabled = true
+        textToTranslateBubble.keyboardType = .default
+        textToTranslateBubble.layer.masksToBounds = true
+        textToTranslateBubble.layer.cornerRadius = 5
+        resultTranslatedText.layer.masksToBounds = true
+        resultTranslatedText.layer.cornerRadius = 5
+        fetchTranslation()
+    }
+    
+    // MARK: - Methods
+    
+    @IBAction func translate(_ sender: UIButton) {
         fetchTranslation()
     }
     
@@ -39,18 +56,7 @@ class TranslationViewController: UIViewController {
     }
     
     func updateUI() {
-        resultTranslatedText.isEditable = false
-        resultTranslatedText.isScrollEnabled = true
-        textToTranslateBubble.keyboardType = .default
-        textToTranslateBubble.layer.masksToBounds = true
-        textToTranslateBubble.layer.cornerRadius = 5
-        resultTranslatedText.layer.masksToBounds = true
-        resultTranslatedText.layer.cornerRadius = 5
         guard let translation = resultTranslation?.data.translations.first?.translatedText.replacingOccurrences(of: "&#39;", with: "'").capitalizingFirstLetter() else { return }
         resultTranslatedText.text = "\(translation)"
-    }
-    
-    @IBAction func translate(_ sender: UIButton) {
-        fetchTranslation()
     }
 }
