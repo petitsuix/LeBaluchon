@@ -64,7 +64,8 @@ class WeatherViewController: UIViewController {
                 switch result {
                 case .success(let weatherInfo):
                     self?.resultNewyorkWeather = weatherInfo
-                    self?.fetchPhoto(Album.newyork.albumID, self?.resultNewyorkWeather)
+                    self?.updateUI(cityResults: self?.resultNewyorkWeather)
+                    self?.fetchPhoto(Album.newyork.albumID)
                 // fetchPhoto (in collection) "3541178", 2nd parameter is used to update UI from the right json results, depending on the city
                 case .failure(let error):
                     print("error: \(error) for New York weather")
@@ -81,7 +82,8 @@ class WeatherViewController: UIViewController {
                 switch result {
                 case .success(let weatherInfo):
                     self?.resultLyonWeather = weatherInfo
-                    self?.fetchPhoto(Album.lyon.albumID, self?.resultLyonWeather)
+                    self?.updateUI(cityResults: self?.resultLyonWeather)
+                    self?.fetchPhoto(Album.lyon.albumID)
                 // fetchPhoto in album, 2nd parameter is used to update UI from the right json results, depending on the city
                 case .failure(let error):
                     print("error: \(error) for Lyon weather")
@@ -91,13 +93,13 @@ class WeatherViewController: UIViewController {
         }
     }
     
-    func fetchPhoto(_ collectionId: String, _ cityResults: MainWeatherInfo?) {
+    func fetchPhoto(_ collectionId: String) {
         weatherPhotoService.fetchWeatherPhotoData(collectionId: collectionId) { [weak self] (result) in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let weatherPhotoInfo): // enum with associated value
                     self?.resultCityPhoto = weatherPhotoInfo.randomElement() // random photo in album
-                    self?.updateUI(cityResults: cityResults)
+                    self?.updateImage()
                 case .failure(let error):
                     print("error: \(error) for weather photo")
                     self?.errorFetchingData()
@@ -106,10 +108,14 @@ class WeatherViewController: UIViewController {
         }
     }
     
+    func updateImage() {
+        guard let photo = resultCityPhoto else { return }
+        cityPhoto.loadCityPhoto(photo.urls.regular)
+    }
+    
     func updateUI(cityResults: MainWeatherInfo?) {
         guard let results = cityResults else { return }
-        guard let resultsFirst = results.weather.first else { return }
-        guard let photo = resultCityPhoto else { return }
+        guard let resultsFirst = results.weather.first else { return } // .first calls the first element (city) in our weather array. Weather array has just one element, Lyon or Newyork.
         cityName.text = results.name
         temperature.text = "\(String(results.main.temp.shortDigitsIn(1)))°C"
         tempFeelsLike.text = "\(String(results.main.feels_like.shortDigitsIn(1)))°C ressentis"
@@ -117,7 +123,7 @@ class WeatherViewController: UIViewController {
         maximumTemp.text = "temp. maxi : \(String(results.main.temp_max.shortDigitsIn(1)))°C"
         skyDescription.text = results.weather[0].description.capitalizingFirstLetter()
         weatherIcon.loadIcon(resultsFirst.icon)
-        cityPhoto.loadCityPhoto(photo.urls.regular)
+        
         cityLocationSegmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: UIControl.State.normal)
     }
 }
