@@ -15,6 +15,8 @@ class TranslationViewController: UIViewController {
         didSet { textToTranslateBubble?.addDoneToolbar() }
     }
     @IBOutlet weak var resultTranslatedText: UITextView!
+    @IBOutlet weak var translateButton: UIButton!
+    @IBOutlet weak var translatingActivityIndicator: UIActivityIndicatorView!
     
     var googleApi = TranslationServiceGoogle()
     var resultTranslation: MainTranslationInfo?
@@ -38,9 +40,12 @@ class TranslationViewController: UIViewController {
     
     @IBAction func translate(_ sender: UIButton) {
         fetchTranslation()
+        textToTranslateBubble.doneButtonTapped()
     }
     
     func fetchTranslation() {
+        translatingActivityIndicator.isHidden = false
+        translateButton.isHidden = true
         googleApi.fetchTranslationData(textToTranslateBubble.text) { [weak self] (result) in
             DispatchQueue.main.async {
                 switch result {
@@ -53,6 +58,8 @@ class TranslationViewController: UIViewController {
                 }
             }
         }
+        translateButton.isHidden = false
+        translatingActivityIndicator.isHidden = true
     }
     
     func updateUI() {

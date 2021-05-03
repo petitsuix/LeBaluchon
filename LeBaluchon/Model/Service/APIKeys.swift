@@ -12,5 +12,4 @@ struct APIKeys {
     static let openWeatherKey = "2f4240e158347092c4e7a70e148d6ed8"
     static let unsplashKey = "nLJumqeaMtCuWU558JLsNHtBzT5V1qhlQIgOiq-ysok"
     static let googleTranslateKey = "AIzaSyBpDSTXoUFEhOtTpSTyi9syvijoeDsXF7I"
-    
 }

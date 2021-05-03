@@ -26,6 +26,8 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var cityPhoto: UIImageView!
     @IBOutlet weak var weatherInfoWhiteBackground: UIView!
     @IBOutlet weak var cityLocationSegmentedControl: UISegmentedControl!
+    @IBOutlet weak var loadingWeatherActIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var weatherInfoStackView: UIStackView!
     
     var weatherPhotoService = WeatherPhotoServiceUnsplash()
     var openWeatherService = OpenWeatherService()
@@ -39,6 +41,7 @@ class WeatherViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        cityLocationSegmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: UIControl.State.normal)
         weatherInfoWhiteBackground.layer.masksToBounds = true
         weatherInfoWhiteBackground.layer.cornerRadius = 15
         weatherInfoWhiteBackground.layer.borderWidth = 3
@@ -58,7 +61,7 @@ class WeatherViewController: UIViewController {
     }
     
     func fetchNewyorkWeather() {
-//        updateUI(cityResults: resultNewyorkWeather)
+        loadingWeatherActIndicator.isHidden = false
         openWeatherService.fetchWeatherData(cityId: WeatherCityID.newyork.cityID) { [weak self] (result) in
             DispatchQueue.main.async {
                 switch result {
@@ -76,7 +79,7 @@ class WeatherViewController: UIViewController {
     }
     
     func fetchLyonWeather() {
-//        updateUI(cityResults: resultLyonWeather)
+        loadingWeatherActIndicator.isHidden = false
         openWeatherService.fetchWeatherData(cityId: WeatherCityID.lyon.cityID) { [weak self] (result) in
             DispatchQueue.main.async {
                 switch result {
@@ -84,6 +87,7 @@ class WeatherViewController: UIViewController {
                     self?.resultLyonWeather = weatherInfo
                     self?.updateUI(cityResults: self?.resultLyonWeather)
                     self?.fetchPhoto(Album.lyon.albumID)
+                    
                 // fetchPhoto in album, 2nd parameter is used to update UI from the right json results, depending on the city
                 case .failure(let error):
                     print("error: \(error) for Lyon weather")
@@ -111,6 +115,7 @@ class WeatherViewController: UIViewController {
     func updateImage() {
         guard let photo = resultCityPhoto else { return }
         cityPhoto.loadCityPhoto(photo.urls.regular)
+        loadingWeatherActIndicator.isHidden = true
     }
     
     func updateUI(cityResults: MainWeatherInfo?) {
@@ -123,8 +128,6 @@ class WeatherViewController: UIViewController {
         maximumTemp.text = "temp. maxi : \(String(results.main.temp_max.shortDigitsIn(1)))°C"
         skyDescription.text = results.weather[0].description.capitalizingFirstLetter()
         weatherIcon.loadIcon(resultsFirst.icon)
-        
-        cityLocationSegmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: UIControl.State.normal)
     }
 }
 

@@ -1,5 +1,5 @@
 //
-//  CurrencyAPI.swift
+//  CurrencyServiceFixer.swift
 //  LeBaluchon
 //
 //  Created by Richardier on 13/04/2021.

@@ -42,7 +42,7 @@
                                         <color key="tintColor" systemColor="systemYellowColor"/>
                                         <state key="normal" backgroundImage="arrow.down.app.fill" catalog="system"/>
                                         <connections>
-                                            <action selector="convertButton:" destination="8ca-Xa-8OD" eventType="touchUpInside" id="ajk-Nz-dlD"/>
+                                            <action selector="didTapConvertButton:" destination="8ca-Xa-8OD" eventType="touchUpInside" id="ajk-Nz-dlD"/>
                                         </connections>
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="dollarsign.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="8kJ-Nm-GCB">
@@ -61,17 +61,23 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="1€ = currency rate" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A9W-FZ-djf">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="1€ = loading..." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A9W-FZ-djf">
                                 <rect key="frame" x="20" y="769" width="374" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="YlE-lG-EQs">
+                                <rect key="frame" x="197" y="398" width="20" height="20"/>
+                                <color key="color" systemColor="labelColor"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="0Bu-dY-JSf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="0Bu-dY-JSf" firstAttribute="bottom" secondItem="YlE-lG-EQs" secondAttribute="bottom" constant="395" id="1Mj-mX-Umj"/>
                             <constraint firstItem="nYL-kT-nCz" firstAttribute="centerX" secondItem="hAg-h2-vxR" secondAttribute="centerX" id="4hJ-kK-bGK"/>
+                            <constraint firstItem="YlE-lG-EQs" firstAttribute="leading" secondItem="0Bu-dY-JSf" secondAttribute="leading" constant="197" id="6Ng-V7-rVd"/>
                             <constraint firstItem="fko-7i-Iht" firstAttribute="leading" secondItem="0Bu-dY-JSf" secondAttribute="leading" constant="20" id="8z2-la-8wm"/>
                             <constraint firstItem="fko-7i-Iht" firstAttribute="top" secondItem="0Bu-dY-JSf" secondAttribute="top" constant="20" id="9y0-rR-C4F"/>
                             <constraint firstItem="A9W-FZ-djf" firstAttribute="top" secondItem="L3u-0i-oVV" secondAttribute="bottom" constant="16" id="BUc-85-hNA"/>
@@ -79,17 +85,22 @@
                             <constraint firstItem="L3u-0i-oVV" firstAttribute="top" secondItem="nYL-kT-nCz" secondAttribute="bottom" constant="28.5" id="EdG-tn-yI0"/>
                             <constraint firstItem="nYL-kT-nCz" firstAttribute="top" secondItem="fko-7i-Iht" secondAttribute="bottom" constant="28.5" id="JKI-4u-Vld"/>
                             <constraint firstItem="L3u-0i-oVV" firstAttribute="height" secondItem="fko-7i-Iht" secondAttribute="height" id="K8A-J0-OiX"/>
+                            <constraint firstItem="0Bu-dY-JSf" firstAttribute="trailing" secondItem="YlE-lG-EQs" secondAttribute="trailing" constant="197" id="OMZ-NV-2d2"/>
                             <constraint firstItem="0Bu-dY-JSf" firstAttribute="bottom" secondItem="A9W-FZ-djf" secondAttribute="bottom" constant="20" id="RCc-tQ-M1O"/>
                             <constraint firstItem="A9W-FZ-djf" firstAttribute="leading" secondItem="0Bu-dY-JSf" secondAttribute="leading" constant="20" id="Xtg-Iz-YUQ"/>
                             <constraint firstItem="0Bu-dY-JSf" firstAttribute="trailing" secondItem="A9W-FZ-djf" secondAttribute="trailing" constant="20" id="agD-c8-b7g"/>
+                            <constraint firstItem="YlE-lG-EQs" firstAttribute="top" secondItem="0Bu-dY-JSf" secondAttribute="top" constant="354" id="e1b-C5-L2Z"/>
                             <constraint firstItem="0Bu-dY-JSf" firstAttribute="trailing" secondItem="L3u-0i-oVV" secondAttribute="trailing" constant="20" id="ylx-hg-CMn"/>
                             <constraint firstItem="0Bu-dY-JSf" firstAttribute="trailing" secondItem="fko-7i-Iht" secondAttribute="trailing" constant="20" id="zEH-Hm-eOF"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Taux de change" image="cylinder.split.1x2" catalog="system" id="K3g-eM-PKP"/>
                     <connections>
+                        <outlet property="centerStackView" destination="nYL-kT-nCz" id="Gao-UO-Ydo"/>
+                        <outlet property="convertButton" destination="yxU-CD-lgg" id="w5x-5t-OzH"/>
                         <outlet property="eurToDollarsRate" destination="A9W-FZ-djf" id="GWB-8a-pam"/>
                         <outlet property="euroTextField" destination="fko-7i-Iht" id="5cj-hj-esP"/>
+                        <outlet property="loadingCurrencyViewActivityIndicator" destination="YlE-lG-EQs" id="hYg-gD-A4J"/>
                         <outlet property="resultLabel" destination="L3u-0i-oVV" id="Ke6-uT-ipJ"/>
                     </connections>
                 </viewController>
@@ -134,7 +145,7 @@
                                         <color key="tintColor" systemColor="systemYellowColor"/>
                                         <state key="normal" backgroundImage="arrow.down.app.fill" catalog="system"/>
                                         <connections>
-                                            <action selector="convertButton:" destination="8ca-Xa-8OD" eventType="touchUpInside" id="Nkn-rW-Xc6"/>
+                                            <action selector="didTapConvertButton:" destination="8ca-Xa-8OD" eventType="touchUpInside" id="Nkn-rW-Xc6"/>
                                             <action selector="translate:" destination="FKO-jy-bYB" eventType="touchUpInside" id="WUm-tU-Kku"/>
                                         </connections>
                                     </button>
@@ -154,6 +165,11 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Pnq-3L-dfk">
+                                <rect key="frame" x="198" y="419" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" systemColor="labelColor"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="P0c-Fg-jau"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -174,11 +190,13 @@
                     <connections>
                         <outlet property="resultTranslatedText" destination="lG3-g4-b93" id="BRn-fR-nC4"/>
                         <outlet property="textToTranslateBubble" destination="P2f-Pz-IOq" id="XHJ-YU-5tW"/>
+                        <outlet property="translateButton" destination="Qus-Q7-opp" id="dMR-at-JuL"/>
+                        <outlet property="translatingActivityIndicator" destination="Pnq-3L-dfk" id="el7-qr-kzH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hPV-uJ-HdF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-235" y="-16"/>
+            <point key="canvasLocation" x="-236.23188405797103" y="-16.071428571428569"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="GUB-s6-cKY">
@@ -246,36 +264,36 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="R2n-8o-y8z" userLabel="NY Stack View">
                                 <rect key="frame" x="64" y="303" width="286" height="329"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="loading" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sfy-pN-lPe" userLabel="Sky description">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sfy-pN-lPe" userLabel="Sky description">
                                         <rect key="frame" x="114" y="0.0" width="58.5" height="59.5"/>
                                         <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="17"/>
                                         <color key="highlightedColor" systemColor="labelColor"/>
                                         <color key="shadowColor" systemColor="systemGray2Color"/>
                                         <size key="shadowOffset" width="1" height="0.0"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- °C" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0JW-P0-CzU" userLabel="Temperature">
-                                        <rect key="frame" x="118.5" y="67.5" width="49.5" height="59.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0JW-P0-CzU" userLabel="Temperature">
+                                        <rect key="frame" x="118" y="67.5" width="50" height="59.5"/>
                                         <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="24"/>
                                         <color key="highlightedColor" systemColor="labelColor"/>
                                         <color key="shadowColor" systemColor="systemGray2Color"/>
                                         <size key="shadowOffset" width="1" height="0.0"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- °C" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cS7-rx-xjl" userLabel="Feels like temperature">
-                                        <rect key="frame" x="125.5" y="135" width="35" height="59"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cS7-rx-xjl" userLabel="Feels like temperature">
+                                        <rect key="frame" x="118" y="135" width="50" height="59"/>
                                         <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="17"/>
                                         <color key="highlightedColor" systemColor="labelColor"/>
                                         <color key="shadowColor" systemColor="systemGray2Color"/>
                                         <size key="shadowOffset" width="1" height="0.0"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- °C" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UWI-PR-AOP" userLabel="Minimum temp">
-                                        <rect key="frame" x="125.5" y="202" width="35" height="59.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UWI-PR-AOP" userLabel="Minimum temp">
+                                        <rect key="frame" x="118" y="202" width="50" height="59.5"/>
                                         <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="17"/>
                                         <color key="highlightedColor" systemColor="labelColor"/>
                                         <color key="shadowColor" systemColor="systemGray2Color"/>
                                         <size key="shadowOffset" width="1" height="0.0"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- °C" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zx3-H3-9u9" userLabel="Max temp">
-                                        <rect key="frame" x="125.5" y="269.5" width="35" height="59.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zx3-H3-9u9" userLabel="Max temp">
+                                        <rect key="frame" x="118" y="269.5" width="50" height="59.5"/>
                                         <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="17"/>
                                         <color key="highlightedColor" systemColor="labelColor"/>
                                         <color key="shadowColor" systemColor="systemGray2Color"/>
@@ -290,17 +308,24 @@
                                     <constraint firstAttribute="width" constant="100" id="k81-rB-JaN"/>
                                 </constraints>
                             </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="ZTA-tL-cvb">
+                                <rect key="frame" x="197" y="677" width="20" height="20"/>
+                                <color key="color" systemColor="labelColor"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="RMb-HV-vC7" secondAttribute="trailing" constant="20" id="12N-z6-C28"/>
                             <constraint firstItem="RMb-HV-vC7" firstAttribute="top" secondItem="aOu-3q-wBC" secondAttribute="bottom" constant="110" id="1p6-3L-N3m"/>
+                            <constraint firstItem="ZTA-tL-cvb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="197" id="4Ob-mk-rcp"/>
                             <constraint firstItem="xQ5-DY-sXF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-2" id="4r8-re-O3L"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="R2n-8o-y8z" secondAttribute="trailing" constant="64" id="6Hu-er-x4z"/>
                             <constraint firstItem="Pwg-Qo-f52" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="19" id="6rG-bX-b3X"/>
                             <constraint firstItem="RMb-HV-vC7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="9oS-uu-16R"/>
+                            <constraint firstItem="RMb-HV-vC7" firstAttribute="top" secondItem="ZTA-tL-cvb" secondAttribute="bottom" constant="45" id="9pw-7w-ocD"/>
                             <constraint firstItem="Pwg-Qo-f52" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="E6V-v6-MCU"/>
+                            <constraint firstItem="ZTA-tL-cvb" firstAttribute="top" secondItem="aOu-3q-wBC" secondAttribute="bottom" constant="45" id="G0V-M5-Xmb"/>
                             <constraint firstItem="R2n-8o-y8z" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="64" id="H84-PW-5Mf"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Pwg-Qo-f52" secondAttribute="trailing" constant="20" id="I0c-tM-qbp"/>
                             <constraint firstItem="xQ5-DY-sXF" firstAttribute="top" secondItem="Pwg-Qo-f52" secondAttribute="bottom" constant="121" id="Rlo-YE-4pc"/>
@@ -310,6 +335,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="RMb-HV-vC7" secondAttribute="bottom" constant="31" id="f4o-ZW-bAf"/>
                             <constraint firstItem="ECg-Ag-qHN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="jWu-qG-55X"/>
                             <constraint firstItem="R2n-8o-y8z" firstAttribute="top" secondItem="xQ5-DY-sXF" secondAttribute="bottom" constant="-16" id="ov5-uh-6dk"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ZTA-tL-cvb" secondAttribute="trailing" constant="197" id="qBS-0h-X6B"/>
                             <constraint firstItem="RMb-HV-vC7" firstAttribute="top" secondItem="R2n-8o-y8z" secondAttribute="bottom" constant="110" id="qi3-JV-89R"/>
                             <constraint firstItem="aOu-3q-wBC" firstAttribute="top" secondItem="Pwg-Qo-f52" secondAttribute="bottom" constant="107" id="rqN-O5-bnN"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ECg-Ag-qHN" secondAttribute="trailing" id="wJJ-bM-pre"/>
@@ -321,12 +347,14 @@
                         <outlet property="cityLocationSegmentedControl" destination="RMb-HV-vC7" id="doK-Jv-aXd"/>
                         <outlet property="cityName" destination="Pwg-Qo-f52" id="dJP-ox-lG8"/>
                         <outlet property="cityPhoto" destination="ECg-Ag-qHN" id="dI6-lJ-WRW"/>
+                        <outlet property="loadingWeatherActIndicator" destination="ZTA-tL-cvb" id="kkA-XU-nmX"/>
                         <outlet property="maximumTemp" destination="zx3-H3-9u9" id="DML-EX-Zyj"/>
                         <outlet property="minimumTemp" destination="UWI-PR-AOP" id="HU1-Ci-gl7"/>
                         <outlet property="skyDescription" destination="Sfy-pN-lPe" id="E5R-NV-qWt"/>
                         <outlet property="tempFeelsLike" destination="cS7-rx-xjl" id="R9C-C1-MUk"/>
                         <outlet property="temperature" destination="0JW-P0-CzU" id="e4H-Wm-wHc"/>
                         <outlet property="weatherIcon" destination="xQ5-DY-sXF" id="RqG-4b-4DE"/>
+                        <outlet property="weatherInfoStackView" destination="R2n-8o-y8z" id="r4j-M4-gyU"/>
                         <outlet property="weatherInfoWhiteBackground" destination="aOu-3q-wBC" id="OAw-uP-N68"/>
                     </connections>
                 </viewController>

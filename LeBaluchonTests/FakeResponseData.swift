@@ -15,38 +15,10 @@ class FakeResponseData {
     
     class FakeError: Error {}
     static let error = FakeError()
-//    
-//    func fixerCorrectData(resource: String) -> Data {
-//        let bundle = Bundle(for: FakeResponseData.self)
-//        let url = bundle.url(forResource: resource, withExtension: "json")
-//        let data = try! Data(contentsOf: url!)
-//        return data
-//    }
     
-    static var fixerCorrectData: Data {
+    static func getCorrectDataFor(resource: String) -> Data {
         let bundle = Bundle(for: FakeResponseData.self)
-        let url = bundle.url(forResource: "Fixer", withExtension: "json")
-        let data = try! Data(contentsOf: url!)
-        return data
-    }
-
-    static var openWeatherCorrectData: Data {
-        let bundle = Bundle(for: FakeResponseData.self)
-        let url = bundle.url(forResource: "OpenWeather", withExtension: "json")
-        let data = try! Data(contentsOf: url!)
-        return data
-    }
-    
-    static var unsplashCorrectData: Data {
-        let bundle = Bundle(for: FakeResponseData.self)
-        let url = bundle.url(forResource: "Unsplash", withExtension: "json")
-        let data = try! Data(contentsOf: url!)
-        return data
-    }
-    
-    static var googleTranslateCorrectData: Data {
-        let bundle = Bundle(for: FakeResponseData.self)
-        let url = bundle.url(forResource: "GoogleTranslate", withExtension: "json")
+        let url = bundle.url(forResource: resource, withExtension: "json")
         let data = try! Data(contentsOf: url!)
         return data
     }

@@ -8,7 +8,7 @@
 import Foundation
 
 extension Float {
-    // Allows to format the result
+    // ⬇︎ Allows to format the result
     func shortDigitsIn(_ maxFractionDigits: Int) -> String {
         let formatter = NumberFormatter()
         let number = NSNumber(value: self)

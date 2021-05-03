@@ -44,7 +44,7 @@ class OpenWeatherApiTestCase: XCTestCase {
     func testGetCurrencyShouldPostFailedCompletionIfIncorrectResponse() throws {
         // Given :
         let weatherService = OpenWeatherService(
-            urlSession: URLSessionFake(data: FakeResponseData.fixerCorrectData, response: FakeResponseData.responseKO, error: nil)
+            urlSession: URLSessionFake(data: FakeResponseData.getCorrectDataFor(resource: "OpenWeather"), response: FakeResponseData.responseKO, error: nil)
         )
         // When :
         weatherService.fetchWeatherData(cityId: WeatherCityID.newyork.cityID) { (result) in
@@ -74,7 +74,7 @@ class OpenWeatherApiTestCase: XCTestCase {
     func testGetCurrencyShouldPostSuccessCompletionIfNoErrorAndCorrectData() throws {
         // Given :
         let weatherService = OpenWeatherService(
-            urlSession: URLSessionFake(data: FakeResponseData.fixerCorrectData, response: FakeResponseData.responseOK, error: nil)
+            urlSession: URLSessionFake(data: FakeResponseData.getCorrectDataFor(resource: "OpenWeather"), response: FakeResponseData.responseOK, error: nil)
         )
         // When :
         weatherService.fetchWeatherData(cityId: WeatherCityID.newyork.cityID) { (result) in

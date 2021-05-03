@@ -1,5 +1,5 @@
 //
-//  WeatherAPI.swift
+//  OpenWeatherService.swift
 //  LeBaluchon
 //
 //  Created by Richardier on 09/04/2021.

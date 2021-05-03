@@ -283,8 +283,8 @@
 				972CBD4F2620A183001A04BF /* OpenWeatherService.swift */,
 				976DB8BB26288BE1004B662A /* WeatherPhotographyService.swift */,
 				97E5F8AA262DBB7C0018DB65 /* TranslationServiceGoogle.swift */,
-				97A2F45D2629CA5B000E95B1 /* ServiceError.swift */,
 				97F1D30F26307AA500D6F6CB /* HandleResponseDelegate.swift */,
+				97A2F45D2629CA5B000E95B1 /* ServiceError.swift */,
 				97B203A4263AB773004037B6 /* WeatherIDs.swift */,
 				97B203A9263ABB9B004037B6 /* APIKeys.swift */,
 			);

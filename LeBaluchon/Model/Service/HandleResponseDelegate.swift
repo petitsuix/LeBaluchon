@@ -15,7 +15,7 @@ class HandleResponseDelegate {
             return .failure(.errorFromApi(error.localizedDescription))
         }
         
-        guard let response = response as? HTTPURLResponse else {
+        guard let response = response as? HTTPURLResponse else { // HTTPURLResponse provides methods for accessing information specific to HTTP protocol responses, such as ".statusCode" below
             return .failure(.invalidResponse)
         }
         

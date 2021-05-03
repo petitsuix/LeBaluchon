@@ -14,6 +14,9 @@ class CurrencyViewController: UIViewController {
     @IBOutlet weak var euroTextField: UITextField! { didSet { euroTextField?.addDoneToolbar() } } // Contains user's base amount to convert (in €)
     @IBOutlet weak var eurToDollarsRate: UILabel! // euro to dollar conversion rate
     @IBOutlet weak var resultLabel: UILabel! // conversion result
+    @IBOutlet weak var centerStackView: UIStackView!
+    @IBOutlet weak var loadingCurrencyViewActivityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var convertButton: UIButton!
     
     var currencyService = CurrencyServiceFixer()
     var resultCurrency: MainCurrencyInfo?
@@ -30,11 +33,14 @@ class CurrencyViewController: UIViewController {
     
     // MARK: - Methods
     
-    @IBAction func convertButton(_ sender: UIButton) {
+    @IBAction func didTapConvertButton(_ sender: UIButton) {
         fetchCurrency()
+        euroTextField.doneButtonTapped()
     }
     
     func fetchCurrency() {
+        loadingCurrencyViewActivityIndicator.isHidden = false
+        convertButton.isHidden = true
         currencyService.fetchCurrencyData { [weak self] (result) in
             DispatchQueue.main.async {
                 switch result { // Switching on result, can be either success or failure
@@ -47,6 +53,8 @@ class CurrencyViewController: UIViewController {
                 }
             }
         }
+        loadingCurrencyViewActivityIndicator.isHidden = true
+        convertButton.isHidden = false
     }
     
     func updateUI() {
@@ -54,7 +62,6 @@ class CurrencyViewController: UIViewController {
               let euroTextField = euroTextField.text,
               let usdRate = currency.rates.USD else { return }
         eurToDollarsRate.text = "1€ = \(usdRate.shortDigitsIn(4))$"
-        
         guard let euroTextFieldFloat = Float(euroTextField.replacingOccurrences(of: ",", with: ".")) else { return }
         resultLabel.text = "\((euroTextFieldFloat * usdRate).shortDigitsIn(4)) $"
     }

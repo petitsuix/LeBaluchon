@@ -43,7 +43,7 @@ class UnsplashApiTestCase: XCTestCase {
     func testGetCurrencyShouldPostFailedCompletionIfIncorrectResponse() throws {
         // Given :
         let photoService = WeatherPhotoServiceUnsplash(
-            urlSession: URLSessionFake(data: FakeResponseData.fixerCorrectData, response: FakeResponseData.responseKO, error: nil)
+            urlSession: URLSessionFake(data: FakeResponseData.getCorrectDataFor(resource: "Unsplash"), response: FakeResponseData.responseKO, error: nil)
         )
         // When :
         photoService.fetchWeatherPhotoData(collectionId: "https://api.unsplash.com/collections/3541178/photos/?client_id=nLJumqeaMtCuWU558JLsNHtBzT5V1qhlQIgOiq-ysok") { (result) in
@@ -73,17 +73,17 @@ class UnsplashApiTestCase: XCTestCase {
     func testGetCurrencyShouldPostSuccessCompletionIfNoErrorAndCorrectData() throws {
         // Given :
         let photoService = WeatherPhotoServiceUnsplash(
-            urlSession: URLSessionFake(data: FakeResponseData.fixerCorrectData, response: FakeResponseData.responseOK, error: nil)
+            urlSession: URLSessionFake(data: FakeResponseData.getCorrectDataFor(resource: "Unsplash"), response: FakeResponseData.responseOK, error: nil)
         )
         // When :
         photoService.fetchWeatherPhotoData(collectionId: "https://api.unsplash.com/collections/3541178/photos/?client_id=nLJumqeaMtCuWU558JLsNHtBzT5V1qhlQIgOiq-ysok") { (result) in
-            let raw = "https://images.unsplash.com/photo-1560708219-ba2b13ed6c6e?ixid=MnwyMjM0NzJ8MHwxfGNvbGxlY3Rpb258MXw0MjY4MDR8fHx8fDJ8fDE2MTkxODY4NTA&ixlib=rb-1.2.1"
+            let regular = "https://images.unsplash.com/photo-1560708219-ba2b13ed6c6e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwyMjM0NzJ8MHwxfGNvbGxlY3Rpb258MXw0MjY4MDR8fHx8fDJ8fDE2MTkxODY4NTA&ixlib=rb-1.2.1&q=80&w=1080"
             // Then :
             guard case .success(let success) = result else {
                 return
             }
             XCTAssertNotNil(success)
-            XCTAssertEqual(raw, success[0].urls.regular)
+            XCTAssertEqual(regular, success[0].urls.regular)
         }
     }
 }

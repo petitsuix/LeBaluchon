@@ -1,5 +1,5 @@
 //
-//  TranslationService.swift
+//  TranslationServiceGoogle.swift
 //  LeBaluchon
 //
 //  Created by Richardier on 19/04/2021.
