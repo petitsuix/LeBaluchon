@@ -30,24 +30,24 @@ class CurrencyViewController: UIViewController {
         resultLabel.layer.cornerRadius = 5
     }
     
-    override func viewDidAppear(_ animated: Bool) { // Ensures that a new request is done everytime the user switches from one view to another, so the data is kept up to date without having to launch the app again
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(false)
-        fetchCurrency()
+        fetchCurrency() // Ensures that a new request is done everytime the user switches from one view to another, so the data is kept up to date without having to launch the app again
     }
     
     // MARK: - Methods
     
     @IBAction func didTapConvertButton(_ sender: UIButton) {
         fetchCurrency()
-        euroTextField.doneButtonTapped()
+        euroTextField.doneButtonTapped() // Resigns text field's first responder so the keyboard disappears automatically
     }
     
     func fetchCurrency() {
         loadingCurrencyViewActivityIndicator.isHidden = false
         convertButton.isHidden = true
-        currencyService.fetchCurrencyData { [weak self] (result) in
+        currencyService.fetchCurrencyData { [weak self] (result) in // calling request method
             DispatchQueue.main.async {
-                switch result { // Switching on result, can be either success or failure
+                switch result {
                 case .success(let currencyInfo):
                     self?.resultCurrency = currencyInfo
                     self?.updateUI()
@@ -66,7 +66,7 @@ class CurrencyViewController: UIViewController {
               let euroTextField = euroTextField.text,
               let usdRate = currency.rates.USD else { return }
         eurToDollarsRate.text = "1€ = \(usdRate.shortDigitsIn(4))$"
-        guard let euroTextFieldFloat = Float(euroTextField.replacingOccurrences(of: ",", with: ".")) else { return }
+        guard let euroTextFieldFloat = Float(euroTextField.replacingOccurrences(of: ",", with: ".")) else { return } // Handling of different decimal separators according to keyboard region type
         resultLabel.text = "\((euroTextFieldFloat * usdRate).shortDigitsIn(4)) $"
     }
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class HandleResponseDelegate {
+class ServiceDecoder {
     
     func handleResponse<T>(dataType: T.Type, _ data: Data?, _ response: URLResponse?, _ error: Error?) -> Result<T, ServiceError> where T: Decodable {
         

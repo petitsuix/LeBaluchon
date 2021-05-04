@@ -7,7 +7,7 @@
 
 import UIKit
 
-class WeatherPhotoServiceUnsplash: HandleResponseDelegate {
+class WeatherPhotoServiceUnsplash: ServiceDecoder {
     
     private var task: URLSessionDataTask?
     private var urlSession: URLSession

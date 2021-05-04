@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CurrencyServiceFixer: HandleResponseDelegate {
+class CurrencyServiceFixer: ServiceDecoder {
    
     private var task: URLSessionDataTask?
     private var urlSession: URLSession
@@ -30,4 +30,5 @@ class CurrencyServiceFixer: HandleResponseDelegate {
         task?.resume()
     }
 }
+
 

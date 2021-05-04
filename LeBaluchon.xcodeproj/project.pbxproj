@@ -46,7 +46,7 @@
 		97E5F8AB262DBB7D0018DB65 /* TranslationServiceGoogle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E5F8AA262DBB7C0018DB65 /* TranslationServiceGoogle.swift */; };
 		97E5F8B0262DBD190018DB65 /* MainTranslationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E5F8AF262DBD190018DB65 /* MainTranslationInfo.swift */; };
 		97E5F8C3262DC0240018DB65 /* TranslationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E5F8C2262DC0240018DB65 /* TranslationViewController.swift */; };
-		97F1D31026307AA500D6F6CB /* HandleResponseDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F1D30F26307AA500D6F6CB /* HandleResponseDelegate.swift */; };
+		97F1D31026307AA500D6F6CB /* ServiceDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F1D30F26307AA500D6F6CB /* ServiceDecoder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,7 +112,7 @@
 		97E5F8AA262DBB7C0018DB65 /* TranslationServiceGoogle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationServiceGoogle.swift; sourceTree = "<group>"; };
 		97E5F8AF262DBD190018DB65 /* MainTranslationInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTranslationInfo.swift; sourceTree = "<group>"; };
 		97E5F8C2262DC0240018DB65 /* TranslationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationViewController.swift; sourceTree = "<group>"; };
-		97F1D30F26307AA500D6F6CB /* HandleResponseDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandleResponseDelegate.swift; sourceTree = "<group>"; };
+		97F1D30F26307AA500D6F6CB /* ServiceDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceDecoder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +204,7 @@
 				972CBD3926209934001A04BF /* Model */,
 				972CBD3A2620993C001A04BF /* View */,
 				972CBD3826209921001A04BF /* Controller */,
+				97418DF826270BDF00E7A88F /* Service */,
 				972CBD3B262099A1001A04BF /* Resources */,
 			);
 			path = LeBaluchon;
@@ -249,7 +250,6 @@
 				972CBD472620A142001A04BF /* MainWeatherInfo.swift */,
 				976DB8C026288CD6004B662A /* MainWeatherPhotographyInfo.swift */,
 				97E5F8AF262DBD190018DB65 /* MainTranslationInfo.swift */,
-				97418DF826270BDF00E7A88F /* Service */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -283,7 +283,7 @@
 				972CBD4F2620A183001A04BF /* OpenWeatherService.swift */,
 				976DB8BB26288BE1004B662A /* WeatherPhotographyService.swift */,
 				97E5F8AA262DBB7C0018DB65 /* TranslationServiceGoogle.swift */,
-				97F1D30F26307AA500D6F6CB /* HandleResponseDelegate.swift */,
+				97F1D30F26307AA500D6F6CB /* ServiceDecoder.swift */,
 				97A2F45D2629CA5B000E95B1 /* ServiceError.swift */,
 				97B203A4263AB773004037B6 /* WeatherIDs.swift */,
 				97B203A9263ABB9B004037B6 /* APIKeys.swift */,
@@ -501,7 +501,7 @@
 				972CBD482620A142001A04BF /* MainWeatherInfo.swift in Sources */,
 				97A447BD2636E8B20047FF4D /* AlertErrorFetchingData.swift in Sources */,
 				97B203C6263B02C3004037B6 /* AddShadow.swift in Sources */,
-				97F1D31026307AA500D6F6CB /* HandleResponseDelegate.swift in Sources */,
+				97F1D31026307AA500D6F6CB /* ServiceDecoder.swift in Sources */,
 				97A2F45E2629CA5B000E95B1 /* ServiceError.swift in Sources */,
 				9748C8B92625AEBA00EB9AD8 /* CurrencyServiceFixer.swift in Sources */,
 			);

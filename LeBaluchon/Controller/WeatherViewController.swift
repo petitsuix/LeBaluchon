@@ -7,11 +7,6 @@
 
 import UIKit
 
-// TODO:
-// UIUpdate n'est pas appelé au bon endroit
-// UITextInput
-// Mettre toutes les correctData de FakeResponseData en une seule et même fonction?
-
 class WeatherViewController: UIViewController {
     
     // MARK: - Properties
@@ -41,7 +36,7 @@ class WeatherViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        cityLocationSegmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: UIControl.State.normal)
+        cityLocationSegmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: UIControl.State.normal) // Changing segmented control's text color
         weatherInfoWhiteBackground.layer.masksToBounds = true
         weatherInfoWhiteBackground.layer.cornerRadius = 15
         weatherInfoWhiteBackground.layer.borderWidth = 3
@@ -51,6 +46,7 @@ class WeatherViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(false)
+        // ⬇︎ Ensures that a new request is done everytime the user switches from one view to another, so the data is kept up to date without having to launch the app again
         if cityLocationSegmentedControl.selectedSegmentIndex == 0 {
             fetchNewyorkWeather()
         } else {
@@ -77,7 +73,6 @@ class WeatherViewController: UIViewController {
                     self?.resultNewyorkWeather = weatherInfo
                     self?.updateUI(cityResults: self?.resultNewyorkWeather)
                     self?.fetchPhoto(Album.newyork.albumID)
-                // fetchPhoto (in collection) "3541178", 2nd parameter is used to update UI from the right json results, depending on the city
                 case .failure(let error):
                     print("error: \(error) for New York weather")
                     self?.errorFetchingData()
@@ -95,8 +90,6 @@ class WeatherViewController: UIViewController {
                     self?.resultLyonWeather = weatherInfo
                     self?.updateUI(cityResults: self?.resultLyonWeather)
                     self?.fetchPhoto(Album.lyon.albumID)
-                    
-                // fetchPhoto in album, 2nd parameter is used to update UI from the right json results, depending on the city
                 case .failure(let error):
                     print("error: \(error) for Lyon weather")
                     self?.errorFetchingData()
