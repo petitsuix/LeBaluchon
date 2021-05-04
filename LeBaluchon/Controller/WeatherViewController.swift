@@ -47,7 +47,15 @@ class WeatherViewController: UIViewController {
         weatherInfoWhiteBackground.layer.borderWidth = 3
         weatherInfoWhiteBackground.layer.borderColor = UIColor.quaternaryLabel.cgColor
         weatherIcon.addShadow()
-        fetchNewyorkWeather()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(false)
+        if cityLocationSegmentedControl.selectedSegmentIndex == 0 {
+            fetchNewyorkWeather()
+        } else {
+            fetchLyonWeather()
+        }
     }
     
     // MARK: - Methods

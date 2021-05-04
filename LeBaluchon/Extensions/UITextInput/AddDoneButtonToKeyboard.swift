@@ -14,9 +14,9 @@ extension UITextField {
         let toolbar: UIToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 44)) // Defining toolbar and its boundaries
         toolbar.barStyle = .default
         toolbar.items = [
-            UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil), // Adding different bar items
-            UIBarButtonItem(title: "Done", style: .done, target: target, action: #selector(doneButtonTapped)),
-            UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+            UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil),
+            UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil),
+            UIBarButtonItem(title: "Fermer", style: .done, target: target, action: #selector(doneButtonTapped))
         ]
         toolbar.sizeToFit()
         self.inputAccessoryView = toolbar // Assigning toolbar to the reference's dedicated Accessory View
@@ -31,8 +31,8 @@ extension UITextView {
         toolbar.barStyle = .default
         toolbar.items = [
             UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil),
-            UIBarButtonItem(title: "Done", style: .done, target: target, action: #selector(doneButtonTapped)),
-            UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
+            UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil),
+            UIBarButtonItem(title: "Fermer", style: .done, target: target, action: #selector(doneButtonTapped))
         ]
         toolbar.sizeToFit()
         self.inputAccessoryView = toolbar

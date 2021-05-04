@@ -28,6 +28,10 @@ class CurrencyViewController: UIViewController {
         // Do any additional setup after loading the view.
         resultLabel.layer.masksToBounds = true
         resultLabel.layer.cornerRadius = 5
+    }
+    
+    override func viewDidAppear(_ animated: Bool) { // Ensures that a new request is done everytime the user switches from one view to another, so the data is kept up to date without having to launch the app again
+        super.viewDidAppear(false)
         fetchCurrency()
     }
     
