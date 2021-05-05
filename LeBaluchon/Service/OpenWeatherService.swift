@@ -9,10 +9,13 @@ import UIKit
 
 class OpenWeatherService: ServiceDecoder {
     
+    static let shared = OpenWeatherService()
     private var task: URLSessionDataTask?
-    private var urlSession: URLSession
-
-    init(urlSession: URLSession = URLSession(configuration: .default)) {
+    private var urlSession: URLSession = URLSession(configuration: .default)
+    
+    private override init() {}
+    
+    init(urlSession: URLSession) {
         self.urlSession = urlSession
     }
     
@@ -27,7 +30,7 @@ class OpenWeatherService: ServiceDecoder {
         }
         task?.cancel()
         task = urlSession.dataTask(with: openWeatherUrl, completionHandler: { (data, response, error) in
-            let result = self.handleResponse(dataType: MainWeatherInfo.self, data, response, error)
+            let result = self.handleResponse(dataType: MainWeatherInfo.self, passedData: data, passedResponse: response, passedError: error)
             completion(result)
         })
         task?.resume()

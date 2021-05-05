@@ -5,13 +5,31 @@
 //  Created by Richardier on 09/04/2021.
 //
 
+/* —> BONNES PRATIQUES :
+ 
+ Activity indicator & chargement des labels, est-ce qu’on les laisse vide dans le storyboard? OU on met quand même des « loading… » dans les labels des storyboards ?
+
+
+ —> weak self dans dispatch queue des extensions UIImgage view à mettre ou pas ?
+
+
+ —> competion/completion handler ?
+
+
+ —> Pb erreur clavier décimal
+
+
+ —> Activity indicator bien placés? Sécurité suffisante pour ne pas lancer plusieurs appels réseau à la fois en cachant simplement le bouton ?
+
+
+ —> GitIgnore : ServiceAPIKey apparait bien devant sur GitHub, ça veut dire que j’ai plus besoin de le décocher quand je commit? */
+
 import UIKit
 
 class WeatherViewController: UIViewController {
     
     // MARK: - Properties
     
-    @IBOutlet weak var cityName: UILabel!
     @IBOutlet weak var temperature: UILabel!
     @IBOutlet weak var tempFeelsLike: UILabel!
     @IBOutlet weak var minimumTemp: UILabel!
@@ -23,9 +41,6 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var cityLocationSegmentedControl: UISegmentedControl!
     @IBOutlet weak var loadingWeatherActIndicator: UIActivityIndicatorView!
     @IBOutlet weak var weatherInfoStackView: UIStackView!
-    
-    var weatherPhotoService = WeatherPhotoServiceUnsplash()
-    var openWeatherService = OpenWeatherService()
     
     var resultNewyorkWeather: MainWeatherInfo?
     var resultLyonWeather: MainWeatherInfo?
@@ -66,7 +81,7 @@ class WeatherViewController: UIViewController {
     
     func fetchNewyorkWeather() {
         loadingWeatherActIndicator.isHidden = false
-        openWeatherService.fetchWeatherData(cityId: WeatherCityID.newyork.cityID) { [weak self] (result) in
+        OpenWeatherService.shared.fetchWeatherData(cityId: WeatherCityID.newyork.cityID) { [weak self] (result) in // Calling request method
             DispatchQueue.main.async {
                 switch result {
                 case .success(let weatherInfo):
@@ -83,7 +98,7 @@ class WeatherViewController: UIViewController {
     
     func fetchLyonWeather() {
         loadingWeatherActIndicator.isHidden = false
-        openWeatherService.fetchWeatherData(cityId: WeatherCityID.lyon.cityID) { [weak self] (result) in
+        OpenWeatherService.shared.fetchWeatherData(cityId: WeatherCityID.lyon.cityID) { [weak self] (result) in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let weatherInfo):
@@ -99,7 +114,7 @@ class WeatherViewController: UIViewController {
     }
     
     func fetchPhoto(_ collectionId: String) {
-        weatherPhotoService.fetchWeatherPhotoData(collectionId: collectionId) { [weak self] (result) in
+        WeatherPhotoServiceUnsplash.shared.fetchWeatherPhotoData(collectionId: collectionId) { [weak self] (result) in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let weatherPhotoInfo): // enum with associated value
@@ -122,7 +137,6 @@ class WeatherViewController: UIViewController {
     func updateUI(cityResults: MainWeatherInfo?) {
         guard let results = cityResults else { return }
         guard let resultsFirst = results.weather.first else { return } // .first calls the first element (city) in our weather array. Weather array has just one element, Lyon or Newyork.
-        cityName.text = results.name
         temperature.text = "\(String(results.main.temp.shortDigitsIn(1)))°C"
         tempFeelsLike.text = "\(String(results.main.feels_like.shortDigitsIn(1)))°C ressentis"
         minimumTemp.text = "temp. mini : \(String(results.main.temp_min.shortDigitsIn(1)))°C"

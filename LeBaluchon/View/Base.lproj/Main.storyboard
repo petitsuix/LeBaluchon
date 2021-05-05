@@ -345,7 +345,6 @@
                     <tabBarItem key="tabBarItem" title="Météo" image="cloud.sun" catalog="system" id="rGZ-jj-Mfq"/>
                     <connections>
                         <outlet property="cityLocationSegmentedControl" destination="RMb-HV-vC7" id="doK-Jv-aXd"/>
-                        <outlet property="cityName" destination="Pwg-Qo-f52" id="dJP-ox-lG8"/>
                         <outlet property="cityPhoto" destination="ECg-Ag-qHN" id="dI6-lJ-WRW"/>
                         <outlet property="loadingWeatherActIndicator" destination="ZTA-tL-cvb" id="kkA-XU-nmX"/>
                         <outlet property="maximumTemp" destination="zx3-H3-9u9" id="DML-EX-Zyj"/>

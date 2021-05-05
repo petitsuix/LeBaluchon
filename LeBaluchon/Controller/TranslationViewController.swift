@@ -18,7 +18,6 @@ class TranslationViewController: UIViewController {
     @IBOutlet weak var translateButton: UIButton!
     @IBOutlet weak var translatingActivityIndicator: UIActivityIndicatorView!
     
-    var googleApi = TranslationServiceGoogle()
     var resultTranslation: MainTranslationInfo?
     
     // MARK: - View life cycle methods
@@ -40,13 +39,13 @@ class TranslationViewController: UIViewController {
     
     @IBAction func translate(_ sender: UIButton) {
         fetchTranslation()
-        textToTranslateBubble.doneButtonTapped()
+        textToTranslateBubble.doneButtonTapped() // Resigns text field's first responder so the keyboard disappears automatically
     }
     
     func fetchTranslation() {
         translatingActivityIndicator.isHidden = false
         translateButton.isHidden = true
-        googleApi.fetchTranslationData(textToTranslateBubble.text) { [weak self] (result) in
+        TranslationServiceGoogle.shared.fetchTranslationData(textToTranslateBubble.text) { [weak self] (result) in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let translationInfo):
@@ -63,7 +62,7 @@ class TranslationViewController: UIViewController {
     }
     
     func updateUI() {
-        guard let translation = resultTranslation?.data.translations.first?.translatedText.replacingOccurrences(of: "&#39;", with: "'").capitalizingFirstLetter() else { return }
+        guard let translation = resultTranslation?.data.translations.first?.translatedText.replacingOccurrences(of: "&#39;", with: "'").capitalizingFirstLetter() else { return } // Translated texts' high commas come back as &#39; so we make sure those occurences are replaced with the right symbol
         resultTranslatedText.text = "\(translation)"
     }
 }

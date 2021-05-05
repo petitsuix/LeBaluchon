@@ -10,29 +10,37 @@ import UIKit
 extension UIImageView {
     
     // ⬇︎ Loads the corresponding weather icon (cloudy, sunny...)
+    
     func loadIcon(_ icon: String) {
         let urlString = "https://openweathermap.org/img/wn/\(icon)@2x.png"
+        print("\(urlString)")
         guard let url = URL(string: urlString) else { return }
-        URLSession.shared.dataTask(with: url) { (d, _, _) in
-            DispatchQueue.main.async {
-                guard d != nil else { return }
-                let image = UIImage(data: d!)
-                self.image = image // Image views that call this extension method will get their ".image" property filled with the image retrieved from the given data
+        DispatchQueue.global().async { [weak self] in
+            if let data = try? Data(contentsOf: url) {
+                if let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        self?.image = image
+                    }
+                }
             }
-        }.resume()
+        }
     }
+    
     
     // ⬇︎ Loads the corresponding city photo (for weather interface's background)
     func loadCityPhoto(_ url: String) {
+        
         let urlString = url
         print("\(urlString)")
         guard let url = URL(string: urlString) else { return }
-        URLSession.shared.dataTask(with: url) { (d, _, _) in
-            DispatchQueue.main.async {
-                guard d != nil else { return }
-                let image = UIImage(data: d!)
-                self.image = image // Image views that call this extension method will get their ".image" property filled with the image retrieved from the given data
+        DispatchQueue.global().async { [weak self] in
+            if let data = try? Data(contentsOf: url) {
+                if let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        self?.image = image
+                    }
+                }
             }
-        }.resume()
+        }
     }
 }

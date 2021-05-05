@@ -9,10 +9,13 @@ import UIKit
 
 class WeatherPhotoServiceUnsplash: ServiceDecoder {
     
+    static let shared = WeatherPhotoServiceUnsplash()
     private var task: URLSessionDataTask?
-    private var urlSession: URLSession
+    private var urlSession: URLSession = URLSession(configuration: .default)
 
-    init(urlSession: URLSession = URLSession(configuration: .default)) {
+    private override init() {}
+    
+    init(urlSession: URLSession) {
         self.urlSession = urlSession
     }
     
@@ -27,7 +30,7 @@ class WeatherPhotoServiceUnsplash: ServiceDecoder {
         }
         task?.cancel()
         task = urlSession.dataTask(with: unsplashPhotoUrl, completionHandler: { (data, response, error) in
-            let result = self.handleResponse(dataType: [MainWeatherPhotoInfo].self, data, response, error)
+            let result = self.handleResponse(dataType: [MainWeatherPhotoInfo].self, passedData: data, passedResponse: response, passedError: error)
             completion(result)
         })
         task?.resume()

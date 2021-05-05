@@ -18,7 +18,7 @@ class CurrencyViewController: UIViewController {
     @IBOutlet weak var loadingCurrencyViewActivityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var convertButton: UIButton!
     
-    var currencyService = CurrencyServiceFixer()
+    
     var resultCurrency: MainCurrencyInfo?
     
     // MARK: - View life cycle methods
@@ -45,20 +45,20 @@ class CurrencyViewController: UIViewController {
     func fetchCurrency() {
         loadingCurrencyViewActivityIndicator.isHidden = false
         convertButton.isHidden = true
-        currencyService.fetchCurrencyData { [weak self] (result) in // calling request method
-            DispatchQueue.main.async {
+        CurrencyServiceFixer.shared.fetchCurrencyData { [weak self] (result) in // Calling request method
+            DispatchQueue.main.async { // Switching work item to asynchronous so it runs elsewhere while code is still being executed
                 switch result {
                 case .success(let currencyInfo):
                     self?.resultCurrency = currencyInfo
                     self?.updateUI()
                 case .failure(let error):
                     print(error)
-                    self?.errorFetchingData() // Affiche UIAlert
+                    self?.errorFetchingData() // Shows UIAlert
                 }
+                self?.loadingCurrencyViewActivityIndicator.isHidden = true
+                self?.convertButton.isHidden = false
             }
         }
-        loadingCurrencyViewActivityIndicator.isHidden = true
-        convertButton.isHidden = false
     }
     
     func updateUI() {
