@@ -42,9 +42,10 @@ class CurrencyViewController: UIViewController {
         euroTextField.doneButtonTapped() // Resigns text field's first responder so the keyboard disappears automatically
     }
     
-    func fetchCurrency() {
+    private func fetchCurrency() {
+        convertButton.isSelected = true
         loadingCurrencyViewActivityIndicator.isHidden = false
-        convertButton.isHidden = true
+        convertButton.isUserInteractionEnabled = false
         CurrencyServiceFixer.shared.fetchCurrencyData { [weak self] (result) in // Calling request method
             DispatchQueue.main.async { // Switching work item to asynchronous so it runs elsewhere while code is still being executed
                 switch result {
@@ -57,11 +58,13 @@ class CurrencyViewController: UIViewController {
                 }
                 self?.loadingCurrencyViewActivityIndicator.isHidden = true
                 self?.convertButton.isHidden = false
+                self?.convertButton.isSelected = false
+                self?.convertButton.isUserInteractionEnabled = true
             }
         }
     }
     
-    func updateUI() {
+    private func updateUI() {
         guard let currency = resultCurrency,
               let euroTextField = euroTextField.text,
               let usdRate = currency.rates.USD else { return }

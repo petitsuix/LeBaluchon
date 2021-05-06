@@ -81,7 +81,7 @@ class WeatherViewController: UIViewController {
     
     func fetchNewyorkWeather() {
         loadingWeatherActIndicator.isHidden = false
-        OpenWeatherService.shared.fetchWeatherData(cityId: WeatherCityID.newyork.cityID) { [weak self] (result) in // Calling request method
+        OpenWeatherService.shared.fetchWeatherData(cityId: WeatherCityID.newyork.cityID) { [weak self] (result) in // Calling request method, weak self is to avoid any retain cycle
             DispatchQueue.main.async {
                 switch result {
                 case .success(let weatherInfo):

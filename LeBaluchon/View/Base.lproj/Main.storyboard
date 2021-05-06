@@ -23,7 +23,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="nYL-kT-nCz">
+                            <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="nYL-kT-nCz">
                                 <rect key="frame" x="149.5" y="254" width="115" height="309"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="eurosign.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Zh9-qF-NlM">
@@ -41,6 +41,8 @@
                                         </constraints>
                                         <color key="tintColor" systemColor="systemYellowColor"/>
                                         <state key="normal" backgroundImage="arrow.down.app.fill" catalog="system"/>
+                                        <state key="disabled" image="square.fill" catalog="system"/>
+                                        <state key="selected" backgroundImage="square.fill" catalog="system"/>
                                         <connections>
                                             <action selector="didTapConvertButton:" destination="8ca-Xa-8OD" eventType="touchUpInside" id="ajk-Nz-dlD"/>
                                         </connections>
@@ -68,28 +70,26 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="YlE-lG-EQs">
-                                <rect key="frame" x="197" y="398" width="20" height="20"/>
+                                <rect key="frame" x="189.5" y="394.5" width="37" height="37"/>
                                 <color key="color" systemColor="labelColor"/>
                             </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="0Bu-dY-JSf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="0Bu-dY-JSf" firstAttribute="bottom" secondItem="YlE-lG-EQs" secondAttribute="bottom" constant="395" id="1Mj-mX-Umj"/>
                             <constraint firstItem="nYL-kT-nCz" firstAttribute="centerX" secondItem="hAg-h2-vxR" secondAttribute="centerX" id="4hJ-kK-bGK"/>
-                            <constraint firstItem="YlE-lG-EQs" firstAttribute="leading" secondItem="0Bu-dY-JSf" secondAttribute="leading" constant="197" id="6Ng-V7-rVd"/>
                             <constraint firstItem="fko-7i-Iht" firstAttribute="leading" secondItem="0Bu-dY-JSf" secondAttribute="leading" constant="20" id="8z2-la-8wm"/>
                             <constraint firstItem="fko-7i-Iht" firstAttribute="top" secondItem="0Bu-dY-JSf" secondAttribute="top" constant="20" id="9y0-rR-C4F"/>
                             <constraint firstItem="A9W-FZ-djf" firstAttribute="top" secondItem="L3u-0i-oVV" secondAttribute="bottom" constant="16" id="BUc-85-hNA"/>
+                            <constraint firstItem="YlE-lG-EQs" firstAttribute="centerX" secondItem="hAg-h2-vxR" secondAttribute="centerX" constant="1" id="COv-Os-dGj"/>
                             <constraint firstItem="L3u-0i-oVV" firstAttribute="leading" secondItem="0Bu-dY-JSf" secondAttribute="leading" constant="20" id="Ceo-AB-xki"/>
                             <constraint firstItem="L3u-0i-oVV" firstAttribute="top" secondItem="nYL-kT-nCz" secondAttribute="bottom" constant="28.5" id="EdG-tn-yI0"/>
                             <constraint firstItem="nYL-kT-nCz" firstAttribute="top" secondItem="fko-7i-Iht" secondAttribute="bottom" constant="28.5" id="JKI-4u-Vld"/>
                             <constraint firstItem="L3u-0i-oVV" firstAttribute="height" secondItem="fko-7i-Iht" secondAttribute="height" id="K8A-J0-OiX"/>
-                            <constraint firstItem="0Bu-dY-JSf" firstAttribute="trailing" secondItem="YlE-lG-EQs" secondAttribute="trailing" constant="197" id="OMZ-NV-2d2"/>
                             <constraint firstItem="0Bu-dY-JSf" firstAttribute="bottom" secondItem="A9W-FZ-djf" secondAttribute="bottom" constant="20" id="RCc-tQ-M1O"/>
                             <constraint firstItem="A9W-FZ-djf" firstAttribute="leading" secondItem="0Bu-dY-JSf" secondAttribute="leading" constant="20" id="Xtg-Iz-YUQ"/>
                             <constraint firstItem="0Bu-dY-JSf" firstAttribute="trailing" secondItem="A9W-FZ-djf" secondAttribute="trailing" constant="20" id="agD-c8-b7g"/>
-                            <constraint firstItem="YlE-lG-EQs" firstAttribute="top" secondItem="0Bu-dY-JSf" secondAttribute="top" constant="354" id="e1b-C5-L2Z"/>
+                            <constraint firstItem="YlE-lG-EQs" firstAttribute="centerY" secondItem="hAg-h2-vxR" secondAttribute="centerY" constant="-35" id="gwR-pR-xzH"/>
                             <constraint firstItem="0Bu-dY-JSf" firstAttribute="trailing" secondItem="L3u-0i-oVV" secondAttribute="trailing" constant="20" id="ylx-hg-CMn"/>
                             <constraint firstItem="0Bu-dY-JSf" firstAttribute="trailing" secondItem="fko-7i-Iht" secondAttribute="trailing" constant="20" id="zEH-Hm-eOF"/>
                         </constraints>
@@ -371,6 +371,7 @@
         <image name="eurosign.circle" catalog="system" width="128" height="121"/>
         <image name="logo-en.png" width="48" height="48"/>
         <image name="logo-fr.png" width="48" height="48"/>
+        <image name="square.fill" catalog="system" width="128" height="114"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

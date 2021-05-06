@@ -44,7 +44,8 @@ class TranslationViewController: UIViewController {
     
     func fetchTranslation() {
         translatingActivityIndicator.isHidden = false
-        translateButton.isHidden = true
+        translateButton.isSelected = true
+        translateButton.isUserInteractionEnabled = false
         TranslationServiceGoogle.shared.fetchTranslationData(textToTranslateBubble.text) { [weak self] (result) in
             DispatchQueue.main.async {
                 switch result {
@@ -55,10 +56,12 @@ class TranslationViewController: UIViewController {
                     print("error: \(error) for weather photo")
                     self?.errorFetchingData()
                 }
+                self?.translatingActivityIndicator.isHidden = true
+                self?.translateButton.isHidden = false
+                self?.translateButton.isSelected = false
+                self?.translateButton.isUserInteractionEnabled = true
             }
         }
-        translateButton.isHidden = false
-        translatingActivityIndicator.isHidden = true
     }
     
     func updateUI() {
