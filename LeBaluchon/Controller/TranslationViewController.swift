@@ -18,7 +18,7 @@ class TranslationViewController: UIViewController {
     @IBOutlet weak var translateButton: UIButton!
     @IBOutlet weak var translatingActivityIndicator: UIActivityIndicatorView!
     
-    var resultTranslation: MainTranslationInfo?
+    private var resultTranslation: MainTranslationInfo?
     
     // MARK: - View life cycle methods
     
@@ -42,12 +42,12 @@ class TranslationViewController: UIViewController {
         textToTranslateBubble.doneButtonTapped() // Resigns text field's first responder so the keyboard disappears automatically
     }
     
-    func fetchTranslation() {
+    private func fetchTranslation() {
         translatingActivityIndicator.isHidden = false
         translateButton.isSelected = true
         translateButton.isUserInteractionEnabled = false
-        TranslationServiceGoogle.shared.fetchTranslationData(textToTranslateBubble.text) { [weak self] (result) in
-            DispatchQueue.main.async {
+        TranslationServiceGoogle.shared.fetchTranslationData(textToTranslate: textToTranslateBubble.text) { [weak self] (result) in // Calling request method. Weak self is to avoid any retain cycle that could provoke memory leaks and crashes (deinit could never be called, memory would never be freed)
+            DispatchQueue.main.async { // Switching work item to asynchronous so it runs elsewhere while code is still being executed
                 switch result {
                 case .success(let translationInfo):
                     self?.resultTranslation = translationInfo
@@ -64,7 +64,7 @@ class TranslationViewController: UIViewController {
         }
     }
     
-    func updateUI() {
+    private func updateUI() {
         guard let translation = resultTranslation?.data.translations.first?.translatedText.replacingOccurrences(of: "&#39;", with: "'").capitalizingFirstLetter() else { return } // Translated texts' high commas come back as &#39; so we make sure those occurences are replaced with the right symbol
         resultTranslatedText.text = "\(translation)"
     }

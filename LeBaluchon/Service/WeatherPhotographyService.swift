@@ -9,30 +9,37 @@ import UIKit
 
 class WeatherPhotoServiceUnsplash: ServiceDecoder {
     
-    static let shared = WeatherPhotoServiceUnsplash()
-    private var task: URLSessionDataTask?
+    // MARK: - Properties
+    
+    private var urlSessionDataTask: URLSessionDataTask?
     private var urlSession: URLSession = URLSession(configuration: .default)
-
+    
+    static let shared = WeatherPhotoServiceUnsplash() // Singleton pattern. Allows to coordinate operations
+    
+    // MARK: - Init methods
+    
     private override init() {}
     
     init(urlSession: URLSession) {
         self.urlSession = urlSession
     }
     
-    func getUrl(from collectionId: String) -> String {
+    // MARK: - Methods
+    
+    private func getUrl(from collectionId: String) -> String {
         let stringUrl = "https://api.unsplash.com/collections/\(collectionId)/photos/?client_id=\(APIKeys.unsplashKey)"
         return stringUrl
     }
     
-    func fetchWeatherPhotoData(collectionId: String, completion: @escaping(Result<[MainWeatherPhotoInfo], ServiceError>) -> Void) {
+    func fetchWeatherPhotoData(collectionId: String, completion: @escaping(Result<[MainWeatherPhotoInfo], ServiceError>) -> Void) { // Parameter completion is a Result. It induces a success or a failure
         guard let unsplashPhotoUrl = URL(string: getUrl(from: collectionId)) else {
             return completion(.failure(.invalidUrl))
         }
-        task?.cancel()
-        task = urlSession.dataTask(with: unsplashPhotoUrl, completionHandler: { (data, response, error) in
-            let result = self.handleResponse(dataType: [MainWeatherPhotoInfo].self, passedData: data, passedResponse: response, passedError: error)
+        urlSessionDataTask?.cancel()
+        urlSessionDataTask = urlSession.dataTask(with: unsplashPhotoUrl, completionHandler: { (data, response, error) in
+            let result = self.handleResponse(dataType: [MainWeatherPhotoInfo].self, data: data, response: response, error: error)
             completion(result)
         })
-        task?.resume()
+        urlSessionDataTask?.resume()
     }
 }

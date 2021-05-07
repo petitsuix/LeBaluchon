@@ -9,13 +9,13 @@ import Foundation
 
 class ServiceDecoder {
     
-    func handleResponse<T>(dataType: T.Type, passedData: Data?, passedResponse: URLResponse?, passedError: Error?) -> Result<T, ServiceError> where T: Decodable {
+    func handleResponse<T>(dataType: T.Type, data: Data?, response: URLResponse?, error: Error?) -> Result<T, ServiceError> where T: Decodable {
         
-        if let error = passedError {
+        if let error = error {
             return .failure(.errorFromApi(error.localizedDescription))
         }
         
-        guard let response = passedResponse as? HTTPURLResponse else { // HTTPURLResponse provides methods for accessing information specific to HTTP protocol responses, such as ".statusCode" below
+        guard let response = response as? HTTPURLResponse else { // HTTPURLResponse provides methods for accessing information specific to HTTP protocol responses, such as ".statusCode" below
             return .failure(.invalidResponse)
         }
         
@@ -23,7 +23,7 @@ class ServiceDecoder {
             return .failure(.invalidStatusCode)
         }
         
-        guard let data = passedData else {
+        guard let data = data else {
             return .failure(.emptyData)
         }
         do {

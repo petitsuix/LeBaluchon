@@ -8,20 +8,20 @@
 /* —> BONNES PRATIQUES :
  
  Activity indicator & chargement des labels, est-ce qu’on les laisse vide dans le storyboard? OU on met quand même des « loading… » dans les labels des storyboards ?
-
-
+ 
+ 
  —> weak self dans dispatch queue des extensions UIImgage view à mettre ou pas ?
-
-
+ 
+ 
  —> competion/completion handler ?
-
-
+ 
+ 
  —> Pb erreur clavier décimal
-
-
+ 
+ 
  —> Activity indicator bien placés? Sécurité suffisante pour ne pas lancer plusieurs appels réseau à la fois en cachant simplement le bouton ?
-
-
+ 
+ 
  —> GitIgnore : ServiceAPIKey apparait bien devant sur GitHub, ça veut dire que j’ai plus besoin de le décocher quand je commit? */
 
 import UIKit
@@ -42,9 +42,9 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var loadingWeatherActIndicator: UIActivityIndicatorView!
     @IBOutlet weak var weatherInfoStackView: UIStackView!
     
-    var resultNewyorkWeather: MainWeatherInfo?
-    var resultLyonWeather: MainWeatherInfo?
-    var resultCityPhoto: MainWeatherPhotoInfo?
+    private var resultNewyorkWeather: MainWeatherInfo?
+    private var resultLyonWeather: MainWeatherInfo?
+    private var resultCityPhoto: MainWeatherPhotoInfo?
     
     // MARK: - View life cycle methods
     
@@ -79,10 +79,10 @@ class WeatherViewController: UIViewController {
         }
     }
     
-    func fetchNewyorkWeather() {
+    private func fetchNewyorkWeather() {
         loadingWeatherActIndicator.isHidden = false
-        OpenWeatherService.shared.fetchWeatherData(cityId: WeatherCityID.newyork.cityID) { [weak self] (result) in // Calling request method, weak self is to avoid any retain cycle
-            DispatchQueue.main.async {
+        OpenWeatherService.shared.fetchWeatherData(cityId: WeatherCityID.newyork.cityID) { [weak self] (result) in // Calling request method. Weak self is to avoid any retain cycle that could provoke memory leaks and crashes (deinit could never be called, memory would never be freed)
+            DispatchQueue.main.async { // Switching work item to asynchronous so it runs elsewhere while code is still being executed
                 switch result {
                 case .success(let weatherInfo):
                     self?.resultNewyorkWeather = weatherInfo
@@ -96,9 +96,9 @@ class WeatherViewController: UIViewController {
         }
     }
     
-    func fetchLyonWeather() {
+    private func fetchLyonWeather() {
         loadingWeatherActIndicator.isHidden = false
-        OpenWeatherService.shared.fetchWeatherData(cityId: WeatherCityID.lyon.cityID) { [weak self] (result) in
+        OpenWeatherService.shared.fetchWeatherData(cityId: WeatherCityID.lyon.cityID) { [weak self] (result) in //
             DispatchQueue.main.async {
                 switch result {
                 case .success(let weatherInfo):
@@ -113,7 +113,7 @@ class WeatherViewController: UIViewController {
         }
     }
     
-    func fetchPhoto(_ collectionId: String) {
+    private func fetchPhoto(_ collectionId: String) {
         WeatherPhotoServiceUnsplash.shared.fetchWeatherPhotoData(collectionId: collectionId) { [weak self] (result) in
             DispatchQueue.main.async {
                 switch result {
@@ -128,13 +128,13 @@ class WeatherViewController: UIViewController {
         }
     }
     
-    func updateImage() {
+    private func updateImage() {
         guard let photo = resultCityPhoto else { return }
         cityPhoto.loadCityPhoto(photo.urls.regular)
         loadingWeatherActIndicator.isHidden = true
     }
     
-    func updateUI(cityResults: MainWeatherInfo?) {
+    private func updateUI(cityResults: MainWeatherInfo?) {
         guard let results = cityResults else { return }
         guard let resultsFirst = results.weather.first else { return } // .first calls the first element (city) in our weather array. Weather array has just one element, Lyon or Newyork.
         temperature.text = "\(String(results.main.temp.shortDigitsIn(1)))°C"
