@@ -139,8 +139,8 @@ class WeatherViewController: UIViewController {
         guard let resultsFirst = results.weather.first else { return } // .first calls the first element (city) in our weather array. Weather array has just one element, Lyon or Newyork.
         temperature.text = "\(String(results.main.temp.shortDigitsIn(1)))°C"
         tempFeelsLike.text = "\(String(results.main.feels_like.shortDigitsIn(1)))°C ressentis"
-        minimumTemp.text = "temp. mini : \(String(results.main.temp_min.shortDigitsIn(1)))°C"
-        maximumTemp.text = "temp. maxi : \(String(results.main.temp_max.shortDigitsIn(1)))°C"
+        minimumTemp.text = "Temp. mini : \(String(results.main.temp_min.shortDigitsIn(1)))°C"
+        maximumTemp.text = "Temp. maxi : \(String(results.main.temp_max.shortDigitsIn(1)))°C"
         skyDescription.text = results.weather[0].description.capitalizingFirstLetter()
         weatherIcon.loadIcon(resultsFirst.icon)
     }

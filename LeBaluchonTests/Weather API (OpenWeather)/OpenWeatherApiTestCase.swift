@@ -86,9 +86,9 @@ class OpenWeatherApiTestCase: XCTestCase {
                 return
             }
             XCTAssertNotNil(success)
-            XCTAssertEqual(temp, success.main.temp)
-            XCTAssertEqual(description, success.weather[0].description)
-            XCTAssertEqual(icon, success.weather[0].icon)
+            XCTAssertEqual(success.main.temp, temp)
+            XCTAssertEqual(success.weather[0].description, description)
+            XCTAssertEqual(success.weather[0].icon, icon)
         }
     }
 }

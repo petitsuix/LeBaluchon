@@ -18,23 +18,23 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" borderStyle="roundedRect" placeholder="Euros (EUR)" minimumFontSize="17" background="eurosign.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="fko-7i-Iht">
-                                <rect key="frame" x="20" y="64" width="374" height="161.5"/>
+                                <rect key="frame" x="20" y="64" width="374" height="179.5"/>
                                 <color key="backgroundColor" systemColor="systemGray5Color"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
-                            <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="nYL-kT-nCz">
-                                <rect key="frame" x="149.5" y="254" width="115" height="309"/>
+                            <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="nYL-kT-nCz">
+                                <rect key="frame" x="149.5" y="272" width="115" height="273"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="eurosign.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Zh9-qF-NlM">
-                                        <rect key="frame" x="0.0" y="0.5" width="115" height="69"/>
+                                        <rect key="frame" x="0.0" y="0.5" width="115" height="59"/>
                                         <color key="tintColor" systemColor="systemOrangeColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="70" id="seH-di-47U"/>
+                                            <constraint firstAttribute="height" constant="60" id="seH-di-47U"/>
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yxU-CD-lgg">
-                                        <rect key="frame" x="0.0" y="103" width="115" height="102.5"/>
+                                        <rect key="frame" x="0.0" y="85" width="115" height="102.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="115" id="J8u-R0-ezJ"/>
                                             <constraint firstAttribute="height" constant="105" id="b58-9H-Dj8"/>
@@ -48,16 +48,16 @@
                                         </connections>
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="dollarsign.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="8kJ-Nm-GCB">
-                                        <rect key="frame" x="0.0" y="239.5" width="115" height="69"/>
+                                        <rect key="frame" x="0.0" y="213.5" width="115" height="59"/>
                                         <color key="tintColor" systemColor="systemOrangeColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="70" id="exD-wt-v9c"/>
+                                            <constraint firstAttribute="height" constant="60" id="exD-wt-v9c"/>
                                         </constraints>
                                     </imageView>
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L3u-0i-oVV">
-                                <rect key="frame" x="20" y="591.5" width="374" height="161.5"/>
+                                <rect key="frame" x="20" y="573.5" width="374" height="179.5"/>
                                 <color key="backgroundColor" systemColor="systemGray4Color"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <nil key="textColor"/>
@@ -81,20 +81,20 @@
                             <constraint firstItem="fko-7i-Iht" firstAttribute="leading" secondItem="0Bu-dY-JSf" secondAttribute="leading" constant="20" id="8z2-la-8wm"/>
                             <constraint firstItem="fko-7i-Iht" firstAttribute="top" secondItem="0Bu-dY-JSf" secondAttribute="top" constant="20" id="9y0-rR-C4F"/>
                             <constraint firstItem="A9W-FZ-djf" firstAttribute="top" secondItem="L3u-0i-oVV" secondAttribute="bottom" constant="16" id="BUc-85-hNA"/>
-                            <constraint firstItem="YlE-lG-EQs" firstAttribute="centerX" secondItem="hAg-h2-vxR" secondAttribute="centerX" constant="1" id="COv-Os-dGj"/>
                             <constraint firstItem="L3u-0i-oVV" firstAttribute="leading" secondItem="0Bu-dY-JSf" secondAttribute="leading" constant="20" id="Ceo-AB-xki"/>
                             <constraint firstItem="L3u-0i-oVV" firstAttribute="top" secondItem="nYL-kT-nCz" secondAttribute="bottom" constant="28.5" id="EdG-tn-yI0"/>
+                            <constraint firstItem="YlE-lG-EQs" firstAttribute="centerY" secondItem="yxU-CD-lgg" secondAttribute="centerY" constant="4.5" id="EoZ-9e-XHp"/>
                             <constraint firstItem="nYL-kT-nCz" firstAttribute="top" secondItem="fko-7i-Iht" secondAttribute="bottom" constant="28.5" id="JKI-4u-Vld"/>
                             <constraint firstItem="L3u-0i-oVV" firstAttribute="height" secondItem="fko-7i-Iht" secondAttribute="height" id="K8A-J0-OiX"/>
                             <constraint firstItem="0Bu-dY-JSf" firstAttribute="bottom" secondItem="A9W-FZ-djf" secondAttribute="bottom" constant="20" id="RCc-tQ-M1O"/>
                             <constraint firstItem="A9W-FZ-djf" firstAttribute="leading" secondItem="0Bu-dY-JSf" secondAttribute="leading" constant="20" id="Xtg-Iz-YUQ"/>
                             <constraint firstItem="0Bu-dY-JSf" firstAttribute="trailing" secondItem="A9W-FZ-djf" secondAttribute="trailing" constant="20" id="agD-c8-b7g"/>
-                            <constraint firstItem="YlE-lG-EQs" firstAttribute="centerY" secondItem="hAg-h2-vxR" secondAttribute="centerY" constant="-35" id="gwR-pR-xzH"/>
+                            <constraint firstItem="YlE-lG-EQs" firstAttribute="centerX" secondItem="yxU-CD-lgg" secondAttribute="centerX" constant="1" id="yBa-Fd-8WB"/>
                             <constraint firstItem="0Bu-dY-JSf" firstAttribute="trailing" secondItem="L3u-0i-oVV" secondAttribute="trailing" constant="20" id="ylx-hg-CMn"/>
                             <constraint firstItem="0Bu-dY-JSf" firstAttribute="trailing" secondItem="fko-7i-Iht" secondAttribute="trailing" constant="20" id="zEH-Hm-eOF"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Taux de change" image="cylinder.split.1x2" catalog="system" id="K3g-eM-PKP"/>
+                    <tabBarItem key="tabBarItem" title="Taux de change" image="dollarsign.circle" catalog="system" id="K3g-eM-PKP"/>
                     <connections>
                         <outlet property="centerStackView" destination="nYL-kT-nCz" id="Gao-UO-Ydo"/>
                         <outlet property="convertButton" destination="yxU-CD-lgg" id="w5x-5t-OzH"/>
@@ -117,27 +117,27 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Salutations, voyageurs !" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="P2f-Pz-IOq">
-                                <rect key="frame" x="30" y="63" width="354" height="172"/>
+                                <rect key="frame" x="30" y="63" width="354" height="200"/>
                                 <color key="backgroundColor" systemColor="systemGray4Color"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="0SA-Jz-53R">
-                                <rect key="frame" x="149.5" y="263.5" width="115" height="329"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="0SA-Jz-53R">
+                                <rect key="frame" x="149.5" y="291.5" width="115" height="273"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="logo-fr.png" translatesAutoresizingMaskIntoConstraints="NO" id="LqA-uP-G5C">
-                                        <rect key="frame" x="0.0" y="0.0" width="115" height="80"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="115" height="60"/>
                                         <color key="tintColor" systemColor="systemOrangeColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="80" id="JFc-kw-Bs2"/>
+                                            <constraint firstAttribute="height" constant="60" id="JFc-kw-Bs2"/>
                                         </constraints>
                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="font">
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                         </preferredSymbolConfiguration>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qus-Q7-opp">
-                                        <rect key="frame" x="0.0" y="113" width="115" height="102.5"/>
+                                        <rect key="frame" x="0.0" y="85" width="115" height="102.5"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="105" id="GK0-fz-Rvx"/>
                                             <constraint firstAttribute="width" constant="115" id="qAj-ul-sqR"/>
@@ -150,24 +150,23 @@
                                         </connections>
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="logo-en.png" translatesAutoresizingMaskIntoConstraints="NO" id="I0u-CV-bzS">
-                                        <rect key="frame" x="0.0" y="249" width="115" height="80"/>
+                                        <rect key="frame" x="0.0" y="213" width="115" height="60"/>
                                         <color key="tintColor" systemColor="systemOrangeColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="80" id="RNB-wk-SMA"/>
+                                            <constraint firstAttribute="height" constant="60" id="RNB-wk-SMA"/>
                                         </constraints>
                                     </imageView>
                                 </subviews>
                             </stackView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="lG3-g4-b93">
-                                <rect key="frame" x="30" y="621" width="354" height="172"/>
+                                <rect key="frame" x="30" y="593" width="354" height="200"/>
                                 <color key="backgroundColor" systemColor="systemGray4Color"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Pnq-3L-dfk">
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Pnq-3L-dfk">
                                 <rect key="frame" x="198" y="419" width="20" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="color" systemColor="labelColor"/>
                             </activityIndicatorView>
                         </subviews>
@@ -176,11 +175,13 @@
                         <constraints>
                             <constraint firstItem="lG3-g4-b93" firstAttribute="height" secondItem="P2f-Pz-IOq" secondAttribute="height" id="0c4-JC-yrr"/>
                             <constraint firstItem="P2f-Pz-IOq" firstAttribute="top" secondItem="P0c-Fg-jau" secondAttribute="top" constant="19" id="C18-Ce-hdL"/>
+                            <constraint firstItem="Pnq-3L-dfk" firstAttribute="centerY" secondItem="Qus-Q7-opp" secondAttribute="centerY" constant="1" id="ED7-nW-oAF"/>
                             <constraint firstItem="lG3-g4-b93" firstAttribute="top" secondItem="0SA-Jz-53R" secondAttribute="bottom" constant="28.5" id="KGe-fr-Sw4"/>
                             <constraint firstItem="P2f-Pz-IOq" firstAttribute="leading" secondItem="P0c-Fg-jau" secondAttribute="leading" constant="30" id="Kj3-ZB-pZL"/>
                             <constraint firstItem="lG3-g4-b93" firstAttribute="leading" secondItem="P0c-Fg-jau" secondAttribute="leading" constant="30" id="S9G-Wo-8oD"/>
                             <constraint firstItem="0SA-Jz-53R" firstAttribute="top" secondItem="P2f-Pz-IOq" secondAttribute="bottom" constant="28.5" id="TZR-Lw-kNB"/>
                             <constraint firstItem="P0c-Fg-jau" firstAttribute="trailing" secondItem="lG3-g4-b93" secondAttribute="trailing" constant="30" id="VOK-TS-9oX"/>
+                            <constraint firstItem="Pnq-3L-dfk" firstAttribute="centerX" secondItem="Qus-Q7-opp" secondAttribute="centerX" constant="1" id="o6E-c0-uR9"/>
                             <constraint firstItem="P0c-Fg-jau" firstAttribute="trailing" secondItem="P2f-Pz-IOq" secondAttribute="trailing" constant="30" id="rEO-Jf-UDl"/>
                             <constraint firstItem="P0c-Fg-jau" firstAttribute="bottom" secondItem="lG3-g4-b93" secondAttribute="bottom" constant="20" id="rnJ-cZ-FlA"/>
                             <constraint firstItem="0SA-Jz-53R" firstAttribute="centerX" secondItem="lT9-ar-Hif" secondAttribute="centerX" id="v8d-zv-VNY"/>
@@ -226,20 +227,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New-York" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pwg-Qo-f52" userLabel="City Name">
-                                <rect key="frame" x="20" y="63" width="374" height="35"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="B7f-Cn-YFg"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ECg-Ag-qHN">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="813" id="7hb-b6-3Hh"/>
-                                </constraints>
                             </imageView>
                             <segmentedControl contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="RMb-HV-vC7">
                                 <rect key="frame" x="20" y="742" width="374" height="41"/>
@@ -258,88 +247,87 @@
                                 </connections>
                             </segmentedControl>
                             <view alpha="0.90000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aOu-3q-wBC">
-                                <rect key="frame" x="114" y="205" width="183" height="427"/>
-                                <color key="backgroundColor" systemColor="systemGray6Color"/>
-                            </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="R2n-8o-y8z" userLabel="NY Stack View">
-                                <rect key="frame" x="64" y="303" width="286" height="329"/>
+                                <rect key="frame" x="64" y="76" width="286" height="614"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sfy-pN-lPe" userLabel="Sky description">
-                                        <rect key="frame" x="114" y="0.0" width="58.5" height="59.5"/>
-                                        <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="17"/>
-                                        <color key="highlightedColor" systemColor="labelColor"/>
-                                        <color key="shadowColor" systemColor="systemGray2Color"/>
-                                        <size key="shadowOffset" width="1" height="0.0"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0JW-P0-CzU" userLabel="Temperature">
-                                        <rect key="frame" x="118" y="67.5" width="50" height="59.5"/>
-                                        <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="24"/>
-                                        <color key="highlightedColor" systemColor="labelColor"/>
-                                        <color key="shadowColor" systemColor="systemGray2Color"/>
-                                        <size key="shadowOffset" width="1" height="0.0"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cS7-rx-xjl" userLabel="Feels like temperature">
-                                        <rect key="frame" x="118" y="135" width="50" height="59"/>
-                                        <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="17"/>
-                                        <color key="highlightedColor" systemColor="labelColor"/>
-                                        <color key="shadowColor" systemColor="systemGray2Color"/>
-                                        <size key="shadowOffset" width="1" height="0.0"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UWI-PR-AOP" userLabel="Minimum temp">
-                                        <rect key="frame" x="118" y="202" width="50" height="59.5"/>
-                                        <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="17"/>
-                                        <color key="highlightedColor" systemColor="labelColor"/>
-                                        <color key="shadowColor" systemColor="systemGray2Color"/>
-                                        <size key="shadowOffset" width="1" height="0.0"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zx3-H3-9u9" userLabel="Max temp">
-                                        <rect key="frame" x="118" y="269.5" width="50" height="59.5"/>
-                                        <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="17"/>
-                                        <color key="highlightedColor" systemColor="labelColor"/>
-                                        <color key="shadowColor" systemColor="systemGray2Color"/>
-                                        <size key="shadowOffset" width="1" height="0.0"/>
-                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xQ5-DY-sXF" userLabel="Weather icon">
+                                        <rect key="frame" x="93" y="0.0" width="100" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="FOC-T8-lPQ"/>
+                                            <constraint firstAttribute="height" constant="100" id="XCI-AH-0V4"/>
+                                        </constraints>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="R2n-8o-y8z" userLabel="NY Stack View">
+                                        <rect key="frame" x="8" y="76" width="270" height="538"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="loading..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sfy-pN-lPe" userLabel="Sky description">
+                                                <rect key="frame" x="99" y="0.0" width="72" height="101"/>
+                                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="17"/>
+                                                <color key="highlightedColor" systemColor="labelColor"/>
+                                                <color key="shadowColor" systemColor="systemGray2Color"/>
+                                                <size key="shadowOffset" width="1" height="0.0"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- °C" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0JW-P0-CzU" userLabel="Temperature">
+                                                <rect key="frame" x="110.5" y="109" width="49.5" height="101.5"/>
+                                                <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="24"/>
+                                                <color key="highlightedColor" systemColor="labelColor"/>
+                                                <color key="shadowColor" systemColor="systemGray2Color"/>
+                                                <size key="shadowOffset" width="1" height="0.0"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- °C" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cS7-rx-xjl" userLabel="Feels like temperature">
+                                                <rect key="frame" x="117.5" y="218.5" width="35" height="101"/>
+                                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="17"/>
+                                                <color key="highlightedColor" systemColor="labelColor"/>
+                                                <color key="shadowColor" systemColor="systemGray2Color"/>
+                                                <size key="shadowOffset" width="1" height="0.0"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- °C" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UWI-PR-AOP" userLabel="Minimum temp">
+                                                <rect key="frame" x="117.5" y="327.5" width="35" height="101.5"/>
+                                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="17"/>
+                                                <color key="highlightedColor" systemColor="labelColor"/>
+                                                <color key="shadowColor" systemColor="systemGray2Color"/>
+                                                <size key="shadowOffset" width="1" height="0.0"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- °C" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zx3-H3-9u9" userLabel="Max temp">
+                                                <rect key="frame" x="117.5" y="437" width="35" height="101"/>
+                                                <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="17"/>
+                                                <color key="highlightedColor" systemColor="labelColor"/>
+                                                <color key="shadowColor" systemColor="systemGray2Color"/>
+                                                <size key="shadowOffset" width="1" height="0.0"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
-                            </stackView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xQ5-DY-sXF" userLabel="Weather icon">
-                                <rect key="frame" x="155" y="219" width="100" height="100"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="Yht-35-lLc"/>
-                                    <constraint firstAttribute="width" constant="100" id="k81-rB-JaN"/>
+                                    <constraint firstAttribute="bottom" secondItem="R2n-8o-y8z" secondAttribute="bottom" id="EKp-kX-zWJ"/>
+                                    <constraint firstItem="xQ5-DY-sXF" firstAttribute="top" secondItem="aOu-3q-wBC" secondAttribute="top" id="T8W-Nh-yyN"/>
+                                    <constraint firstItem="xQ5-DY-sXF" firstAttribute="centerX" secondItem="aOu-3q-wBC" secondAttribute="centerX" id="Tdl-La-Dcc"/>
+                                    <constraint firstItem="R2n-8o-y8z" firstAttribute="leading" secondItem="aOu-3q-wBC" secondAttribute="leading" constant="8" id="gDO-Ge-NOe"/>
+                                    <constraint firstAttribute="trailing" secondItem="R2n-8o-y8z" secondAttribute="trailing" constant="8" id="nBP-ko-w1P"/>
+                                    <constraint firstItem="R2n-8o-y8z" firstAttribute="top" secondItem="xQ5-DY-sXF" secondAttribute="bottom" constant="-24" id="p7i-lt-YWd"/>
                                 </constraints>
-                            </imageView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="ZTA-tL-cvb">
-                                <rect key="frame" x="197" y="677" width="20" height="20"/>
+                            </view>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="ZTA-tL-cvb">
+                                <rect key="frame" x="197" y="706" width="20" height="20"/>
                                 <color key="color" systemColor="labelColor"/>
                             </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="RMb-HV-vC7" secondAttribute="trailing" constant="20" id="12N-z6-C28"/>
-                            <constraint firstItem="RMb-HV-vC7" firstAttribute="top" secondItem="aOu-3q-wBC" secondAttribute="bottom" constant="110" id="1p6-3L-N3m"/>
-                            <constraint firstItem="ZTA-tL-cvb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="197" id="4Ob-mk-rcp"/>
-                            <constraint firstItem="xQ5-DY-sXF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-2" id="4r8-re-O3L"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="R2n-8o-y8z" secondAttribute="trailing" constant="64" id="6Hu-er-x4z"/>
-                            <constraint firstItem="Pwg-Qo-f52" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="19" id="6rG-bX-b3X"/>
-                            <constraint firstItem="RMb-HV-vC7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="9oS-uu-16R"/>
-                            <constraint firstItem="RMb-HV-vC7" firstAttribute="top" secondItem="ZTA-tL-cvb" secondAttribute="bottom" constant="45" id="9pw-7w-ocD"/>
-                            <constraint firstItem="Pwg-Qo-f52" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="E6V-v6-MCU"/>
-                            <constraint firstItem="ZTA-tL-cvb" firstAttribute="top" secondItem="aOu-3q-wBC" secondAttribute="bottom" constant="45" id="G0V-M5-Xmb"/>
-                            <constraint firstItem="R2n-8o-y8z" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="64" id="H84-PW-5Mf"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Pwg-Qo-f52" secondAttribute="trailing" constant="20" id="I0c-tM-qbp"/>
-                            <constraint firstItem="xQ5-DY-sXF" firstAttribute="top" secondItem="Pwg-Qo-f52" secondAttribute="bottom" constant="121" id="Rlo-YE-4pc"/>
-                            <constraint firstItem="aOu-3q-wBC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="114" id="VER-0w-XeE"/>
-                            <constraint firstItem="ECg-Ag-qHN" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="c2H-fk-svQ"/>
-                            <constraint firstItem="ECg-Ag-qHN" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="eMc-EY-Sxx"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="RMb-HV-vC7" secondAttribute="bottom" constant="31" id="f4o-ZW-bAf"/>
-                            <constraint firstItem="ECg-Ag-qHN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="jWu-qG-55X"/>
-                            <constraint firstItem="R2n-8o-y8z" firstAttribute="top" secondItem="xQ5-DY-sXF" secondAttribute="bottom" constant="-16" id="ov5-uh-6dk"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ZTA-tL-cvb" secondAttribute="trailing" constant="197" id="qBS-0h-X6B"/>
-                            <constraint firstItem="RMb-HV-vC7" firstAttribute="top" secondItem="R2n-8o-y8z" secondAttribute="bottom" constant="110" id="qi3-JV-89R"/>
-                            <constraint firstItem="aOu-3q-wBC" firstAttribute="top" secondItem="Pwg-Qo-f52" secondAttribute="bottom" constant="107" id="rqN-O5-bnN"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ECg-Ag-qHN" secondAttribute="trailing" id="wJJ-bM-pre"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="aOu-3q-wBC" secondAttribute="trailing" constant="117" id="zth-1D-M3k"/>
+                            <constraint firstItem="ECg-Ag-qHN" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="4Om-lp-eEy"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="RMb-HV-vC7" secondAttribute="trailing" constant="20" id="5UA-ti-NR5"/>
+                            <constraint firstItem="ECg-Ag-qHN" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="5tL-6e-zYW"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="aOu-3q-wBC" secondAttribute="trailing" constant="64" id="BEh-qX-6wH"/>
+                            <constraint firstItem="aOu-3q-wBC" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="32" id="CGD-Fp-XJ2"/>
+                            <constraint firstItem="ECg-Ag-qHN" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="PXr-t7-bzh"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="RMb-HV-vC7" secondAttribute="bottom" constant="31" id="RMK-tP-z5h"/>
+                            <constraint firstItem="ZTA-tL-cvb" firstAttribute="top" secondItem="aOu-3q-wBC" secondAttribute="bottom" constant="16" id="mCp-yx-fKv"/>
+                            <constraint firstItem="RMb-HV-vC7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="pv0-1k-3f9"/>
+                            <constraint firstItem="ZTA-tL-cvb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="wIu-d8-lDq"/>
+                            <constraint firstItem="ECg-Ag-qHN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="wbg-or-2f1"/>
+                            <constraint firstItem="aOu-3q-wBC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="64" id="xaV-i5-szB"/>
+                            <constraint firstItem="RMb-HV-vC7" firstAttribute="top" secondItem="ZTA-tL-cvb" secondAttribute="bottom" constant="16" id="yNz-of-XYH"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Météo" image="cloud.sun" catalog="system" id="rGZ-jj-Mfq"/>
@@ -366,7 +354,6 @@
         <image name="arrow.down.app.fill" catalog="system" width="128" height="114"/>
         <image name="book" catalog="system" width="128" height="102"/>
         <image name="cloud.sun" catalog="system" width="128" height="93"/>
-        <image name="cylinder.split.1x2" catalog="system" width="121" height="128"/>
         <image name="dollarsign.circle" catalog="system" width="128" height="121"/>
         <image name="eurosign.circle" catalog="system" width="128" height="121"/>
         <image name="logo-en.png" width="48" height="48"/>

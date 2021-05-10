@@ -26,7 +26,6 @@ extension UIImageView {
         }
     }
     
-    
     // ⬇︎ Loads the corresponding city photo (for weather interface's background)
     func loadCityPhoto(_ url: String) {
         
