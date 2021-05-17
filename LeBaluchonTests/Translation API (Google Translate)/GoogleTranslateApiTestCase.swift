@@ -16,7 +16,7 @@ class GoogleTranslateApiTestCase: XCTestCase {
             urlSession: URLSessionFake(data: nil, response: nil, error: FakeResponseData.error)
         )
         // When :
-        translationService.fetchTranslationData("Bonjour") { (result) in
+        translationService.fetchTranslationData(textToTranslate: "Bonjour") { (result) in
             // Then :
             guard case .failure(let error) = result else {
                 return
@@ -31,7 +31,7 @@ class GoogleTranslateApiTestCase: XCTestCase {
             urlSession: URLSessionFake(data: nil, response: nil, error: nil)
         )
         // When :
-        translationService.fetchTranslationData("Bonjour") { (result) in
+        translationService.fetchTranslationData(textToTranslate: "Bonjour") { (result) in
             // Then :
             guard case .failure(let error) = result else {
                 return
@@ -46,7 +46,7 @@ class GoogleTranslateApiTestCase: XCTestCase {
             urlSession: URLSessionFake(data: FakeResponseData.getCorrectDataFor(resource: "GoogleTranslate"), response: FakeResponseData.responseKO, error: nil)
         )
         // When :
-        translationService.fetchTranslationData("Bonjour") { (result) in
+        translationService.fetchTranslationData(textToTranslate: "Bonjour") { (result) in
             // Then :
             guard case .failure(let error) = result else {
                 return
@@ -61,7 +61,7 @@ class GoogleTranslateApiTestCase: XCTestCase {
             urlSession: URLSessionFake(data: FakeResponseData.incorrectData, response: FakeResponseData.responseOK, error: nil)
         )
         // When :
-        translationService.fetchTranslationData("Bonjour") { (result) in
+        translationService.fetchTranslationData(textToTranslate: "Bonjour") { (result) in
             // Then :
             guard case .failure(let error) = result else {
                 return
@@ -76,7 +76,7 @@ class GoogleTranslateApiTestCase: XCTestCase {
             urlSession: URLSessionFake(data: FakeResponseData.getCorrectDataFor(resource: "GoogleTranslate"), response: FakeResponseData.responseOK, error: nil)
         )
         // When :
-        translationService.fetchTranslationData("Bonjour") { (result) in
+        translationService.fetchTranslationData(textToTranslate: "Bonjour") { (result) in
             let translatedText = "Hello"
             // Then :
             guard case .success(let success) = result else {

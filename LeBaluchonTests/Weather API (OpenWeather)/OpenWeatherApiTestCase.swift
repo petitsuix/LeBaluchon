@@ -78,17 +78,14 @@ class OpenWeatherApiTestCase: XCTestCase {
         )
         // When :
         weatherService.fetchWeatherData(cityId: WeatherCityID.newyork.cityID) { (result) in
-            let temp = Float(8.02)
-            let description = "ciel dégagé"
-            let icon = "01d"
             // Then :
             guard case .success(let success) = result else {
                 return
             }
             XCTAssertNotNil(success)
-            XCTAssertEqual(success.main.temp, temp)
-            XCTAssertEqual(success.weather[0].description, description)
-            XCTAssertEqual(success.weather[0].icon, icon)
+            XCTAssertEqual(success.main.temp, Float(8.02))
+            XCTAssertEqual(success.weather[0].description, "ciel dégagé")
+            XCTAssertEqual(success.weather[0].icon, "01d")
         }
     }
 }

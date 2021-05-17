@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CurrencyViewController: UIViewController {
+final class CurrencyViewController: UIViewController {
     
     // MARK: - Properties
     

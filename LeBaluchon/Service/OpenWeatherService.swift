@@ -7,7 +7,7 @@
 
 import UIKit
 
-class OpenWeatherService: ServiceDecoder {
+final class OpenWeatherService: ServiceDecoder {
     
     // MARK: - Properties
     
@@ -30,8 +30,8 @@ class OpenWeatherService: ServiceDecoder {
         return stringUrl
     }
     
-    func fetchWeatherData(cityId: String, completion: @escaping(Result<MainWeatherInfo, ServiceError>) -> Void) { // Parameter completion is a Result. It induces a success or a failure
-        guard let openWeatherUrl = URL(string: getCityId(cityId)) else { // Ensures that URL is not nil, otherwise return the invalidUrl element from ServiceError
+    func fetchWeatherData(cityId: String, completion: @escaping(Result<MainWeatherInfo, ServiceError>) -> Void) { // Parameter completion is a Result. Induces success or failure
+        guard let openWeatherUrl = URL(string: getCityId(cityId)) else {
             return completion(.failure(.invalidUrl))
         }
         urlSessionDataTask?.cancel()

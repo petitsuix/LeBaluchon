@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TranslationServiceGoogle: ServiceDecoder {
+final class TranslationServiceGoogle: ServiceDecoder {
     
     // MARK: - Properties
     

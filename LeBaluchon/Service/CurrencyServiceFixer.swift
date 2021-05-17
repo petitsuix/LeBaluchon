@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CurrencyServiceFixer: ServiceDecoder {
+final class CurrencyServiceFixer: ServiceDecoder {
     
     // MARK: - Properties
     

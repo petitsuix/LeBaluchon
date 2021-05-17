@@ -7,7 +7,7 @@
 
 import UIKit
 
-class WeatherPhotoServiceUnsplash: ServiceDecoder {
+final class WeatherPhotoServiceUnsplash: ServiceDecoder {
     
     // MARK: - Properties
     

@@ -5,28 +5,9 @@
 //  Created by Richardier on 09/04/2021.
 //
 
-/* —> BONNES PRATIQUES :
- 
- Activity indicator & chargement des labels, est-ce qu’on les laisse vide dans le storyboard? OU on met quand même des « loading… » dans les labels des storyboards ?
- 
- 
- —> weak self dans dispatch queue des extensions UIImgage view à mettre ou pas ?
- 
- 
- —> competion/completion handler ?
- 
- 
- —> Pb erreur clavier décimal
- 
- 
- —> Activity indicator bien placés? Sécurité suffisante pour ne pas lancer plusieurs appels réseau à la fois en cachant simplement le bouton ?
- 
- 
- —> GitIgnore : ServiceAPIKey apparait bien devant sur GitHub, ça veut dire que j’ai plus besoin de le décocher quand je commit? */
-
 import UIKit
 
-class WeatherViewController: UIViewController {
+final class WeatherViewController: UIViewController {
     
     // MARK: - Properties
     
@@ -60,7 +41,7 @@ class WeatherViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(false)
+        super.viewDidAppear(animated)
         // ⬇︎ Ensures that a new request is done everytime the user switches from one view to another, so the data is kept up to date without having to launch the app again
         if cityLocationSegmentedControl.selectedSegmentIndex == 0 {
             fetchNewyorkWeather()

@@ -8,7 +8,7 @@
 import Foundation
 
 
-class URLSessionFake: URLSession {
+final class URLSessionFake: URLSession {
     
     var data: Data?
     var response: URLResponse?
