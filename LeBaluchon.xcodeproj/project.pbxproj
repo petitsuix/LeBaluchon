@@ -220,8 +220,8 @@
 				97046F66263307B7003322E8 /* Weather API (OpenWeather) */,
 				97046F6526330785003322E8 /* Currency API (Fixer) */,
 				972CBD1B262098AE001A04BF /* Info.plist */,
-				97A22B42263176E400FA5716 /* FakeResponseData.swift */,
 				97046F602632E78E003322E8 /* URLSessionFake.swift */,
+				97A22B42263176E400FA5716 /* FakeResponseData.swift */,
 			);
 			path = LeBaluchonTests;
 			sourceTree = "<group>";

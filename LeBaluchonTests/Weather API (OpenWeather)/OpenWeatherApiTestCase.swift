@@ -6,6 +6,10 @@
 //
 
 
+// tests : on controle la logique du code
+// on couvre tous les cas d'usage (qd ça marche ou pas, etc.)
+// -> là on parle du fake avant de rentrer dans les détils des tests
+
 import XCTest
 @testable import LeBaluchon
 
@@ -13,8 +17,8 @@ class OpenWeatherApiTestCase: XCTestCase {
     
     func testGetWeatherShouldPostFailedCompletionIfError() throws {
         // Given :
-        let weatherService = OpenWeatherService(
-            urlSession: URLSessionFake(data: nil, response: nil, error: FakeResponseData.error)
+        let weatherService = OpenWeatherService( // Creating an instance of OpenWeather API that takes an URLSessionFake as parameter
+            urlSession: URLSessionFake(data: nil, response: nil, error: FakeResponseData.error) // dependency injection
         )
         // When :
         weatherService.fetchWeatherData(cityId: WeatherCityID.newyork.cityID) { (result) in
@@ -26,10 +30,10 @@ class OpenWeatherApiTestCase: XCTestCase {
         }
     }
     
-    func testGetCurrencyShouldPostFailedCompletionIfNoData() throws {
+    func testGetWeatherShouldPostFailedCompletionIfNoData() throws {
         // Given :
         let weatherService = OpenWeatherService(
-            urlSession: URLSessionFake(data: nil, response: nil, error: nil)
+            urlSession: URLSessionFake(data: nil, response: nil, error: nil) // No data
         )
         // When :
         weatherService.fetchWeatherData(cityId: WeatherCityID.newyork.cityID) { (result) in
@@ -41,7 +45,7 @@ class OpenWeatherApiTestCase: XCTestCase {
         }
     }
     
-    func testGetCurrencyShouldPostFailedCompletionIfIncorrectResponse() throws {
+    func testGetWeatherShouldPostFailedCompletionIfIncorrectResponse() throws {
         // Given :
         let weatherService = OpenWeatherService(
             urlSession: URLSessionFake(data: FakeResponseData.getCorrectDataFor(resource: "OpenWeather"), response: FakeResponseData.responseKO, error: nil)
@@ -56,7 +60,7 @@ class OpenWeatherApiTestCase: XCTestCase {
         }
     }
     
-    func testGetCurrencyShouldPostFailedCompletionIfIncorrectData() throws {
+    func testGetWeatherShouldPostFailedCompletionIfIncorrectData() throws {
         // Given :
         let weatherService = OpenWeatherService(
             urlSession: URLSessionFake(data: FakeResponseData.incorrectData, response: FakeResponseData.responseOK, error: nil)
@@ -71,7 +75,7 @@ class OpenWeatherApiTestCase: XCTestCase {
         }
     }
     
-    func testGetCurrencyShouldPostSuccessCompletionIfNoErrorAndCorrectData() throws {
+    func testGetWeatherShouldPostSuccessCompletionIfNoErrorAndCorrectData() throws {
         // Given :
         let weatherService = OpenWeatherService(
             urlSession: URLSessionFake(data: FakeResponseData.getCorrectDataFor(resource: "OpenWeather"), response: FakeResponseData.responseOK, error: nil)

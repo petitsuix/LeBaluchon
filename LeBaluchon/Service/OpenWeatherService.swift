@@ -34,7 +34,7 @@ final class OpenWeatherService: ServiceDecoder {
         guard let openWeatherUrl = URL(string: getCityId(cityId)) else {
             return completion(.failure(.invalidUrl))
         }
-        urlSessionDataTask?.cancel()
+        urlSessionDataTask?.cancel() // Ensures no task is already running
         urlSessionDataTask = urlSession.dataTask(with: openWeatherUrl, completionHandler: { (data, response, error) in
             let result = self.handleResponse(dataType: MainWeatherInfo.self, data: data, response: response, error: error)
             completion(result)

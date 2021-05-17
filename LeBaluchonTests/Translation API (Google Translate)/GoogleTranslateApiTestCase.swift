@@ -25,7 +25,7 @@ class GoogleTranslateApiTestCase: XCTestCase {
         }
     }
     
-    func testGetCurrencyShouldPostFailedCompletionIfNoData() throws {
+    func testGetTranslationShouldPostFailedCompletionIfNoData() throws {
         // Given :
         let translationService = TranslationServiceGoogle(
             urlSession: URLSessionFake(data: nil, response: nil, error: nil)
@@ -40,7 +40,7 @@ class GoogleTranslateApiTestCase: XCTestCase {
         }
     }
     
-    func testGetCurrencyShouldPostFailedCompletionIfIncorrectResponse() throws {
+    func testGetTranslationShouldPostFailedCompletionIfIncorrectResponse() throws {
         // Given :
         let translationService = TranslationServiceGoogle(
             urlSession: URLSessionFake(data: FakeResponseData.getCorrectDataFor(resource: "GoogleTranslate"), response: FakeResponseData.responseKO, error: nil)
@@ -55,7 +55,7 @@ class GoogleTranslateApiTestCase: XCTestCase {
         }
     }
     
-    func testGetCurrencyShouldPostFailedCompletionIfIncorrectData() throws {
+    func testGetTranslationShouldPostFailedCompletionIfIncorrectData() throws {
         // Given :
         let translationService = TranslationServiceGoogle(
             urlSession: URLSessionFake(data: FakeResponseData.incorrectData, response: FakeResponseData.responseOK, error: nil)
@@ -70,7 +70,7 @@ class GoogleTranslateApiTestCase: XCTestCase {
         }
     }
     
-    func testGetCurrencyShouldPostSuccessCompletionIfNoErrorAndCorrectData() throws {
+    func testGetTranslationShouldPostSuccessCompletionIfNoErrorAndCorrectData() throws {
         // Given :
         let translationService = TranslationServiceGoogle(
             urlSession: URLSessionFake(data: FakeResponseData.getCorrectDataFor(resource: "GoogleTranslate"), response: FakeResponseData.responseOK, error: nil)

@@ -25,7 +25,7 @@ class UnsplashApiTestCase: XCTestCase {
         }
     }
     
-    func testGetCurrencyShouldPostFailedCompletionIfNoData() throws {
+    func testGetCityPhotoShouldPostFailedCompletionIfNoData() throws {
         // Given :
         let photoService = WeatherPhotoServiceUnsplash(
             urlSession: URLSessionFake(data: nil, response: nil, error: nil)
@@ -40,7 +40,7 @@ class UnsplashApiTestCase: XCTestCase {
         }
     }
     
-    func testGetCurrencyShouldPostFailedCompletionIfIncorrectResponse() throws {
+    func testGetCityPhotoShouldPostFailedCompletionIfIncorrectResponse() throws {
         // Given :
         let photoService = WeatherPhotoServiceUnsplash(
             urlSession: URLSessionFake(data: FakeResponseData.getCorrectDataFor(resource: "Unsplash"), response: FakeResponseData.responseKO, error: nil)
@@ -55,7 +55,7 @@ class UnsplashApiTestCase: XCTestCase {
         }
     }
     
-    func testGetCurrencyShouldPostFailedCompletionIfIncorrectData() throws {
+    func testGetCityPhotoShouldPostFailedCompletionIfIncorrectData() throws {
         // Given :
         let photoService = WeatherPhotoServiceUnsplash(
             urlSession: URLSessionFake(data: FakeResponseData.incorrectData, response: FakeResponseData.responseOK, error: nil)
@@ -70,7 +70,7 @@ class UnsplashApiTestCase: XCTestCase {
         }
     }
     
-    func testGetCurrencyShouldPostSuccessCompletionIfNoErrorAndCorrectData() throws {
+    func testGetCityPhotoShouldPostSuccessCompletionIfNoErrorAndCorrectData() throws {
         // Given :
         let photoService = WeatherPhotoServiceUnsplash(
             urlSession: URLSessionFake(data: FakeResponseData.getCorrectDataFor(resource: "Unsplash"), response: FakeResponseData.responseOK, error: nil)
