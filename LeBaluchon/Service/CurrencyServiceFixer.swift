@@ -13,7 +13,8 @@ final class CurrencyServiceFixer: ServiceDecoder {
     
     private var urlSessionDataTask: URLSessionDataTask?
     private var urlSession: URLSession = URLSession(configuration: .default)
-    private let stringUrl = "http://data.fixer.io/api/latest?access_key=\(APIKeys.fixerKey)&base=EUR&symbols=USD"
+    private var stringUrl: String?  // = "http://data.fixer.io/api/latest?access_key=\(APIKeys.fixerKey)&base=EUR&symbols=USD"
+//    private var urlString: String = "http://data.fixer.io/api/latest?access_key=\(APIKeys.fixerKey)&base=EUR&symbols=USD"
     
     static let shared = CurrencyServiceFixer() // Singleton pattern. Allows to coordinate operations
     
@@ -21,14 +22,16 @@ final class CurrencyServiceFixer: ServiceDecoder {
     
     private override init() {}
     
-    init(urlSession: URLSession) {
+    init(urlSession: URLSession, stringUrl: String = "http://data.fixer.io/api/latest?access_key=\(APIKeys.fixerKey)&base=EUR&symbols=USD") {
         self.urlSession = urlSession
+        self.stringUrl = stringUrl
     }
     
     // MARK: - Methods
     
     func fetchCurrencyData(completion: @escaping(Result<MainCurrencyInfo, ServiceError>) -> Void) { // Parameter completion is a Result. It induces a success or a failure
-        guard let fixerUrl = URL(string: stringUrl) else { // Ensures that URL is not nil, otherwise return one of the ServiceError
+        
+        guard let stringUrl = stringUrl, let fixerUrl = URL(string: stringUrl) else { // Ensures that URL is not nil, otherwise return one of the ServiceError
             return completion(.failure(.invalidUrl))
         }
         urlSessionDataTask?.cancel()

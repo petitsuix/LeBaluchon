@@ -25,6 +25,20 @@ class FixerApiTestCase: XCTestCase {
         }
     }
     
+    func testGetCurrencyShouldPostFailedCompletionIfErrorTest() throws {
+        let session = URLSessionFake(data: nil, response: nil, error: FakeResponseData.error)
+        // Given :
+        let currencyService = CurrencyServiceFixer(urlSession: session, stringUrl: FakeResponseData.badUrl)
+        // When :
+        currencyService.fetchCurrencyData() { (result) in
+            // Then :
+            guard case .failure(let error) = result else {
+                return
+            }
+            XCTAssertNotNil(error)
+        }
+    }
+    
     func testGetCurrencyShouldPostFailedCompletionIfNoData() throws {
         // Given :
         let currencyService = CurrencyServiceFixer(

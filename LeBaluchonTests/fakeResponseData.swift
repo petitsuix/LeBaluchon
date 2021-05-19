@@ -12,6 +12,7 @@ final class FakeResponseData {
                                      statusCode: 200, httpVersion: nil, headerFields: nil)!
     static let responseKO = HTTPURLResponse(url: URL(string: "https://google.com")!,
                                      statusCode: 500, httpVersion: nil, headerFields: nil)!
+    static let badUrl = "@:)à"
     
     class FakeError: Error {}
     static let error = FakeError()
