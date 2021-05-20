@@ -20,6 +20,8 @@ final class TranslationViewController: UIViewController {
     
     private var resultTranslation: MainTranslationInfo?
     
+    var translationServiceGoogle = TranslationServiceGoogle(urlSession: URLSession(configuration: .default), baseUrl: "https://translation.googleapis.com/language/translate/v2")
+    
     // MARK: - View life cycle methods
     
     override func viewDidLoad() {
@@ -46,7 +48,7 @@ final class TranslationViewController: UIViewController {
         translatingActivityIndicator.isHidden = false
         translateButton.isSelected = true
         translateButton.isUserInteractionEnabled = false
-        TranslationServiceGoogle.shared.fetchTranslationData(textToTranslate: textToTranslateBubble.text) { [weak self] (result) in // Calling request method. Weak self is to avoid any retain cycle that could provoke memory leaks and crashes (deinit could never be called, memory would never be freed)
+        translationServiceGoogle.fetchTranslationData(textToTranslate: textToTranslateBubble.text.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!) { [weak self] (result) in // Calling request method. Weak self is to avoid any retain cycle that could provoke memory leaks and crashes (deinit could never be called, memory would never be freed)
             DispatchQueue.main.async { // Switching work item to asynchronous so it runs elsewhere while code is still being executed
                 switch result {
                 case .success(let translationInfo):

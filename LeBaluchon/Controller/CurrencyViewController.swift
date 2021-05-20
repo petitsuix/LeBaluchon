@@ -18,7 +18,7 @@ final class CurrencyViewController: UIViewController {
     @IBOutlet weak var loadingCurrencyViewActivityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var convertButton: UIButton!
     
-    
+    var currencyServiceFixer = CurrencyServiceFixer(urlSession: URLSession(configuration: .default), baseUrl: "http://data.fixer.io/api/latest")
     var resultCurrency: MainCurrencyInfo?
     
     // MARK: - View life cycle methods
@@ -46,7 +46,7 @@ final class CurrencyViewController: UIViewController {
         convertButton.isSelected = true
         loadingCurrencyViewActivityIndicator.isHidden = false
         convertButton.isUserInteractionEnabled = false
-        CurrencyServiceFixer.shared.fetchCurrencyData { [weak self] (result) in // Calling request method. Weak self is to avoid any retain cycle that could provoke memory leaks and crashes (deinit could never be called, memory would never be freed)
+        currencyServiceFixer.fetchCurrencyData { [weak self] (result) in // Calling request method. Weak self is to avoid any retain cycle that could provoke memory leaks and crashes (deinit could never be called, memory would never be freed)
             DispatchQueue.main.async { // Switching work item to asynchronous so it runs elsewhere while code is still being executed
                 switch result {
                 case .success(let currencyInfo):

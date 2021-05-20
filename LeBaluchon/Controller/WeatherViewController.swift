@@ -26,7 +26,8 @@ final class WeatherViewController: UIViewController {
     private var resultNewyorkWeather: MainWeatherInfo?
     private var resultLyonWeather: MainWeatherInfo?
     private var resultCityPhoto: MainWeatherPhotoInfo?
-    
+    var openWeatherService = OpenWeatherService(urlSession: URLSession(configuration: .default), baseUrl: "https://api.openweathermap.org/data/2.5/weather")
+    var weatherPhotoServiceUnsplash = WeatherPhotoServiceUnsplash(urlSession: URLSession(configuration: .default), baseUrl: "https://api.unsplash.com/collections/")
     // MARK: - View life cycle methods
     
     override func viewDidLoad() {
@@ -62,7 +63,7 @@ final class WeatherViewController: UIViewController {
     
     private func fetchNewyorkWeather() {
         loadingWeatherActIndicator.isHidden = false
-        OpenWeatherService.shared.fetchWeatherData(cityId: WeatherCityID.newyork.cityID) { [weak self] (result) in // Calling request method. Weak self is to avoid any retain cycle that could provoke memory leaks and crashes (deinit could never be called, memory would never be freed)
+        openWeatherService.fetchWeatherData(cityId: WeatherCityID.newyork.cityID) { [weak self] (result) in // Calling request method. Weak self is to avoid any retain cycle that could provoke memory leaks and crashes (deinit could never be called, memory would never be freed)
             DispatchQueue.main.async { // Switching work item to asynchronous so it runs elsewhere while code is still being executed
                 switch result {
                 case .success(let weatherInfo):
@@ -79,7 +80,7 @@ final class WeatherViewController: UIViewController {
     
     private func fetchLyonWeather() {
         loadingWeatherActIndicator.isHidden = false
-        OpenWeatherService.shared.fetchWeatherData(cityId: WeatherCityID.lyon.cityID) { [weak self] (result) in //
+        openWeatherService.fetchWeatherData(cityId: WeatherCityID.lyon.cityID) { [weak self] (result) in //
             DispatchQueue.main.async {
                 switch result {
                 case .success(let weatherInfo):
@@ -95,7 +96,7 @@ final class WeatherViewController: UIViewController {
     }
     
     private func fetchPhoto(_ collectionId: String) {
-        WeatherPhotoServiceUnsplash.shared.fetchWeatherPhotoData(collectionId: collectionId) { [weak self] (result) in
+        weatherPhotoServiceUnsplash.fetchWeatherPhotoData(collectionId: collectionId) { [weak self] (result) in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let weatherPhotoInfo): // enum with associated value

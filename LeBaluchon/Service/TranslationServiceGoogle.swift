@@ -13,26 +13,19 @@ final class TranslationServiceGoogle: ServiceDecoder {
     
     private var urlSessionDataTask: URLSessionDataTask?
     private var urlSession: URLSession = URLSession(configuration: .default)
-    
-    static let shared = TranslationServiceGoogle() // Singleton pattern. Allows to coordinate operations
+    private let baseUrl: String?
     
     // MARK: - Init methods
     
-    private override init() {}
-    
-    init(urlSession: URLSession) {
+    init(urlSession: URLSession, baseUrl: String) {
         self.urlSession = urlSession
+        self.baseUrl = baseUrl
     }
     
     // MARK: - Methods
     
-    private func getPersonalizedUrl(_ textToTranslate: String) -> String {
-        let stringUrl = "https://translation.googleapis.com/language/translate/v2?key=\(APIKeys.googleTranslateKey)&target=en&q=\(textToTranslate)&source=fr"
-        return stringUrl
-    }
-    
     func fetchTranslationData(textToTranslate: String, completion: @escaping(Result<MainTranslationInfo, ServiceError>) -> Void) { // Parameter completion is a Result. It induces a success or a failure
-        guard let googleUrl = URL(string: getPersonalizedUrl(textToTranslate).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!) else {
+        guard let baseUrl = baseUrl, let googleUrl = URL(string: "\(baseUrl)?key=\(APIKeys.googleTranslateKey)&target=en&q=\(textToTranslate)&source=fr") else {
             return completion(.failure(.invalidUrl))
         }
         urlSessionDataTask?.cancel()

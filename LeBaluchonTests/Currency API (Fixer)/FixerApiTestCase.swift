@@ -9,26 +9,11 @@ import XCTest
 @testable import LeBaluchon
 
 class FixerApiTestCase: XCTestCase {
-
-    func testGetCurrencyShouldPostFailedCompletionIfError() throws {
-        // Given :
-        let currencyService = CurrencyServiceFixer(
-            urlSession: URLSessionFake(data: nil, response: nil, error: FakeResponseData.error)
-        )
-        // When :
-        currencyService.fetchCurrencyData() { (result) in
-            // Then :
-            guard case .failure(let error) = result else {
-                return
-            }
-            XCTAssertNotNil(error)
-        }
-    }
     
-    func testGetCurrencyShouldPostFailedCompletionIfErrorTest() throws {
+    func testGetCurrencyShouldPostFailedCompletionIfError() throws {
         let session = URLSessionFake(data: nil, response: nil, error: FakeResponseData.error)
         // Given :
-        let currencyService = CurrencyServiceFixer(urlSession: session, stringUrl: FakeResponseData.badUrl)
+        let currencyService = CurrencyServiceFixer(urlSession: session, baseUrl: FakeResponseData.badUrl)
         // When :
         currencyService.fetchCurrencyData() { (result) in
             // Then :
@@ -42,7 +27,7 @@ class FixerApiTestCase: XCTestCase {
     func testGetCurrencyShouldPostFailedCompletionIfNoData() throws {
         // Given :
         let currencyService = CurrencyServiceFixer(
-            urlSession: URLSessionFake(data: nil, response: nil, error: nil)
+            urlSession: URLSessionFake(data: nil, response: nil, error: nil), baseUrl: "http://data.fixer.io/api/latest"
         )
         // When :
         currencyService.fetchCurrencyData() { (result) in
@@ -57,7 +42,7 @@ class FixerApiTestCase: XCTestCase {
     func testGetCurrencyShouldPostFailedCompletionIfIncorrectResponse() throws {
         // Given :
         let currencyService = CurrencyServiceFixer(
-            urlSession: URLSessionFake(data: FakeResponseData.getCorrectDataFor(resource: "Fixer"), response: FakeResponseData.responseKO, error: nil)
+            urlSession: URLSessionFake(data: FakeResponseData.getCorrectDataFor(resource: "Fixer"), response: FakeResponseData.responseKO, error: nil), baseUrl: "http://data.fixer.io/api/latest"
         )
         // When :
         currencyService.fetchCurrencyData() { (result) in
@@ -72,7 +57,7 @@ class FixerApiTestCase: XCTestCase {
     func testGetCurrencyShouldPostFailedCompletionIfIncorrectData() throws {
         // Given :
         let currencyService = CurrencyServiceFixer(
-            urlSession: URLSessionFake(data: FakeResponseData.incorrectData, response: FakeResponseData.responseOK, error: nil)
+            urlSession: URLSessionFake(data: FakeResponseData.incorrectData, response: FakeResponseData.responseOK, error: nil), baseUrl: "http://data.fixer.io/api/latest"
         )
         // When :
         currencyService.fetchCurrencyData() { (result) in
@@ -87,7 +72,7 @@ class FixerApiTestCase: XCTestCase {
     func testGetCurrencyShouldPostSuccessCompletionIfNoErrorAndCorrectData() throws {
         // Given :
         let currencyService = CurrencyServiceFixer(
-            urlSession: URLSessionFake(data: FakeResponseData.getCorrectDataFor(resource: "Fixer"), response: FakeResponseData.responseOK, error: nil)
+            urlSession: URLSessionFake(data: FakeResponseData.getCorrectDataFor(resource: "Fixer"), response: FakeResponseData.responseOK, error: nil), baseUrl: "http://data.fixer.io/api/latest"
         )
         // When :
         currencyService.fetchCurrencyData() { (result) in

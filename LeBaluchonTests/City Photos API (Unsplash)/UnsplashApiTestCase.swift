@@ -11,9 +11,10 @@ import XCTest
 class UnsplashApiTestCase: XCTestCase {
     
     func testGetCityPhotoShouldPostFailedCompletionIfError() throws {
+        let session = URLSessionFake(data: nil, response: nil, error: FakeResponseData.error)
         // Given :
         let cityPhotoService = WeatherPhotoServiceUnsplash(
-            urlSession: URLSessionFake(data: nil, response: nil, error: FakeResponseData.error)
+            urlSession: session, baseUrl: FakeResponseData.badUrl
         )
         // When :
         cityPhotoService.fetchWeatherPhotoData(collectionId: "https://api.unsplash.com/collections/3541178/photos/?client_id=nLJumqeaMtCuWU558JLsNHtBzT5V1qhlQIgOiq-ysok") { (result) in
@@ -28,7 +29,7 @@ class UnsplashApiTestCase: XCTestCase {
     func testGetCityPhotoShouldPostFailedCompletionIfNoData() throws {
         // Given :
         let photoService = WeatherPhotoServiceUnsplash(
-            urlSession: URLSessionFake(data: nil, response: nil, error: nil)
+            urlSession: URLSessionFake(data: nil, response: nil, error: nil), baseUrl: "https://api.unsplash.com/collections/"
         )
         // When :
         photoService.fetchWeatherPhotoData(collectionId: "https://api.unsplash.com/collections/3541178/photos/?client_id=nLJumqeaMtCuWU558JLsNHtBzT5V1qhlQIgOiq-ysok") { (result) in
@@ -43,7 +44,7 @@ class UnsplashApiTestCase: XCTestCase {
     func testGetCityPhotoShouldPostFailedCompletionIfIncorrectResponse() throws {
         // Given :
         let photoService = WeatherPhotoServiceUnsplash(
-            urlSession: URLSessionFake(data: FakeResponseData.getCorrectDataFor(resource: "Unsplash"), response: FakeResponseData.responseKO, error: nil)
+            urlSession: URLSessionFake(data: FakeResponseData.getCorrectDataFor(resource: "Unsplash"), response: FakeResponseData.responseKO, error: nil), baseUrl: "https://api.unsplash.com/collections/"
         )
         // When :
         photoService.fetchWeatherPhotoData(collectionId: "https://api.unsplash.com/collections/3541178/photos/?client_id=nLJumqeaMtCuWU558JLsNHtBzT5V1qhlQIgOiq-ysok") { (result) in
@@ -58,7 +59,7 @@ class UnsplashApiTestCase: XCTestCase {
     func testGetCityPhotoShouldPostFailedCompletionIfIncorrectData() throws {
         // Given :
         let photoService = WeatherPhotoServiceUnsplash(
-            urlSession: URLSessionFake(data: FakeResponseData.incorrectData, response: FakeResponseData.responseOK, error: nil)
+            urlSession: URLSessionFake(data: FakeResponseData.incorrectData, response: FakeResponseData.responseOK, error: nil), baseUrl: "https://api.unsplash.com/collections/"
         )
         // When :
         photoService.fetchWeatherPhotoData(collectionId: "https://api.unsplash.com/collections/3541178/photos/?client_id=nLJumqeaMtCuWU558JLsNHtBzT5V1qhlQIgOiq-ysok") { (result) in
@@ -73,7 +74,7 @@ class UnsplashApiTestCase: XCTestCase {
     func testGetCityPhotoShouldPostSuccessCompletionIfNoErrorAndCorrectData() throws {
         // Given :
         let photoService = WeatherPhotoServiceUnsplash(
-            urlSession: URLSessionFake(data: FakeResponseData.getCorrectDataFor(resource: "Unsplash"), response: FakeResponseData.responseOK, error: nil)
+            urlSession: URLSessionFake(data: FakeResponseData.getCorrectDataFor(resource: "Unsplash"), response: FakeResponseData.responseOK, error: nil), baseUrl: "https://api.unsplash.com/collections/"
         )
         // When :
         photoService.fetchWeatherPhotoData(collectionId: "https://api.unsplash.com/collections/3541178/photos/?client_id=nLJumqeaMtCuWU558JLsNHtBzT5V1qhlQIgOiq-ysok") { (result) in

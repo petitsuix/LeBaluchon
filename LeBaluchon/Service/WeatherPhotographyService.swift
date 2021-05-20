@@ -13,26 +13,24 @@ final class WeatherPhotoServiceUnsplash: ServiceDecoder {
     
     private var urlSessionDataTask: URLSessionDataTask?
     private var urlSession: URLSession = URLSession(configuration: .default)
-    
-    static let shared = WeatherPhotoServiceUnsplash() // Singleton pattern. Allows to coordinate operations
+    private let baseUrl: String?
     
     // MARK: - Init methods
-    
-    private override init() {}
-    
-    init(urlSession: URLSession) {
+        
+    init(urlSession: URLSession, baseUrl: String) {
         self.urlSession = urlSession
+        self.baseUrl = baseUrl
     }
     
     // MARK: - Methods
     
-    private func getUrl(from collectionId: String) -> String {
-        let stringUrl = "https://api.unsplash.com/collections/\(collectionId)/photos/?client_id=\(APIKeys.unsplashKey)"
-        return stringUrl
-    }
+//    private func getUrl(from collectionId: String) -> String {
+//        let stringUrl = "https://api.unsplash.com/collections/\(collectionId)/photos/?client_id=\(APIKeys.unsplashKey)"
+//        return stringUrl
+//    }
     
     func fetchWeatherPhotoData(collectionId: String, completion: @escaping(Result<[MainWeatherPhotoInfo], ServiceError>) -> Void) { // Parameter completion is a Result. It induces a success or a failure
-        guard let unsplashPhotoUrl = URL(string: getUrl(from: collectionId)) else {
+        guard let baseUrl = baseUrl, let unsplashPhotoUrl = URL(string: "\(baseUrl)\(collectionId)/photos/?client_id=\(APIKeys.unsplashKey)") else {
             return completion(.failure(.invalidUrl))
         }
         urlSessionDataTask?.cancel()

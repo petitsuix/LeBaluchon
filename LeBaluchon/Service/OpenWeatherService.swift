@@ -13,25 +13,20 @@ final class OpenWeatherService: ServiceDecoder {
     
     private var urlSessionDataTask: URLSessionDataTask?
     private var urlSession: URLSession = URLSession(configuration: .default)
-    static let shared = OpenWeatherService() // Singleton pattern. Allows to coordinate operations
+    private let baseUrl: String?
+    
     
     // MARK: - Init methods
     
-    private override init() {}
-    
-    init(urlSession: URLSession) {
+    init(urlSession: URLSession, baseUrl: String) {
         self.urlSession = urlSession
+        self.baseUrl = baseUrl
     }
     
     // MARK: - Methods
     
-    private func getCityId(_ cityId: String) -> String {
-        let stringUrl = "https://api.openweathermap.org/data/2.5/weather?id=\(cityId)&appid=\(APIKeys.openWeatherKey)&units=metric&lang=fr"
-        return stringUrl
-    }
-    
     func fetchWeatherData(cityId: String, completion: @escaping(Result<MainWeatherInfo, ServiceError>) -> Void) { // Parameter completion is a Result. Induces success or failure
-        guard let openWeatherUrl = URL(string: getCityId(cityId)) else {
+        guard let baseUrl = baseUrl, let openWeatherUrl = URL(string: "\(baseUrl)?id=\(cityId)&appid=\(APIKeys.openWeatherKey)&units=metric&lang=fr") else {
             return completion(.failure(.invalidUrl))
         }
         urlSessionDataTask?.cancel() // Ensures no task is already running
